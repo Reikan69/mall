@@ -1,20 +1,32 @@
+# Mall
+
 # App Name
 
-
+[![Build Status](link-to-ci-build-status)](link-to-ci-build-page)
 
 ## Description
 
-This is an application built using CodeIgniter 3 and Framework7.
+This repository contains both the frontend application for users (`admin_front`) and the backend admin panel (`admin_management`).
 
 ## Installation
 
 1. Clone the repository: `git clone <repository-url>`
 2. Navigate to the project directory: `cd <project-directory>`
-3. Install dependencies: `composer install`
-4. Set up your database configuration in `application/config/database.php`
-5. Set up any other configurations as needed in `application/config/config.php`
-6. Import the SQL database file `admin_management.sql` located in the root directory to set up your database schema.
-7. Start your server and you're good to go!
+
+### Frontend (admin_front)
+
+1. Navigate to the `admin_front` directory: `cd admin_front`
+2. Install dependencies if any: `npm install` or `yarn install`
+3. Start the frontend server: `npm start` or `yarn start`
+
+### Backend (admin_management)
+
+1. Navigate to the `admin_management` directory: `cd admin_management`
+2. Install dependencies: `composer install`
+3. Set up your database configuration in `application/config/database.php`
+4. Set up any other configurations as needed in `application/config/config.php`
+5. Import the SQL database file `admin_management.sql` located in the root directory to set up your database schema.
+6. Start your server and you're good to go!
 
 ## Usage
 
@@ -34,3 +46,4 @@ You can refer to these official documentation links for detailed information on 
 ## License
 
 This project is licensed under the [MIT License](link-to-license-file).
+
