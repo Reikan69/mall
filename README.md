@@ -3,7 +3,7 @@
 
 ## Description
 
-This repository contains both the frontend application for users (`admin_front`) and the backend admin panel (`admin_management`).
+This repository contains both the frontend application for users ([admin_front](admin_front/)) and the backend admin panel ([admin_management](admin_management/)).
 
 ## Installation
 
