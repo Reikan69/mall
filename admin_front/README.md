@@ -16,16 +16,6 @@ Upon logging in, the application loads default data for all malls. Users can the
 
 For login and PWA setup, refer to the `index.html` file. It loads `sw.js`, `manifest.json`, and for all API data, it loads from `sidedata.js` (ensure redirection to this file).
 
-## Installation
-
-1. Clone the repository: `git clone <repository-url>`
-2. Navigate to the `admin_front` directory: `cd admin_front`
-3. Install dependencies if any: `npm install` or `yarn install`
-4. Start the frontend server: `npm start` or `yarn start`
-
-## Usage
-
-Describe how to use the frontend application here.
 
 ## Contributing
 
