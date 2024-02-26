@@ -5,6 +5,10 @@
 
 This repository contains both the frontend application for users ([admin_front](admin_front/)) and the backend admin panel ([admin_management](admin_management/)).
 
+##You may read the Read me for 
+1. [Front-end](admin_front/README.md)
+2. [Back-end](admin_front/README.md)
+
 ## Installation
 
 1. Clone the repository: `git clone <repository-url>`
