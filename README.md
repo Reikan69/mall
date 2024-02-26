@@ -7,7 +7,7 @@ This repository contains both the frontend application for users ([admin_front](
 
 ##You may read the Read me for 
 1. [Front-end](admin_front/README.md)
-2. [Back-end](admin_front/README.md)
+2. [Back-end](admin_management/README.md)
 
 ## Installation
 
