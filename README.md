@@ -1,8 +1,5 @@
 # Mall
 
-# App Name
-
-[![Build Status](link-to-ci-build-status)](link-to-ci-build-page)
 
 ## Description
 
