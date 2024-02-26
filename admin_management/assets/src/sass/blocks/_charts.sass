@@ -1,0 +1,97 @@
+.chart-overview-income, .chart-snapshot
+  height: 230px
+
+.chart-product-views
+  height: 320px
+
+.chart-traffic-channel
+  height: 320px
+
+.chart-active-customers
+  height: 244px
+
+.chart-product-sales
+  height: 352px
+
+.chart-top-device, .chart-new-customer
+  width: auto
+  +lg
+    height: 230px
+    max-width: 310px
+
+.chart-top-country
+  height: 264px
+
+.chart
+  margin: 0 0 -10px -10px
+
+.chart.product-views-small
+  height: 180px
+
+.chart-indicator
+  width: 16px
+  height: 16px
+  border-radius: 4px
+
+.apexcharts-canvas
+  .apexcharts-text
+    +caption-medium-2
+    fill: $shades1
+  .apexcharts-gridline
+    stroke: $neutrals3
+    +trans
+    +dark
+      stroke: $neutrals6
+  .apexcharts-ycrosshairs.apexcharts-active,
+  .apexcharts-xcrosshairs.apexcharts-active
+    stroke: rgba($neutrals4, .5)
+    +dark
+      stroke: $neutrals4
+  .apexcharts-marker
+    stroke-width: 0
+  .apexcharts-tooltip
+    padding: 8px 8px 0 8px
+    border: none !important
+    background: $neutrals6 !important
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.1), inset 0px 0px 1px #000000 !important
+    border-radius: 8px
+    color: $neutrals1
+    line-height: 1
+    +dark
+      color: $neutrals7 !important
+      box-shadow: unset !important
+      background: $neutrals0 !important
+    .apexcharts-tooltip-title
+      background: $neutrals6 !important
+      margin-bottom: 8px
+      border: none !important
+      padding: 0
+      +dark   
+        background: $neutrals0 !important
+    .apexcharts-tooltip-series-group
+      padding: 0 0 8px 0
+      background: none !important
+    .apexcharts-tooltip-y-group
+      padding: 0
+    .apexcharts-tooltip-marker
+      margin-right: 4px
+      border-radius: 4px
+    .apexcharts-tooltip-text
+      font-weight: 600
+  .apexcharts-legend
+    justify-content: space-between !important
+    +sm
+      display: none
+    .apexcharts-legend-series
+      .apexcharts-legend-text
+        color: $neutrals8 !important
+        +caption-2
+        +dark
+          color: $neutrals1 !important
+      .apexcharts-legend-marker
+        border-radius: 4px !important
+        margin-right: 8px
+
+  .apexcharts-pie-area
+    +dark
+      stroke: $neutrals7

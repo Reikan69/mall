@@ -1,0 +1,295 @@
+---
+title: Core - Dashboard Builder
+currentUrl: index
+---
+extends layouts/layout
+
+block content
+  .page.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 Dashboard
+    .page-body
+      .row.g-0
+        .col-lg-8.col-12.pe-lg-2
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.red Overview
+              select.select.select-small
+                option All time
+                option In a year
+                option Per month
+            .card-body.p-0
+              .overview.js-animate-tabs.p-2
+                .tabs.nav.flex-nowrap
+                  .tab#overview-1.d-xs-block.d-sm-flex(data-bs-target="#overview-item-1" data-bs-toggle="tab")
+                    .overview-icon.d-flex.justify-content-center.align-items-center.bg-light-blue
+                      +i('shopping-bag-stroke')
+                    .overview-details
+                      .caption.d-flex.align-items-center.mb-1
+                        | Customers
+                        +info()(class='ms-1')
+                      .h2.counter.mb-auto 1024
+                    +balance('37.8%', 'down', true)(class="ms-auto")
+
+                  .tab#overview-2.d-xs-block.d-sm-flex(data-bs-target="#overview-item-2" data-bs-toggle="tab")
+                    .overview-icon.d-flex.justify-content-center.align-items-center.bg-light-purple
+                      +i('activity')
+                    .overview-details
+                      .caption.d-flex.align-items-center.mb-1
+                        | Income
+                        +info()(class='ms-1')
+                      .h2.counter.mb-auto 256k
+                    +balance('38.2%', 'up', true)(class="ms-auto")
+                  .bg-tab-active
+
+              .overview-container.tab-content
+                .tab-pane.overview-item#overview-item-1.fade.active.show(role="tabpanel" aria-labelledby="overview-1")
+                  .users
+                    .users-head.d-flex.align-items-center.justify-content-between.mb-4
+                      .users-info
+                        | Welcome <b>857 customers</b> with a personal message 😎
+                      a.btn-stroke(href="message-center.html")
+                       | Send <span class="ms-1 d-none d-sm-block" >message</span>
+                    .users-list.d-flex.justify-content-around
+                      a.users-item.text-center(href="message-center.html")
+                        .userpic
+                          img(src='img/content/user-2.jpg')
+                        .name Gladyce
+                      a.users-item.text-center(href="message-center.html")
+                        .userpic
+                          img(src='img/content/user-3.jpg')
+                        .name Elbert
+                      a.users-item.text-center(href="message-center.html")
+                        .userpic
+                          img(src='img/content/user-4.jpg')
+                        .name Joyce
+                      a.users-item.text-center.d-none.d-sm-block(href="customer-list.html")
+                        .icon-all.d-flex.align-items-center.justify-content-center
+                          +i('arrow')
+                        .name View all
+
+                .tab-pane.overview-item#overview-item-2.fade(role="tabpanel" aria-labelledby="overview-2")
+                  .chart.chart-overview-income
+                    #overview-income
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.purple Product views
+              select.select.select-small
+                option Last 7 days
+                option All time
+                option In a year
+                option Per month
+            .chart.chart-product-views
+              #product-views
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.green Product views
+            .tips
+              .card-info.mb-4 Need some ideas for the next product?
+              .tips-list.row.g-0
+                .col-12.col-sm-6.pe-lg-2
+                  .tips-item.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-video")
+                    .tips-icon.d-flex.align-items-center.justify-content-center.me-3.flex-shrink-0
+                      +i('schedule')
+                    .tips-details.flex-shrink-0
+                      .tips-title.mb-2 Early access
+                      .caption-info.d-flex
+                        .badge.min.purple.me-1 New
+                        .user.d-flex.align-items-center
+                          .userpic.me-1
+                            img(src="img/content/user-1.jpg", alt="")
+                          .time.pe-2 3 mins read
+                  .tips-item.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-video")
+                    .tips-icon.d-flex.align-items-center.justify-content-center.me-3.flex-shrink-0
+                      +i('design')
+                    .tips-details.flex-shrink-0
+                      .tips-title.mb-2 Exclusive downloads
+                      .caption-info.d-flex
+                        .user.d-flex.align-items-center
+                          .userpic.me-1
+                            img(src="img/content/user-2.jpg", alt="")
+                          .time.pe-2 3 mins
+                  .tips-item.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-video")
+                    .tips-icon.d-flex.align-items-center.justify-content-center.me-3.flex-shrink-0
+                      +i('phone')
+                    .tips-details.flex-shrink-0
+                      .tips-title.mb-2 Asset use guidelines
+                      .caption-info.d-flex
+                        .badge.min.green.me-1 Popular
+                        .user.d-flex.align-items-center
+                          .userpic.me-1
+                            img(src="img/content/user-3.jpg", alt="")
+                          .time.pe-2 Time
+                .col-12.col-sm-6.pe-lg-2
+                  .tips-item.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-video")
+                    .tips-icon.d-flex.align-items-center.justify-content-center.me-3.flex-shrink-0
+                      +i('arrow')
+                    .tips-details.flex-shrink-0
+                      .tips-title.mb-2 Asset use guidelines
+                      .caption-info.d-flex
+                        .badge.min.green.me-1 Small label
+                        .user.d-flex.align-items-center
+                          .userpic.me-1
+                            img(src="img/content/user-4.jpg", alt="")
+                          .time.pe-2 Time
+                  .tips-item.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-video")
+                    .tips-icon.d-flex.align-items-center.justify-content-center.me-3.flex-shrink-0
+                      +i('video-recorder')
+                    .tips-details.flex-shrink-0
+                      .tips-title.mb-2 Behind the scenes
+                      .caption-info.d-flex
+                        .badge.min.red.me-1 Hot
+                        .user.d-flex.align-items-center
+                          .userpic.me-1
+                            img(src="img/content/user-5.jpg", alt="")
+                          .time.pe-2 3 mins read
+                  .tips-item.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-video")
+                    .tips-icon.d-flex.align-items-center.justify-content-center.me-3.flex-shrink-0
+                      +i('multiselect')
+                    .tips-details.flex-shrink-0
+                      .tips-title.mb-2 Life & work updates
+                      .caption-info.d-flex
+                        .user.d-flex.align-items-center
+                          .userpic.me-1
+                            img(src="img/content/user-6.jpg", alt="")
+                          .time.pe-2 3 mins read
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.blue Get more customers!
+            .card-info 50% of new customers explore products because the author sharing the work on the social media network. Gain your earnings right now! 🔥
+            .mt-4.d-flex.mx-n3
+              a.btn-stroke.hover-fill.w-100.mx-2(href="https://www.facebook.com/ui8.net/")
+                +i('facebook')(class="me-0 me-sm-2")
+                span.d-none.d-sm-block Facebook
+              a.btn-stroke.hover-fill.w-100.mx-2(href="https://twitter.com/ui8")
+                +i('twitter')(class="me-0 me-sm-2")
+                span.d-none.d-sm-block Twitter
+              a.btn-stroke.hover-fill.w-100.mx-2(href="https://www.instagram.com/ui8net/")
+                +i('instagram')(class="me-0 me-sm-2")
+                span.d-none.d-sm-block Instagram
+
+        .col-lg-4.col-12
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.blue Popular products
+            .popular
+              .border-bottom.d-flex.justify-content-between.pb-4.mb-4
+                .caption Products
+                .caption Earning
+              .popular-list 
+
+                .popular-item.mb-3.py-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+                  .popular-preview.flex-shrink-0.me-3 
+                    +img('img/content/product-1@2x.jpg', 'img/content/product-1.jpg', 'Crypter - NFT UI kit')
+                  .popular-title.pe-3 Crypter - NFT UI kit
+                  .popular-details.flex-shrink-0.ms-auto.text-end
+                    .popular-price $2,453.80
+                    .badge.min.green-light Active
+
+                .popular-item.mb-3.py-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+                  .popular-preview.flex-shrink-0.me-3 
+                    +img('img/content/product-2@2x.jpg', 'img/content/product-2.jpg', 'Bento Matte 3D illustration 1.0')
+                  .popular-title.pe-3 Bento Matte 3D illustration 1.0
+                  .popular-details.flex-shrink-0.ms-auto.text-end
+                    .popular-price $105.60
+                    .badge.min.red-light Deactive
+                    
+                .popular-item.mb-3.py-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+                  .popular-preview.flex-shrink-0.me-3 
+                    +img('img/content/product-3@2x.jpg', 'img/content/product-3.jpg', 'Excellent material 3D chair')
+                  .popular-title.pe-3 Excellent material 3D chair
+                  .popular-details.flex-shrink-0.ms-auto.text-end
+                    .popular-price $648.60
+                    .badge.min.green-light Active
+                    
+                .popular-item.mb-3.py-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+                  .popular-preview.flex-shrink-0.me-3 
+                    +img('img/content/product-4@2x.jpg', 'img/content/product-4.jpg', 'Fleet - travel shopping kit')
+                  .popular-title.pe-3 Fleet - travel shopping kit
+                  .popular-details.flex-shrink-0.ms-auto.text-end
+                    .popular-price $648.60
+                    .badge.min.green-light Active
+
+              a.btn-stroke.w-100(href="products-dashboard.html") All products
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.yellow Comments
+            .review-card
+
+              .border-bottom.review-item.d-flex.pb-5.mb-5
+                .review-userpic.me-3.flex-shrink-0
+                  img(src="img/content/user-2.jpg", alt="Ethel")
+                .review-details.flex-grow-1
+                  .review-title.d-flex.align-items-center
+                    .user.me-auto
+                      span.name Ethel
+                      span.login.ms-1.text-shades-1 @ethel
+                    .time.text-shades-1 1h
+                  .review-product.mb-2.text-shades-1 On <b>Smiles – 3D icons</b>
+                  .review-message.mb-4 Great work 😊
+                  .review-control.d-flex.align-items-center.justify-content-between
+                    a.review-control-item(href="message-center.html")
+                      +i('messages-stroke')
+                    a.review-control-item.btn-favorite
+                      +i_d('heart')
+                    a.review-control-item(href="products-comments.html")
+                      +i('link')
+
+              .border-bottom.review-item.d-flex.pb-5.mb-5
+                .review-userpic.me-3.flex-shrink-0
+                  img(src="img/content/user-3.jpg", alt="Jazmyn")
+                .review-details.flex-grow-1
+                  .review-title.d-flex.align-items-center
+                    .user.me-auto
+                      span.name Jazmyn
+                      span.login.ms-1.text-shades-1 @ethel
+                    .time.text-shades-1 8h
+                  .review-product.mb-2.text-shades-1 On <b>Fleet - Travel shopping</b>
+                  .review-message.mb-4 I need react version asap!
+                  .review-control.d-flex.align-items-center.justify-content-between
+                    a.review-control-item(href="message-center.html")
+                      +i('messages-stroke')
+                    a.review-control-item.btn-favorite
+                      +i_d('heart')
+                    a.review-control-item(href="products-comments.html")
+                      +i('link')
+
+              .border-bottom.review-item.d-flex.pb-5.mb-5
+                .review-userpic.me-3.flex-shrink-0
+                  img(src="img/content/user-4.jpg", alt="Ethel")
+                .review-details.flex-grow-1
+                  .review-title.d-flex.align-items-center
+                    .user.me-auto
+                      span.name Ethel
+                      span.login.ms-1.text-shades-1 @ethel
+                    .time.text-shades-1 1h
+                  .review-product.mb-2.text-shades-1 On <b>Smiles – 3D icons</b>
+                  .review-message.mb-4 How can I buy only the design?
+                  .review-control.d-flex.align-items-center.justify-content-between
+                    a.review-control-item(href="message-center.html")
+                      +i('messages-stroke')
+                    a.review-control-item.btn-favorite
+                      +i_d('heart')
+                    a.review-control-item(href="products-comments.html")
+                      +i('link')
+
+              a.btn-stroke.w-100(href="products-comments.html") View all
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.red Refund requests
+            .refound-card
+              .refound-item.d-flex.align-items-start.mb-5
+                .refound-icon.bg-tint-red.flex-shrink-0.rounded-circle
+                  +i('basket')(class="m-3 fill-red")
+                .refound-content.ms-3.text-shades-1
+                 | You have <b>52 open refund requests</b> to action. This includes <b>8 new requests</b>. 👀
+
+              a.btn-stroke.w-100(href="income-refunds.html") Review refund requests
+
+
+

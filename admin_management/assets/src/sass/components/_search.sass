@@ -1,0 +1,223 @@
+.search-header
+  max-width: 360px
+  width: 100%
+  position: relative
+  transition: opacity .15s ease, top .15s ease 
+  +sm
+    visibility: hidden
+    opacity: 0
+    position: absolute
+    max-width: 100%
+    top: -100%
+    left: 0
+    padding: 24px 16px
+    background-color: $neutrals1
+    z-index: 10
+    +dark
+      background-color: $neutrals7
+    &.visible
+      opacity: 1
+      top: 0
+
+  svg.icon
+    width: 24px
+    height: 24px
+    fill: $neutrals4
+
+  .search-action
+    display: none
+    button
+      width: 48px
+      height: 48px
+      svg.icon
+        fill: $neutrals7
+        +dark
+          fill: $neutrals0
+    +sm
+      display: block
+      position: absolute
+
+
+  .search-input
+    z-index: 15
+    +trans
+    +sm
+      margin-left: 62px
+      width: calc(100% - 62px)
+
+    .input-group-text
+      background-color: transparent !important
+      +nl
+        width: 40px
+      +nf
+        width: 48px
+
+    input.form-control
+      letter-spacing: -.01em
+      padding: 12px 44px
+
+    .btn-remove, .btn-action, .btn-search, .btn-command
+      position: absolute
+      +trans
+
+    .btn-command
+      +inset-shadow-white-min
+      border-radius: 8px
+      width: 56px
+      height: 32px
+      font-size: 16px
+      color: $neutrals7
+      font-weight: 600
+      line-height: (24/16)
+      background-color: $neutrals0
+      right: 8px
+      z-index: 5
+      +trans
+      +sm
+        visibility: hidden
+        opacity: 0
+      +dark
+        color: white
+        background-color: $neutrals7
+      .symbol
+        font-size: 20px
+        font-weight: 400
+        padding-right: 4px
+
+    .btn-remove, .btn-action
+      visibility: hidden
+      opacity: 0
+
+    .btn-remove
+      &:hover
+        svg.icon
+          fill: $neutrals4
+      +sm
+        visibility: visible
+        opacity: 1
+      svg.icon
+        fill: $shades1
+    .btn-action
+      svg.icon
+        fill: $p_blue
+
+  &.focus
+    .search-input
+      input.form-control
+        box-shadow: 0 0 0 4px rgba($p_blue, .25) !important
+      .btn-search svg
+        fill: $p_blue
+      .btn-command
+        visibility: hidden
+        opacity: 0
+      .btn-remove
+        visibility: visible
+        opacity: 1
+
+  &.active
+    .search-action
+      .btn-action svg
+        fill: $p_blue !important
+    .search-input
+      input.form-control
+        box-shadow: 0 0 0 2px $p_blue !important
+      .btn-search, .btn-command
+        visibility: hidden
+        opacity: 0
+      .btn-action, .btn-remove
+        visibility: visible
+        opacity: 1
+      .btn-action
+        +sm
+          visibility: hidden
+          opacity: 0
+      .btn-search
+        +sm
+          visibility: visible
+          opacity: 1
+    .search-result
+      visibility: visible
+      opacity: 1
+
+  .search-result
+    position: absolute
+    visibility: hidden
+    opacity: 0
+    left: -12px
+    right: -12px
+    top: -12px
+    padding: 84px 12px 24px 12px
+    border-radius: 16px
+    z-index: 10
+    +trans
+    +external-shadow
+    +sm
+      padding: 16px 8px
+      left: 0
+      right: 0
+      top: 100%
+      border-radius: 0 0 16px 16px
+    
+    .group
+      +trans
+      padding: 0 12px
+      +nl
+        margin-bottom: 24px
+        border-bottom: 1px solid $neutrals3
+        +dark
+          border-bottom: 1px solid $neutrals6
+      +nf
+        margin-bottom: -24px
+
+      .category
+        +caption-1
+        padding-bottom: 12px
+        color: $neutrals4
+      .list
+        .item
+          button.close svg
+            +trans
+            fill: $shades1
+            &:hover
+              fill: $neutrals7
+              +dark
+                fill: $neutrals0
+          a.link
+            &:hover
+              .group-title
+                color: $p_blue !important
+              .icon-forward
+                fill: $p_blue !important
+            .thumb
+              width: 48px
+              height: 48px
+              margin-right: 16px
+              img
+                border-radius: 8px
+            .description
+              > div
+                +nl
+                  margin-bottom: 4px
+              .group-title
+                +body-semibold-1
+                +trans
+                color: $neutrals7
+                +dark
+                  color: $neutrals1
+            button.arrow
+              svg.icon
+                +trans
+                fill: $shades1
+            .circle-icon
+              height: 48px
+              width: 48px
+              border-radius: 48px
+              border: 2px solid $s_purple
+              margin-right: 16px
+              +lg
+                display: block
+              svg.icon
+                +trans
+                fill: $neutrals7
+                +dark
+                  fill: $neutrals0

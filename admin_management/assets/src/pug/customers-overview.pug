@@ -1,0 +1,203 @@
+---
+title: Core - Customers
+currentUrl: customers-overview
+category: customers
+---
+
+extends layouts/layout
+
+block content
+  .page.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 Customers
+    .page-body
+      .row.g-0
+        .col-lg-8.col-12.pe-lg-2
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-block.d-sm-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.mb-4.mb-sm-0.title-color.red Total customers
+              select.select.select-small.select-sm-wide
+                option Last 28 days
+                option Last 14 days
+                option Last 7 days
+            .card-body.p-0
+              .h4.text-center.text-sm-start 1,509 customers
+              .d-flex.align-items-center.justify-content-center.justify-content-sm-start.mb-5.mb-md-6
+                +balance('37.8%', 'up', true)
+                .caption-2.ms-1 vs. Sep 8, 2021
+              .border-bottom.chart.chart-overview-income.pb-5.mb-6
+                #overview-income
+              .users
+                .users-head.d-flex.align-items-center.justify-content-between.mb-4
+                  .users-info
+                    | Welcome <b>857 customers</b> with a personal message 😎
+                  a.btn-stroke(href="message-center.html")
+                    | Send <span class="ms-1 d-none d-sm-block" >message</span>
+                .users-list.d-flex.justify-content-around
+                  a.users-item.text-center(href="message-center.html")
+                    .userpic
+                      img(src='img/content/user-2.jpg')
+                    .name Gladyce
+                  a.users-item.text-center(href="message-center.html")
+                    .userpic
+                      img(src='img/content/user-3.jpg')
+                    .name Elbert
+                  a.users-item.text-center(href="message-center.html")
+                    .userpic
+                      img(src='img/content/user-4.jpg')
+                    .name Joyce
+                  a.users-item.text-center.d-none.d-sm-block(href="customer-list.html")
+                    .icon-all.d-flex.align-items-center.justify-content-center
+                      +i('arrow')
+                    .name View all
+                    
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.purple Traffic channel
+              select.select.select-small
+                option Last 7 days
+                option All time
+                option In a year
+                option Per month
+            .chart.chart-traffic-channel.pb-2
+              #traffic-channel
+                    
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-block.d-sm-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.mb-4.mb-sm-0.title-color.purple Active customers
+              select.select.select-small.select-sm-wide
+                option Last 30 days
+                option Last 20 days
+                option Last 10 days
+            .chart.chart-active-customers
+              #active-customers
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.blue Share your products
+              a.btn-stroke.btn-small(href="promote.html")
+                | Go to promote
+                +i('promote-stroke')(class="ms-2")
+              
+            .border-bottom.row.gy-6.gx-6.pb-5.mb-6
+              .grid-preview.col-12.col-sm-6
+                .grid-preview-thumbnail.mb-4
+                  input.checkbox(class="form-check-input" type="checkbox")
+                  img(src='img/content/product-1.jpg', alt='Fleet - Travel shopping UI design')
+                  .grid-preview-control.d-flex.align-items-center.justify-content-center
+                    button.btn-rounded.mx-2
+                      +i('edit')
+                    button.btn-rounded.mx-2
+                      +i('trash')
+                    button.btn-rounded.mx-2(data-bs-toggle="modal" data-bs-target="#modal-product")
+                      +i('arrow')
+                .grid-preview-details.mb-2
+                  .d-flex.align-items-start.justify-content-between 
+                    | Node - Crypto iOS UI design kit
+                    .badge.large.ms-5.green $65
+                .d-flex.align-items-center.text-shades-2.fs-8
+                  +i('clock')(class="me-2 fill-shades-2")
+                  | Feb 2, 2020 at 10:55 PM
+
+              .grid-preview.col-12.col-sm-6
+                .grid-preview-thumbnail.mb-4
+                  input.checkbox(class="form-check-input" type="checkbox")
+                  img(src='img/content/product-2.jpg', alt='Node - Crypto iOS UI design kit')
+                  .grid-preview-control.d-flex.align-items-center.justify-content-center
+                    button.btn-rounded.mx-2
+                      +i('edit')
+                    button.btn-rounded.mx-2
+                      +i('trash')
+                    button.btn-rounded.mx-2(data-bs-toggle="modal" data-bs-target="#modal-product")
+                      +i('arrow')
+                .grid-preview-details.mb-2
+                  .d-flex.align-items-start.justify-content-between 
+                    | Node - Crypto iOS UI design kit
+                    .badge.large.ms-5.green $64
+                .d-flex.align-items-center.text-shades-2.fs-8
+                  +i('clock')(class="me-2 fill-shades-2")
+                  | Feb 2, 2020 at 10:55 PM
+            .card-info 50% of new customers explore products because the author sharing the work on the social media network. Gain your earnings right now! 🔥
+            .mt-4.d-flex.mx-n3
+              a.btn-stroke.hover-fill.w-100.mx-2(href="https://www.facebook.com/ui8.net/")
+                +i('facebook')(class="me-0 me-sm-2")
+                span.d-none.d-sm-block Facebook
+              a.btn-stroke.hover-fill.w-100.mx-2(href="https://twitter.com/ui8")
+                +i('twitter')(class="me-0 me-sm-2")
+                span.d-none.d-sm-block Twitter
+              a.btn-stroke.hover-fill.w-100.mx-2(href="https://www.instagram.com/ui8net/")
+                +i('instagram')(class="me-0 me-sm-2")
+                span.d-none.d-sm-block Instagram
+
+        .col-lg-4.col-12
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.red Refund requests
+            .refound-card
+              .refound-item.d-flex.align-items-start.mb-5
+                .refound-icon.bg-tint-red.flex-shrink-0.rounded-circle
+                  +i('basket')(class="m-3 fill-red")
+                .refound-content.ms-3.text-shades-1
+                 | You have <b>52 open refund requests</b> to action. This includes <b>8 new requests</b>. 👀
+              a.btn-stroke.w-100(href="income-refunds.html") Review refund requests
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.blue Top device
+            .chart.chart-top-device.mb-6.mx-auto
+              #top-device
+            .d-flex.justify-content-between
+              .d-block
+                +i('mobile')(class="fill-purple mb-3")
+                .caption Mobile
+                .fs-5 4.8%
+              .d-block
+                +i('tablet')(class="fill-green mb-3")
+                .caption Tablet
+                .fs-5 0.3%
+              .d-block
+                +i('laptop')(class="fill-blue mb-3")
+                .caption Desctop
+                .fs-5 94.9%
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.purple Top country
+            .chart.chart-top-country
+              #top-country
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.purple Message
+            .message-card
+              each message, index in demo_card_messages
+                .d-flex.align-items-center.pb-5(class= (demo_card_messages.length !== index + 1) ? 'border-bottom mb-5' : '')
+                  .flex-shrink-0.me-3
+                    img.message-userpic.small-userpic.rounded-circle(src=message.userpic, alt=message.name)
+                  .flex-shrink-1.w-100
+                    .d-flex.align-items-center.justify-content-between
+                      .me-2
+                        b #{message.name}
+                        .text-shades-1.d-inline-block.ps-1 #{message.login}
+                      .caption #{message.time}
+                    | #{message.text}
+              a.btn-stroke.w-100(href="message-center.html") View all message
+                   
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.blue New customer
+            .chart.chart-new-customer.mb-4.mx-auto
+              #new-customer
+            .d-flex.align-items-center.justify-content-between.mt-3
+              .d-flex.align-items-center
+                .chart-indicator.bg-light-green.me-2
+                .caption-2.text-reset New customer
+              .d-flex.align-items-center
+                .chart-indicator.bg-light-red.me-2
+                .caption-2.text-reset Returning customer
+
+
+
+
+
+

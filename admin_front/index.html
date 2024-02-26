@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="img/icons/favicon.png" type="image/png">
+
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="Sat, 26 Jul 1997 05:00:00 GMT"> <!-- Date in the past -->
+
+    <!-- Your app title -->
+    <title>Yui Mobile</title>
+    <link rel="stylesheet" href="css/framework7-bundle.css">
+    <link rel="stylesheet" href="css/framework7-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <style type="text/css">
+    #loading {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        width: 10%;
+    }
+  
+    #app{
+      display: none;/*this should none*/
+    }
+    .album-grid img {
+      aspect-ratio: 1.1/0.7;
+    }
+    </style>
+  </head>
+  <body class="color-blue">
+    <!-- Login Form -->
+    <div id="login" class="page no-toolbar">
+      <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner">
+          <div class="left">
+            <a href="#" class="link back">
+              <i class="icon f7-icons arrow-back">arrow_left</i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="page-content">
+        <div class="signin-image">
+          <img src="img/illustrations/signin.png" alt="">
+        </div>
+        <div class="centered-text">
+          <h1>Sign In</h1>
+          <a href="#" class="button button-fill color-light-gray button-icon-left">
+            <i class="icon f7-icons">logo_apple</i>
+            Sign In with Apple
+          </a>
+          <a href="#" class="button button-fill color-light-gray google-button">
+            <img src="img/icons/google.svg" alt="">
+            Sign In with Google
+          </a>
+          <p class="login-separator">Or with email</p>
+        </div>
+        <div class="item-inner" style="display: none">
+          <div class="item-title single-post-author centered-text">
+            <div id="login-success" class="item-description " style="display: none">
+              <i class="icon f7-icons text-color-green">checkmark_alt_circle_fill</i>Login Successfully
+            </div>
+            <div id="login-failed" class="item-description " style="display: none">
+              <i class="icon f7-icons text-color-red">xmark_circle_fill</i>Login Failed
+            </div>
+          </div>
+        </div>
+        <form>
+            <input type="email" id="email" name="email" placeholder="Email">
+            <input type="password" id="password" name="password" placeholder="Password">
+            <button type="button" id="signInButton" class="button button-fill color-dark">Sign In</button>
+        </form>
+
+        <div class="signin-links">
+          <a href="/forgot-password/" class="link">Forgot Password?</a>
+          <a href="/signup/" class="link">Sign Up</a>
+        </div>
+      </div>
+    </div>
+    <!-- End Login Form -->
+
+    <!-- App root element -->
+    <div id="app">
+      <!-- Left panel -->
+      <div class="panel panel-left panel-push panel-init">
+        <div class="profile-header">
+          <div class="profile-image">
+            <img src="img/avatars/1.jpg" alt="">
+            <div class="profile-online bg-color-green"></div>
+          </div>
+          <div class="profile-name"></div>
+          <div class="profile-subtitle"></div>
+        </div>
+        <div class="list links-list panel-links">
+          <ul>
+            <li>
+              <a href="/profile/" class="panel-close">
+                <i class="icon f7-icons">person_crop_circle_fill</i>
+                My Profile
+              </a>
+            </li>
+            <li>
+              <a href="/favourite/" class="panel-close">
+                <i class="icon f7-icons">heart_fill</i>
+                Favourite
+              </a>
+            </li>
+            <li>
+              <a href="/settings/" class="panel-close">
+                <i class="icon f7-icons">gear_alt_fill</i>
+                Settings
+              </a>
+            </li>
+            <li>
+              <a href="/notifications/" class="panel-close">
+                <i class="icon f7-icons">bubble_left_bubble_right_fill</i>
+                Messages
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="panel-logout">
+          
+          <a href="#"  class="link text-color-blue button" id="install-button">
+            Install App
+            <i class="icon f7-icons arrow-back text-color-blue">arrow_down_circle_fill</i>
+          </a><br>
+
+          <a onclick="logout()" class="link text-color-red">
+            Log Out
+            <i class="icon f7-icons arrow-back text-color-red">square_arrow_right</i>
+          </a>
+        </div>
+      </div>
+
+      <div class="popover shopping-mall">
+        <div class="popover-inner">
+          <div class="list list-dividers">
+            <ul class="navbar-list">
+             <!-- Load Here the mall data -->
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Views container -->
+      <div class="views tabs">
+        <div class="view view-main tab tab-active view-init" id="tab-1">
+          <div class="page">
+            <div class="navbar navbar-large">
+              <div class="navbar-bg"></div>
+              <div class="navbar-inner">
+                <div class="left">
+                  <a href="#" data-panel=".panel-left" class="link icon-only navbar-profile panel-open">
+                    <img src="img/avatars/small-avatar.jpg" alt="">
+                  </a>
+                </div>
+                <a class="link title popover-open navbar-title" href="#" data-popover=".shopping-mall">ABC Shopping Mall <i class="icon f7-icons">chevron_down</i></a>
+                
+                <!-- <div class="title">Discover</div> -->
+                <div class="title-large section_promotion">
+                  <div class="title-large-text">Recent Promotion</div>
+                </div>
+                <div class="right">
+                  <a href="#" data-popover=".search-bar" class="popover-open"><i class="icon f7-icons">search</i></a>
+                  <div class="popover search-bar">
+                    <input type="text" placeholder="Search..." class="search-input" />
+                  </div>
+                  <!-- <div class="input-box">
+                    <input type="text" placeholder="Search..." />
+                    <span class="search">
+                      <i class="icon f7-icons search-icon">search</i>
+                    </span>
+                  </div> -->
+                  <a href="/notifications/" class="link notification-btn icon-only">
+                    <i class="icon f7-icons">
+                      bell
+                      <span class="badge bg-color-primary">5</span>
+                    </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="page-content">
+              <div class="section_promotion">
+                <swiper-container class="full-width promotion" slides-per-view="2.4" space-between="15" slides-offset-after="15"
+                  slides-offset-before="15" speed="400">
+                <!-- Show data promotion  -->
+                </swiper-container>
+              </div>
+              <div class="section_shop">
+                <div class="section-title">
+                  Shops
+                  <a href="/album-list/" class="link shopmore">View All</a>
+                </div>
+                <div class="grid grid-cols-2 album-grid">
+                  
+                </div>
+              </div>
+              <div class="section_banner">
+                  <div class="section-title">Don't Miss It!</div>
+                  <a href="/single/" class="card">
+                    <div class="card-image banner" id="bannerImage">
+                     <!-- Show banner data -->
+                    </div>
+                  </a>
+              </div>
+              <div class="section_event">
+                  <div class="section-title">
+                    Upcoming Events
+                    <a href="/event-list/" class="link eventmore">View All</a>
+                  </div>
+                  <div class="list detailed-list list-dividers full-width">
+                    <ul class="event-list">
+                      <!-- Show event data -->
+                    </ul>
+                  </div>
+              </div>
+              <div class="section_menu">
+                <div class="section-title">
+                  New Menu
+                  <a href="/menu-list/" class="link cuisinemore">View All</a>
+                </div>
+                <swiper-container class="full-width menu-slider" slides-per-view="2.4" space-between="15" slides-offset-after="15"
+                  slides-offset-before="15" speed="400">
+                  <!-- Show menu data -->
+                </swiper-container>
+              </div>
+              <div class="section_news">
+                <div class="section-title">
+                  Culture News
+                  <a href="/post-list/" class="link blogmore">View All</a>
+                </div>
+                <div class="post-list">
+                 <!-- Show post data -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="view view-init tab" id="tab-2">
+          <div class="page">
+            <div class="navbar navbar-large">
+              <div class="navbar-bg"></div>
+              <div class="navbar-inner">
+                <div class="left">
+                  <a href="#" data-panel=".panel-left" class="link icon-only navbar-profile panel-open">
+                    <img src="img/avatars/small-avatar.jpg" alt="">
+                  </a>
+                </div>
+                <a class="link title navbar-title" href="#" >News for all Mall's</a>
+                <div class="title-large">
+                  <div class="title-large-text">Latest Posts</div>
+                </div>
+                <div class="right">
+                  <a href="#" data-popover=".search-bar" class="popover-open"><i class="icon f7-icons">search</i></a>
+                  <div class="popover search-bar">
+                    <input type="text" placeholder="Search..." class="search-input" />
+                  </div>
+                  <!-- <div class="input-box">
+                    <input type="text" placeholder="Search..." />
+                    <span class="search">
+                      <i class="icon f7-icons search-icon">search</i>
+                    </span>
+                  </div> -->
+                  <a href="/notifications/" class="link notification-btn icon-only">
+                    <i class="icon f7-icons">
+                      bell
+                      <span class="badge bg-color-primary">5</span>
+                    </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="page-content">
+              <swiper-container class="full-width" slides-per-view="1.2" space-between="15" slides-offset-after="15"
+                slides-offset-before="15" speed="400">
+                <swiper-slide>
+                  <a href="#" data-href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/1.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Sponsor</div>
+                        <h2>The Exciting Future of Gaming Technology</h2>
+                      </div>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#" data-href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/2.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Sponsor</div>
+                        <h2>A Guide to the Best Action Movies of All Time</h2>
+                      </div>
+                    </div>
+                  </a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a href="#" data-href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/3.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Sponsor</div>
+                        <h2>The Evolution of Burgers: From Classics to Innovative Creations</h2>
+                      </div>
+                    </div>
+                  </a>
+                </swiper-slide>
+              </swiper-container>
+              <div class="section-title">
+                Popular Posts
+                <a href="/post-list/" class="link">View All</a>
+              </div>
+              <div class="post-list">
+                <a href="/single/" class="link post-horizontal">
+                  <div class="infos">
+                    <div class="post-category">Saladish</div>
+                    <div class="post-title">Majestic King of the Salad: The Untamed Beauty of
+                      Salad</div>
+                    <div class="post-date">30 minutes ago</div>
+                  </div>
+                  <div class="post-image"><img src="img/post-list/2.jpg" alt=""></div>
+                </a>
+                <a href="/single/" class="link post-horizontal">
+                  <div class="infos">
+                    <div class="post-category">Burger King</div>
+                    <div class="post-title">From Companions to Eaters: Celebrating the Canine
+                      Species</div>
+                    <div class="post-date">5 days ago</div>
+                  </div>
+                  <div class="post-image"><img src="img/post-list/7.jpg" alt=""></div>
+                </a>
+                <a href="/single/" class="link post-horizontal">
+                  <div class="infos">
+                    <div class="post-category">Domino's</div>
+                    <div class="post-title">Pizza Initiatives Pave the Way for a
+                      Sustainable Future</div>
+                    <div class="post-date">1 week ago</div>
+                  </div>
+                  <div class="post-image"><img src="img/post-list/8.jpg" alt=""></div>
+                </a>
+              </div>
+              <div class="section-title">
+                Popular Authors
+                <a href="/author-list/" class="link">View All</a>
+              </div>
+              <div class="list detailed-list list-dividers full-width author-list">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><img src="img/avatars/11.jpg" alt=""></div>
+                      <div class="item-inner">
+                        <div class="item-title">
+                          <div class="item-name">Olivia Adams</div>
+                          <div class="item-footer">Blogger</div>
+                        </div>
+                        <div class="item-after">
+                          <div class="button button-fill button-round color-dark button-icon-left author-follow">
+                            <i class="icon f7-icons">plus</i>
+                            Follow
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><img src="img/avatars/3.jpg" alt=""></div>
+                      <div class="item-inner">
+                        <div class="item-title">
+                          <div class="item-name">Noah Campbell</div>
+                          <div class="item-footer">Photographer</div>
+                        </div>
+                        <div class="item-after">
+                          <div class="button button-fill button-round color-dark button-icon-left author-follow">
+                            <i class="icon f7-icons">plus</i>
+                            Follow
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><img src="img/avatars/4.jpg" alt=""></div>
+                      <div class="item-inner">
+                        <div class="item-title">
+                          <div class="item-name">William Taylor</div>
+                          <div class="item-footer">Digital Marketer</div>
+                        </div>
+                        <div class="item-after">
+                          <div class="button button-fill button-round color-dark button-icon-left author-follow">
+                            <i class="icon f7-icons">plus</i>
+                            Follow
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="section-title">Photographer Of The Month</div>
+              <a href="/single/" class="card">
+                <div class="card-image">
+                  <img src="img/cards/4.jpg" alt="">
+                  <div class="card-image-footer">
+                    <div class="card-category bg-color-white">Science</div>
+                    <h2>Exploring the Adaptations and Behaviors of these Majestic Birds</h2>
+                  </div>
+                </div>
+              </a>
+              <div class="section-title">
+                Video Blogger
+                <a href="/post-list/" class="link">View All</a>
+              </div>
+              <div class="post-list">
+                <a href="/single/" class="link post-horizontal">
+                  <div class="infos">
+                    <div class="post-category">Health</div>
+                    <div class="post-title">Cutting-Edge Medical Breakthrough Promises New Hope for
+                      Tropical Diseases Vaccines</div>
+                    <div class="post-date">2 days ago</div>
+                  </div>
+                  <div class="post-image"><img src="img/post-list/6.jpg" alt=""></div>
+                </a>
+                <a href="/single/" class="link post-horizontal">
+                  <div class="infos">
+                    <div class="post-category">Technology</div>
+                    <div class="post-title">How Revolutionary AI Technology Transforms Industries
+                    </div>
+                    <div class="post-date">1 day ago</div>
+                  </div>
+                  <div class="post-image"><img src="img/post-list/5.jpg" alt=""></div>
+                </a>
+                <a href="/single/" class="link post-horizontal">
+                  <div class="infos">
+                    <div class="post-category">Music</div>
+                    <div class="post-title">The Transformative Power of the Folk Music</div>
+                    <div class="post-date">1 month ago</div>
+                  </div>
+                  <div class="post-image"><img src="img/post-list/10.jpg" alt=""></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="view view-init tab" id="tab-3">
+          <div class="page">
+            <div class="navbar">
+              <div class="navbar-bg"></div>
+              <div class="navbar-inner">
+                <div class="left">
+                  <a href="#" data-panel=".panel-left" class="link icon-only navbar-profile panel-open">
+                    <img src="img/avatars/small-avatar.jpg" alt="">
+                  </a>
+                </div>
+                <a class="link title popover-open navbar-title" href="#" data-popover=".shopping-mall">ABC Shopping Mall <i class="icon f7-icons">chevron_down</i></a>
+                <div class="right">
+                  <a href="#" data-popover=".search-bar" class="popover-open"><i class="icon f7-icons">search</i></a>
+                  <div class="popover search-bar">
+                    <input type="text" placeholder="Search..." class="search-input" />
+                  </div>
+                  <!-- <div class="input-box">
+                    <input type="text" placeholder="Search..." />
+                    <span class="search">
+                      <i class="icon f7-icons search-icon">search</i>
+                    </span>
+                  </div> -->
+                  <a href="/notifications/" class="link notification-btn icon-only">
+                    <i class="icon f7-icons">
+                      bell
+                      <span class="badge bg-color-primary">5</span>
+                    </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="page-content">
+              <swiper-container class="full-width categories-slider category-swiper" slides-per-view="auto" space-between="10"
+                slides-offset-after="15" slides-offset-before="15" speed="400">
+                <swiper-slide>
+                  <a class="tab-link tab-link-active promotion-tab category-slide" href="#festival">Festival</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link promotion-tab category-slide" href="#daily">Daily</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link promotion-tab category-slide" href="#monthly">Monthly</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link promotion-tab category-slide" href="#member">For Member</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link promotion-tab category-slide" href="#newproduct">New Product</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link promotion-tab category-slide" href="#fashion">Fashion</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link promotion-tab category-slide" href="#art">Art</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link promotion-tab category-slide" href="#music">Music</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link promotion-tab category-slide" href="#travel">Travel</a>
+                </swiper-slide>
+              </swiper-container>
+              <div class="tabs custom-tabs">
+                <div class="tab tab-active" id="festival">
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/4.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Science</div>
+                        <h2>Exploring the Adaptations and Behaviors of these Majestic Birds</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/11.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">Sophia Miller</div>
+                        <div class="card-date">2 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <span class="badge badge-with-icon color-green">
+                          <i class="icon f7-icons">money_dollar_circle_fill</i>
+                          Paid
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/2.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Movies</div>
+                        <h2>A Guide to the Best Action Movies of All Time</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/4.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">James Johnson</div>
+                        <div class="card-date">5 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <i class="icon f7-icons color-yellow">star_fill</i>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/1.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Gaming</div>
+                        <h2>The Exciting Future of Gaming Technology</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/5.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">Steven Hernandez</div>
+                        <div class="card-date">7 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <i class="icon f7-icons color-red">suit_heart_fill</i>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="tab" id="daily">
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/4.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Maths</div>
+                        <h2>Exploring the Adaptations and Behaviors of these Majestic Birds</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/11.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">Sophia Miller</div>
+                        <div class="card-date">2 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <span class="badge badge-with-icon color-green">
+                          <i class="icon f7-icons">money_dollar_circle_fill</i>
+                          Paid
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/2.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Movies</div>
+                        <h2>A Guide to the Best Action Movies of All Time</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/4.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">James Johnson</div>
+                        <div class="card-date">5 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <i class="icon f7-icons color-yellow">star_fill</i>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                
+                <div class="tab" id="monthly">
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/4.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Maths</div>
+                        <h2>Exploring the Adaptations and Behaviors of these Majestic Birds</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/11.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">Sophia Miller</div>
+                        <div class="card-date">2 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <span class="badge badge-with-icon color-green">
+                          <i class="icon f7-icons">money_dollar_circle_fill</i>
+                          Paid
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/2.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Movies</div>
+                        <h2>A Guide to the Best Action Movies of All Time</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/4.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">James Johnson</div>
+                        <div class="card-date">5 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <i class="icon f7-icons color-yellow">star_fill</i>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/4.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Maths</div>
+                        <h2>Exploring the Adaptations and Behaviors of these Majestic Birds</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/11.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">Sophia Miller</div>
+                        <div class="card-date">2 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <span class="badge badge-with-icon color-green">
+                          <i class="icon f7-icons">money_dollar_circle_fill</i>
+                          Paid
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/2.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Movies</div>
+                        <h2>A Guide to the Best Action Movies of All Time</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/4.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">James Johnson</div>
+                        <div class="card-date">5 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <i class="icon f7-icons color-yellow">star_fill</i>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="tab" id="member">
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/2.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Movies</div>
+                        <h2>A Guide to the Best Action Movies of All Time</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/4.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">James Johnson</div>
+                        <div class="card-date">5 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <i class="icon f7-icons color-yellow">star_fill</i>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/4.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Maths</div>
+                        <h2>Exploring the Adaptations and Behaviors of these Majestic Birds</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/11.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">Sophia Miller</div>
+                        <div class="card-date">2 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <span class="badge badge-with-icon color-green">
+                          <i class="icon f7-icons">money_dollar_circle_fill</i>
+                          Paid
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/2.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Movies</div>
+                        <h2>A Guide to the Best Action Movies of All Time</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/4.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">James Johnson</div>
+                        <div class="card-date">5 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <i class="icon f7-icons color-yellow">star_fill</i>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="tab" id="newproduct"> 
+                  <a href="/single/" class="card">
+                    <div class="card-image">
+                      <img src="img/cards/4.jpg" alt="">
+                      <div class="card-image-footer">
+                        <div class="card-category bg-color-white">Maths</div>
+                        <h2>Exploring the Adaptations and Behaviors of these Majestic Birds</h2>
+                      </div>
+                    </div>
+                    <div class="card-footer card-author-footer">
+                      <img class="author-image" src="img/avatars/11.jpg" alt="">
+                      <div class="card-footer-middle">
+                        <div class="card-author">Sophia Miller</div>
+                        <div class="card-date">2 hours ago</div>
+                      </div>
+                      <div class="card-footer-right">
+                        <span class="badge badge-with-icon color-green">
+                          <i class="icon f7-icons">money_dollar_circle_fill</i>
+                          Paid
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+        <div class="view view-init tab" id="tab-4">
+          <div class="page">
+            <div class="navbar">
+              <div class="navbar-bg"></div>
+              <div class="navbar-inner">
+                <div class="left">
+                  <a href="#" data-panel=".panel-left" class="link icon-only navbar-profile panel-open">
+                    <img src="img/avatars/small-avatar.jpg" alt="">
+                  </a>
+                </div>
+                <a class="link title popover-open navbar-title" href="#" data-popover=".shopping-mall">ABC Shopping Mall <i class="icon f7-icons">chevron_down</i></a>
+                <div class="right">
+                  <!-- <div class="input-box">
+                    <input type="text" placeholder="Search..." />
+                    <span class="search">
+                      <i class="icon f7-icons search-icon">search</i>
+                    </span>
+                  </div> -->
+                  <a href="#" data-popover=".search-bar" class="popover-open"><i class="icon f7-icons">search</i></a>
+                  <div class="popover search-bar">
+                    <input type="text" placeholder="Search..." class="search-input" />
+                  </div>
+                  <a href="/notifications/" class="link notification-btn icon-only">
+                    <i class="icon f7-icons">
+                      bell
+                      <span class="badge bg-color-primary">5</span>
+                    </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="page-content">
+              <swiper-container class="full-width categories-slider category-swiper" slides-per-view="auto" space-between="10"
+                slides-offset-after="15" slides-offset-before="15" speed="400">
+                <swiper-slide>
+                  <a class="tab-link tab-link-active category-tab category-slide" href="#sports">Sports</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link category-tab category-slide" href="#tech">Technology</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link category-tab category-slide" href="#politics">Politics</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link category-tab category-slide" href="#economics">Economics</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link category-tab category-slide" href="#science">Science</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link category-tab category-slide" href="#fashion">Fashion</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link category-tab category-slide" href="#art">Art</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link category-tab category-slide" href="#music">Music</a>
+                </swiper-slide>
+                <swiper-slide>
+                  <a class="tab-link category-tab category-slide" href="#travel">Travel</a>
+                </swiper-slide>
+              </swiper-container>
+              <div class="tabs custom-tabs">
+                <div class="tab tab-active" id="sports">
+                  <div class="grid grid-cols-1 grid-gap">
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/9.jpg" alt="">
+                      <div class="category-name">Cricket</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/10.jpg" alt="">
+                      <div class="category-name">Football</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/11.jpg" alt="">
+                      <div class="category-name">Hockey</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/12.jpg" alt="">
+                      <div class="category-name">Kabaddi</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/7.jpg" alt="">
+                      <div class="category-name">Tennis</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/5.jpg" alt="">
+                      <div class="category-name">Badminton</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/2.jpg" alt="">
+                      <div class="category-name">Sports</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/1.jpg" alt="">
+                      <div class="category-name">Technology</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/3.jpg" alt="">
+                      <div class="category-name">Politics</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/4.jpg" alt="">
+                      <div class="category-name">Economics</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/8.jpg" alt="">
+                      <div class="category-name">Music</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/6.jpg" alt="">
+                      <div class="category-name">Fashion</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="tab" id="tech">
+                  <div class="grid grid-cols-1 grid-gap">
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/9.jpg" alt="">
+                      <div class="category-name">Science</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/10.jpg" alt="">
+                      <div class="category-name">AI</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/11.jpg" alt="">
+                      <div class="category-name">Web Developer</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="tab" id="politics">
+                  <div class="grid grid-cols-1 grid-gap">
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/9.jpg" alt="">
+                      <div class="category-name">Congress</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/10.jpg" alt="">
+                      <div class="category-name">Central</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="tab" id="fashion">
+                  <div class="grid grid-cols-1 grid-gap">
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/9.jpg" alt="">
+                      <div class="category-name">Men</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/10.jpg" alt="">
+                      <div class="category-name">Women</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/10.jpg" alt="">
+                      <div class="category-name">kids</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/10.jpg" alt="">
+                      <div class="category-name">watch</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/10.jpg" alt="">
+                      <div class="category-name">belts</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="tab" id="economics">
+                  <div class="grid grid-cols-1 grid-gap">
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/9.jpg" alt="">
+                      <div class="category-name">Science</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/10.jpg" alt="">
+                      <div class="category-name">AI</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/11.jpg" alt="">
+                      <div class="category-name">Web Developer</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="tab" id="science">
+                  <div class="grid grid-cols-1 grid-gap">
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/9.jpg" alt="">
+                      <div class="category-name">Cricket</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/10.jpg" alt="">
+                      <div class="category-name">Football</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/11.jpg" alt="">
+                      <div class="category-name">Hockey</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/12.jpg" alt="">
+                      <div class="category-name">Kabaddi</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/7.jpg" alt="">
+                      <div class="category-name">Tennis</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/5.jpg" alt="">
+                      <div class="category-name">Badminton</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/2.jpg" alt="">
+                      <div class="category-name">Sports</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/1.jpg" alt="">
+                      <div class="category-name">Technology</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/3.jpg" alt="">
+                      <div class="category-name">Politics</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/4.jpg" alt="">
+                      <div class="category-name">Economics</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/8.jpg" alt="">
+                      <div class="category-name">Music</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/6.jpg" alt="">
+                      <div class="category-name">Fashion</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="tab" id="art">
+                  <div class="grid grid-cols-1 grid-gap">
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/9.jpg" alt="">
+                      <div class="category-name">Science</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/10.jpg" alt="">
+                      <div class="category-name">AI</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/11.jpg" alt="">
+                      <div class="category-name">Web Developer</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="tab" id="music">
+                  <div class="grid grid-cols-1 grid-gap">
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/9.jpg" alt="">
+                      <div class="category-name">Cricket</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/10.jpg" alt="">
+                      <div class="category-name">Football</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/11.jpg" alt="">
+                      <div class="category-name">Hockey</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/12.jpg" alt="">
+                      <div class="category-name">Kabaddi</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/7.jpg" alt="">
+                      <div class="category-name">Tennis</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/5.jpg" alt="">
+                      <div class="category-name">Badminton</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/2.jpg" alt="">
+                      <div class="category-name">Sports</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/1.jpg" alt="">
+                      <div class="category-name">Technology</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/3.jpg" alt="">
+                      <div class="category-name">Politics</div>
+                    </a>
+                  </div>
+                </div>
+                <div class="tab" id="travel">
+                  <div class="grid grid-cols-1 grid-gap">
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/9.jpg" alt="">
+                      <div class="category-name">Cricket</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/10.jpg" alt="">
+                      <div class="category-name">Football</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/11.jpg" alt="">
+                      <div class="category-name">Hockey</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/12.jpg" alt="">
+                      <div class="category-name">Kabaddi</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/7.jpg" alt="">
+                      <div class="category-name">Tennis</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/5.jpg" alt="">
+                      <div class="category-name">Badminton</div>
+                    </a>
+                    <a href="/post-list/" class="category-item link">
+                      <img src="img/categories/2.jpg" alt="">
+                      <div class="category-name">Sports</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>
+        <div class="view view-init tab" id="tab-5">
+          <div class="page">
+            <div class="navbar navbar-large">
+              <div class="navbar-bg"></div>
+              <div class="navbar-inner">
+                <div class="left">
+                  <a href="#" data-panel=".panel-left" class="link icon-only navbar-profile panel-open">
+                    <img src="img/avatars/small-avatar.jpg" alt="">
+                  </a>
+                </div>
+                <a class="link title popover-open navbar-title" href="#" data-popover=".shopping-mall">ABC Shopping Mall <i class="icon f7-icons">chevron_down</i></a>
+                <div class="title-large">
+                  <div class="title-large-text">Features</div>
+                </div>
+                <div class="right">
+                  <!-- <div class="input-box">
+                    <input type="text" placeholder="Search..." />
+                    <span class="search">
+                      <i class="icon f7-icons search-icon">search</i>
+                    </span>
+                  </div> -->
+                  <a href="#" data-popover=".search-bar" class="popover-open"><i class="icon f7-icons">search</i></a>
+                  <div class="popover search-bar">
+                    <input type="text" placeholder="Search..." class="search-input" />
+                  </div>
+                  <a href="/notifications/" class="link notification-btn icon-only">
+                    <i class="icon f7-icons">
+                      bell
+                      <span class="badge bg-color-primary">5</span>
+                    </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-content">
+              <div class="light-gray-title">General</div>
+              <div class="list links-list colored-icons-list full-width list-outline list-dividers">
+                <ul>
+                  <li>
+                    <a href="/action-sheet/">
+                      <div class="colored-icon blue">
+                        <i class="icon f7-icons">square_arrow_up_fill</i>
+                      </div>
+                      Action Sheet
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/columns/">
+                      <div class="colored-icon green">
+                        <i class="icon f7-icons">rectangle_split_3x1_fill</i>
+                      </div>
+                      Columns
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/dialog/">
+                      <div class="colored-icon blue">
+                        <i class="icon f7-icons">checkmark_rectangle_fill</i>
+                      </div>
+                      Dialog
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/icons/">
+                      <div class="colored-icon green">
+                        <i class="icon f7-icons">circle_grid_3x3_fill</i>
+                      </div>
+                      Icons
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/infinite-scroll/">
+                      <div class="colored-icon pink">
+                        <i class="icon f7-icons">infinite</i>
+                      </div>
+                      Infinite Scroll
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/notification/">
+                      <div class="colored-icon yellow">
+                        <i class="icon f7-icons">square_favorites_alt_fill</i>
+                      </div>
+                      Notification
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/page/">
+                      <div class="colored-icon purple">
+                        <i class="icon f7-icons">doc_fill</i>
+                      </div>
+                      Page
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/panel/">
+                      <div class="colored-icon purple">
+                        <i class="icon f7-icons">sidebar_left</i>
+                      </div>
+                      Panel
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/photo-browser/">
+                      <div class="colored-icon yellow">
+                        <i class="icon f7-icons">photo_fill_on_rectangle_fill</i>
+                      </div>
+                      Photo Browser
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/popover/">
+                      <div class="colored-icon blue">
+                        <i class="icon f7-icons">bubble_middle_top_fill</i>
+                      </div>
+                      Popover
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/popup/">
+                      <div class="colored-icon blue">
+                        <i class="icon f7-icons">arrow_up_square_fill</i>
+                      </div>
+                      Popup
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/pull-to-refresh/">
+                      <div class="colored-icon pink">
+                        <i class="icon f7-icons">arrow_uturn_down_circle_fill</i>
+                      </div>
+                      Pull To Refresh
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/sheet-modal/">
+                      <div class="colored-icon blue">
+                        <i class="icon f7-icons">arrowtriangle_up_square_fill</i>
+                      </div>
+                      Sheet Modal
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/swipe-to-delete/">
+                      <div class="colored-icon pink">
+                        <i class="icon f7-icons">square_arrow_left_fill</i>
+                      </div>
+                      Swipe To Delete
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/tabs/">
+                      <div class="colored-icon green">
+                        <i class="icon f7-icons">square_split_2x1_fill</i>
+                      </div>
+                      Tabs
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/text-editor/">
+                      <div class="colored-icon yellow">
+                        <i class="icon f7-icons">textbox</i>
+                      </div>
+                      Text Editor
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/toast/">
+                      <div class="colored-icon blue">
+                        <i class="icon f7-icons">square_arrow_up_on_square_fill</i>
+                      </div>
+                      Toast
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/tooltip/">
+                      <div class="colored-icon purple">
+                        <i class="icon f7-icons">captions_bubble_fill</i>
+                      </div>
+                      Tooltip
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/typography/">
+                      <div class="colored-icon green">
+                        <i class="icon f7-icons icon-bold">textformat</i>
+                      </div>
+                      Typography
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="toolbar tabbar tabbar-icons toolbar-bottom">
+          <div class="toolbar-inner">
+            <a href="#tab-1" class="tab-link tab-link-active">
+              <i class="icon f7-icons">sparkles</i>
+              <span class="tabbar-label">Mall</span>
+            </a>
+            <a href="#tab-2" class="tab-link">
+              <i class="icon f7-icons">rocket</i>
+              <span class="tabbar-label">News</span>
+            </a>
+            <a href="#tab-3" class="tab-link">
+              <i class="icon f7-icons">doc_richtext</i>
+              <span class="tabbar-label">Promotions</span>
+            </a>
+            <a href="#tab-4" class="tab-link">
+              <i class="icon f7-icons">rectangle_grid_2x2_fill</i>
+              <span class="tabbar-label">Categories</span>
+            </a>
+            <a href="#tab-5" class="tab-link">
+              <i class="icon f7-icons">layers_alt</i>
+              <span class="tabbar-label">Features</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/framework7-bundle.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+       $.ajax({
+        //load the section setting data
+          url: 'http://localhost/admin_management/Api/getSection',
+          method: 'GET',
+          dataType: 'json',
+          success: function(jsonData) {
+              // Iterate over the properties of the JSON object
+              $.each(jsonData[0], function(key, value) {
+                  // Check if there is a corresponding div element with the same class name as the key
+                  if ($("." + key).length) {
+                      // Set the display property for the corresponding div element based on its value in the JSON data
+                      $("." + key).css("display", value === "show" ? "block" : "none");
+                  }
+              });
+          },
+          error: function(xhr, status, error) {
+              // Handle error if needed
+              console.error('Error fetching data:', error);
+        }
+    });
+
+      $('.navbar-title').contents().filter(function() {
+        return this.nodeType === 3; // Filter out text nodes
+      }).first().replaceWith('Mall'); // Replace the first text node with 'Mall'
+        $.ajax({
+          url: 'http://localhost/admin_management/Api/getMall',
+          type: 'GET',
+          success: function(response) {
+              // Clear existing list items
+              var body = $('.navbar-list');
+              body.empty();
+               // Add the static, disabled list item
+              var staticListItem = $('<li>');
+              var staticAnchor = $('<a>').addClass('list-button item-link').text('Mall').attr('data-mall-id', 'all');
+              staticListItem.append(staticAnchor);
+              body.append(staticListItem);
+              // Iterate over the response array
+              response.forEach(function(mall) {
+                  // Create list item and anchor elements
+                  var listItem = $('<li>');
+                  var anchor = $('<a>').addClass('list-button item-link').attr('data-mall-id', mall.uid);
+
+                  // Set text content and data-mall-id attribute
+                  anchor.text(mall.name);
+
+                  // Append anchor to list item and list item to list
+                  listItem.append(anchor);
+                  body.append(listItem);
+              });
+          },
+          error: function(xhr, status, error) {
+              // Handle error if needed
+              console.error(error);
+          }
+      });
+      $(document).ready(function() {
+          // Check if there's a selected mall stored in local storage
+          var selectedMall = localStorage.getItem('selectedMall');
+          if (selectedMall) {
+              // Parse the JSON string to get the mall data
+              selectedMall = JSON.parse(selectedMall);
+              // Update the navbar title with the stored mall name
+              updateNavbarTitle(selectedMall.mall);
+          }
+
+          // Attach click event listener to the body element, delegating it to .popover.shopping-mall.modal-in
+          $('body').on('click', '.popover.shopping-mall.modal-in .list-button.item-link', function() {
+              // Get the text of the clicked anchor tag
+              var clickedMall = $(this).text();
+              var uid = $(this).data('mall-id');
+              
+              // Store the clicked mall data in local storage
+              localStorage.setItem('selectedMall', JSON.stringify({mall: clickedMall, uid: uid}));
+              
+              // Update the navbar title with the clicked mall name
+              updateNavbarTitle(clickedMall);
+              var loadMall = localStorage.getItem('selectedMall');
+                var data = JSON.parse(loadMall);
+                var mall = data.uid;
+                if (!mall) {
+                    mall = 'all'; // Set mall to 'all' if it's empty or not provided
+                }
+              // Now you can use the clickedMall variable to access the text of the clicked anchor tag
+              console.log("Clicked Mall:", clickedMall);
+              console.log("Data Mall:", mall);
+          });
+
+          // Function to update the navbar title
+          function updateNavbarTitle(mallName) {
+              $('.navbar-title').contents().filter(function() {
+                  return this.nodeType === 3; // Filter out text nodes
+              }).first().replaceWith(mallName); // Replace the first text node with the mall name
+          }
+      });
+
+
+    });
+    </script>
+    <script src="sidedata.js"></script>
+    <script>
+      let deferredPrompt;
+
+      window.addEventListener('beforeinstallprompt', (event) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        event.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = event;
+        // Update UI to notify the user they can add to home screen
+        const installButton = document.getElementById('install-button');
+        installButton.style.display = 'block';
+
+        installButton.addEventListener('click', (event) => {
+          // Show the prompt
+          deferredPrompt.prompt();
+          // Wait for the user to respond to the prompt
+          deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the A2HS prompt');
+            } else {
+              console.log('User dismissed the A2HS prompt');
+            }
+            deferredPrompt = null;
+          });
+        });
+      });
+    </script>
+
+  <!-- Register service worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js').then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        // Check session on page load
+        checkSession();
+      
+        $("#signInButton").on("click", function() {
+            var email = $("#email").val();
+            var password = $("#password").val();
+            
+            // Hash the password using MD5
+            var hashedPassword = CryptoJS.MD5(password).toString();
+            
+            // Call the login function with email and hashed password
+            login(email, hashedPassword);
+        });
+    });
+
+  // Function to check session
+  function checkSession() {
+      // Check if user data exists in localStorage
+      var userData = localStorage.getItem('user');
+      if (userData) {
+          // User is logged in, hide login and show app
+          $("#login").css("display", "none");
+          $("#app").css("display", "block");
+
+          // Display user information
+          var data = JSON.parse(userData);
+          $(".profile-name").text(data.user);
+          $(".profile-subtitle").text(data.mail);
+      } else {
+          // User is not logged in, show login
+          $("#login").css("display", "block");
+          $("#app").css("display", "none");
+      }
+  }
+
+  // Function to handle login
+  function login(email, password) {
+      var formData = {
+          email: email,
+          password: password
+      };
+
+      $.ajax({
+          url: "http://localhost/admin_management/Api/Login",
+          type: "POST",
+          data: formData,
+          success: function(response) {
+              if (response.success) {
+                  // Login successful, handle user data
+                  var userData = response.data[0];
+                  // Save session login
+                  localStorage.setItem('user', JSON.stringify(userData));
+                  var loadingImage = document.createElement('img');
+                  loadingImage.id = 'loading';
+                  loadingImage.src = 'https://1mall.info/img/events/loading-13.gif';
+                  document.body.appendChild(loadingImage);
+                  // Hide login and show app after 5 seconds
+                  setTimeout(function() {
+                      $('#loading').remove();
+                      $("#login").css("display", "none");
+                      $("#app").css("display", "block");
+
+                  }, 5000);
+                  
+                  // Display success message
+                  $(".item-inner").css("display", "block");
+                  $("#login-success").css("display", "block");
+                  $("#login-failed").css("display", "none");
+
+                  // Set user information in the sidebar
+                  $(".profile-name").text(userData.user);
+                  $(".profile-subtitle").text(userData.mail);
+
+                  // Now you can use the user data as needed
+                  console.log("User ID:", userData.uid);
+                  console.log("Username:", userData.user);
+                  console.log("Email:", userData.mail);
+              } else {
+                  // Login failed, display failure message
+                  $(".item-inner").css("display", "block");
+                  $("#login-success").css("display", "none");
+                  $("#login-failed").css("display", "block");
+                  console.error("Login failed. Message:", response.message);
+              }
+          },
+          error: function(xhr, status, error) {
+              // Handle error response
+              console.error("Login failed. Status:", status);
+              // Handle error response, like displaying an error message
+          }
+      });
+  }
+
+  // Function to handle logout
+  function logout() {
+      // Display loading animation
+      var loadingImage = document.createElement('img');
+      loadingImage.id = 'loading';
+      loadingImage.src = 'https://1mall.info/img/events/loading-13.gif';
+      document.body.appendChild(loadingImage);
+
+      // Clear user data from localStorage upon logout
+      localStorage.removeItem('user');
+
+      // Append a timestamp as a query parameter to force a fresh reload after a short delay
+      setTimeout(function() {
+          // Remove the loading animation
+          $('#loading').remove();
+
+          // Reload the page after the timeout
+          // window.location.href = window.location.href + '?timestamp=' + new Date().getTime();
+          window.location.reload();
+      }, 5000); // Change the delay time (in milliseconds) as needed
+  }
+
+  </script>
+  </body>
+</html>

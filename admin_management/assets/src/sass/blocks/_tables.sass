@@ -1,0 +1,132 @@
+.sheet-table
+  border-collapse: collapse
+  color: $neutrals7
+  +trans
+  .grid-markup
+    &:nth-child(2n)
+      background: rgba($neutrals2, .5)
+      +dark
+        background: rgba($neutrals6, .3)
+  .grid-markup-dark
+    &:nth-child(2n)
+      background: rgba($neutrals3, .35)
+      +dark
+        background: rgba($neutrals8, .5)
+  +dark
+    color: $neutrals1
+  .border-md-none
+    +md
+      border-bottom: 0 !important
+  .sheet-row
+    +nf
+      .sheet-cell
+        vertical-align: top
+    +md-up
+      &:hover
+        .table-btn-actions
+          +trans
+          opacity: 1 !important
+        .badge.min
+          background-color: $neutrals1 !important
+          +dark
+            background-color: $neutrals7 !important
+        +nf
+          background-color: $neutrals2
+          +dark
+            background-color: $neutrals6
+      &.comments-block
+        &:hover
+          .table-comment-actions
+            opacity: 1
+  .sheet-cell
+    &.checkbox-cell
+      width: 48px
+    .progress
+      width: 44px
+    .caption
+      +md
+        width: 120px
+    .sheet-statistic-cell
+      .porgress
+        width: 100%
+    .userpic
+      width: 48px
+      height: 48px
+    .userpic-tiny
+      width: 32px
+      height: 32px
+      
+.sheet-table-item
+  color: $neutrals7
+  +base-bold-1
+  +trans
+  +dark
+    color: $neutrals1
+  &:hover
+    color: $p_blue !important
+  .sheet-table-preview
+    width: 80px
+    height: 80px
+    margin-right: 20px
+    border-radius: 8px
+    overflow: hidden
+    &.md-horizontal-image
+      +md
+        width: 104px
+    &.vertical-image
+      +md
+        width: 104px !important
+        height: 116px !important
+    &.small-preview
+      width: 48px
+      height: 48px
+    &.post-type
+      width: 136px
+      height: 112px
+      position: relative
+      +md
+        width: 112px
+        height: 96px
+      .post-file
+        position: absolute
+        background: $neutrals8
+        top: 4px
+        left: 4px
+        line-height: 0
+        border-radius: 4px
+        svg.icon
+          height: 16px
+          width: 16px
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+  .sheet-table-details
+    .sheet-table-title
+      max-width: 168px
+      +sm
+        +title-mobile
+        max-width: 100%
+
+.table-btn-actions
+  +md
+    right: 0
+    top: 0
+    opacity: 1 !important
+
+.table-comment-actions
+  opacity: 0
+  +trans
+  +lg
+   opacity: 1
+  button
+    svg.icon
+      fill: $neutrals4
+    &:hover
+      svg.icon
+        fill: $p_blue
+
+.indicator
+  border-radius: 4px
+  width: 12px
+  height: 12px

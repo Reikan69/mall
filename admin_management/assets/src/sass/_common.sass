@@ -1,0 +1,210 @@
+body
+  +body-1
+  min-width: 375px
+  &.dark
+   color: $neutrals1
+   background-color: $neutrals8
+
+a, [type="checkbox"]
+  cursor: pointer
+
+a.link-hover
+  color: $neutrals7
+  +dark
+    color: $neutrals1
+  svg.icon
+    fill: $shades2
+  &:hover
+    color: $p_blue !important
+    svg.icon
+      fill: $p_blue !important
+
+button, input
+  background-color: transparent
+  line-height: 0
+  border: 0
+  padding: 0
+
+b, strong
+  +base-semibold-1
+  color: $neutrals7
+  +trans
+  +dark
+    color: $neutrals1
+
+.logo
+  width: 48px
+  height: 48px
+  img
+    width: 100%
+
+.logo-light
+  display: none
+  +dark
+    display: block
+    
+.logo-dark
+    +dark
+      display: none
+
+svg.icon
+  +trans
+  height: 24px
+  width: 24px
+
+.icon-small
+  transform: scale(0.834)
+
+.c-pointer
+  cursor: pointer
+
+.social-userpic
+  width: 48px
+  height: 48px
+  .social-link
+    width: 18px
+    height: 18px
+    box-shadow: 0 0 0 2px $neutrals1
+    background: $p_blue
+    position: absolute
+    right: 0
+    bottom: 0
+    svg.icon
+      width: 12px
+      height: 12px
+      fill: $neutrals1
+
+.transition
+  +trans
+  
+.balance
+  +caption-2
+  border-radius: 8px
+  height: 24px
+  +trans
+  svg.icon
+    height: 16px
+    width: 16px
+  &.up
+    color: $p_green
+    fill: $p_green
+    svg.icon
+      transform: rotate(180deg)
+  &.down
+    color: $p_red
+    fill: $p_red
+  &.fill
+    &.up
+      background-color: $neutrals1
+      box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.04), inset 0px 2px 0px rgba(255, 255, 255, 0.25)
+      +dark
+        background-color: $neutrals6
+        box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.04), inset 0px 1px 0px rgba(255, 255, 255, 0.05)
+    &.down
+      background: #FFE7E4
+      +dark
+        background: rgba(255, 216, 211, 0.15)
+
+.caption-info
+  .user
+    height: 24px
+    border: 1px solid $neutrals3
+    border-radius: 4px
+    line-height: 0
+    padding: 1px
+    +trans
+    +dark
+      border: 1px solid $neutrals6
+    .userpic
+      height: 20px
+      width: 20px
+      img
+        border-radius: 8px
+        width: 100%
+        height: 100%
+    .time
+      color: $neutrals4
+      +caption-1
+      font-size: 12px
+
+[class*="border"]
+  +trans
+  +dark
+    border-color: $neutrals6 !important
+
+.spinner-border
+  +dark
+    border-right-color: transparent !important
+    border-left-color: $neutrals1 !important
+    border-bottom-color: $neutrals1 !important
+    border-top-color: $neutrals1 !important
+
+[class^="badge"]
+  cursor: pointer
+  +trans
+  &.min
+    +caption-2
+  &.large
+    padding: 8px 10px
+  &.blue
+    background-color: $s_blue
+  &.red
+    background-color: $s_red
+  &.green
+    background-color: $s_green
+  &.purple
+    background-color: $s_purple
+  &.yellow
+    background-color: $s_yellow
+  &.green-light
+    background: #EAFAE5
+    color: $p_green
+    +dark
+      background: rgba(#83BF6E, .15)
+  &.red-light
+    background: #FFE7E4
+    color: $p_red
+    +dark
+      background: rgba($p_red, .15)
+  &.common
+    color: $neutrals7
+    background-color: $neutrals3
+    +dark
+      color: $neutrals1
+      background-color: $neutrals5
+
+.fill
+  &-blue
+    fill: $p_blue
+  &-green
+    fill: $p_green
+  &-purple
+    fill: $p_purple
+  &-yellow
+    fill: $p_yellow
+  &-red
+    fill: $p_red !important
+  &-blue-light
+    fill: $s_blue
+  &-green-light
+    fill: $s_green
+  &-purple-light
+    fill: $s_purple
+  &-red-light
+    fill: $s_red
+  &-yellow-light
+    fill: $s_yellow
+  &-shades-1
+    fill: $shades1 !important
+  &-shades-2
+    fill: $shades2 !important
+  &-white
+    fill: $neutrals0
+  &-neutrals-7
+    fill: $neutrals7
+
+
+
+
+
+

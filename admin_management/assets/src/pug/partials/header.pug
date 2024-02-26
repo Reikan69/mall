@@ -1,0 +1,145 @@
+header.d-flex.align-items-center.px-xl-7.px-5.py-5
+  .search-header.me-auto
+
+    .search-action
+      button.btn-action
+        +i('arrow-left')
+
+    .search-input.input-group
+      .input-group-text.justify-content-center
+        button.btn-search
+          +i('search')
+        button.btn-action
+          +i('arrow-left')
+
+      input.form-control.rounded-2(type="text" placeholder="Search or type a command" aria-describedby="search-input")
+
+      .input-group-text.justify-content-end
+        button.d-flex.align-items-center.justify-content-center.btn-command
+          span.symbol ⌘
+          | F
+        button.btn-remove
+          +i('close-circled')
+
+    .search-result
+      .group
+        .category Recent search
+        .list.mb-4
+          .item.d-flex.py-3
+            a.link.d-flex.align-items-center.flex-fill
+              .thumb
+                +img('img/content/image-05@2x.jpg', 'img/content/image-05.jpg', 'Put your title here')
+              .description
+                .caption Small caption
+                .group-title Put your title here
+            button.close
+              +i('close')
+          .item.d-flex.py-3
+            a.link.d-flex.align-items-center.flex-fill
+              .thumb
+                +img('img/content/image-06@2x.jpg', 'img/content/image-06.jpg', 'Put your title here')
+              .description
+                .caption Small caption
+                .group-title Put your title here
+            button.close
+              +i('close')
+      .group
+        .category Suggestions
+        .list.mb-4
+          .item.py-3
+            a.link.d-flex.align-items-center
+              .circle-icon.d-flex.align-items-center.justify-content-center
+                +i('photos')
+              .description.flex.flex-fill
+                .group-title Put your title here
+                .caption Small caption
+              button.arrow
+                +i('forward')
+          .item.py-3
+            a.link.d-flex.align-items-center
+              .circle-icon.d-flex.align-items-center.justify-content-center
+                +i('photos')
+              .description.flex.flex-fill
+                .group-title Put your title here
+                .caption Small caption
+              button.arrow
+                +i('forward')
+  .navbar
+    a.btn.btn-primary.nav-item.create(href="products-add.html" role="button")
+      +i('plus')(class="me-2")
+      span Create
+
+    .nav-item.menu-item.js-show-sidebar
+      .nav-link.d-flex.align-items-center.justify-content-center
+        +i('menu')
+
+    .nav-item.search-item
+      .nav-link.d-flex.align-items-center.justify-content-center
+        +i('search')
+
+    .nav-item.messages-item.toggle-item
+      button.toggle-head.nav-link.active
+        +i_d('messages')
+      .toggle-body 
+        .top.d-flex.align-items-center.justify-content-between.mb-3
+          .toggle-title.ms-3 Message
+          +action_item
+            button.action-item
+              +i('check')
+              | Mark as read
+            button.action-item
+              +i('trash')
+              | Delete message
+        +messages_list(demo_messages)
+        a.btn.d-flex.mx-3(href="/message-center.html") View in message center
+
+    .nav-item.notification-item.toggle-item
+      button.toggle-head.nav-link.active
+        +i_d('notification')
+      .toggle-body 
+        .top.d-flex.align-items-center.justify-content-between.mb-3
+          .toggle-title.ms-3 Notification
+          +action_item
+            button.action-item
+              +i('check')
+              | Mark as read
+            button.action-item
+              +i('trash')
+              | Delete message
+        
+        .list-notifications.mb-4
+          +item_notification('img/content/user-2.jpg', 'messages-fill', 'blue', 'Domenica', '@domenica', '1H', true) Comment on <b>Smiles – 3D icons</b>
+          +item_notification('img/content/user-3.jpg', 'heart-fill', 'red', 'Janice', '@ethel', '2H', true) Likes <b>Smiles – 3D icons</b>
+          +item_notification('img/content/user-4.jpg', 'shopping-bag-fill', 'green', 'Janice', '@ethel', '4H', true) Purchased <b>Smiles – 3D icons</b>
+          +item_notification('img/content/user-5.jpg', 'star-fill', 'purple', 'Danial', '@ethel', '6H', true) 
+            | Rate 
+            +i('star-fill')(class='icon-small fill-yellow')
+            |  <b>5</b> for <b>Smiles – 3D icons</b>
+          +item_notification('img/content/user-6.jpg', 'messages-fill', 'blue', 'Esmeralda', '@ethel', '8H', true) Comment on <b>Smiles – 3D icons</b>
+        a.btn.d-flex.mx-3(href="/notification.html") See all notifications
+          
+    .nav-item.user-item.toggle-item
+      .toggle-head.nav-link
+        img(src="img/content/user-1.jpg")
+      .toggle-body
+        .nav
+          a.item(href="shop.html") Profile
+          a.item(href="settings.html") Edit profile
+        .nav
+          a.item(href="customers-overview.html")
+            +i('bar-chart')
+            | Analytics
+          a.item(href="affiliate-center.html")
+            +i('ticket')
+            | Affiliate center
+          a.item(href="explore-creators.html")
+            +i('grid')
+            | Explore creators
+        .nav
+          a.item.purple(href="upgrade-to-pro.html")
+            +i('leaderboard')
+            | Upgrade to Pro
+        .nav
+          a.item(href="settings.html") Account settings
+          a.item(href="sign-in.html") Log out
+

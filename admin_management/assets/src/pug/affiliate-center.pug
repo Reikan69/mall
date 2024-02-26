@@ -1,0 +1,180 @@
+---
+title: Core - Affiliate center
+currentUrl: affiliate-center
+---
+
+extends layouts/layout
+
+block content
+  .page.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 Affiliate center
+    .page-body
+      .row.g-0
+        .col-lg-8.col-12.pe-lg-2
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.red Snapshot
+              select.select.select-small
+                option Last 7 days
+                option This month
+                option All time
+            .card-body.p-0
+              .overview.js-animate-tabs.p-2
+                .tabs.nav.flex-nowrap
+                  .tab#overview-1.d-xs-block.d-sm-flex(data-bs-target="#snapshot-item-1" data-bs-toggle="tab")
+                    .overview-icon.d-flex.justify-content-center.align-items-center.bg-light-blue
+                      +i('mouse')
+                    .overview-details
+                      .caption.d-flex.align-items-center.mb-1
+                        | Clicks
+                        +info()(class='ms-1')
+                      .h2.counter.mb-auto 411
+                    +balance('37.8%', 'down', true)(class="ms-auto")
+
+                  .tab#overview-2.d-xs-block.d-sm-flex(data-bs-target="#snapshot-item-2" data-bs-toggle="tab")
+                    .overview-icon.d-flex.justify-content-center.align-items-center.bg-light-purple
+                      +i('activity')
+                    .overview-details
+                      .caption.d-flex.align-items-center.mb-1
+                        | Income
+                        +info()(class='ms-1')
+                      .h2.counter.mb-auto $89
+                    +balance('38.2%', 'up', true)(class="ms-auto")
+                  .bg-tab-active
+
+              .overview-container.tab-content
+                .tab-pane.overview-item#snapshot-item-1.fade.active.show(role="tabpanel" aria-labelledby="snapshot-1")
+                  .chart.chart-snapshot
+                    #snapshot-clicks
+
+
+                .tab-pane.overview-item#snapshot-item-2.fade(role="tabpanel" aria-labelledby="snapshot-2")
+                  .chart.chart-overview-income
+                    #overview-income
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.purple Product views
+              select.select.select-small
+                option Last 7 days
+                option All time
+                option In a year
+                option Per month
+            .chart.chart-snapshot
+              #performance-by-day
+
+          .card.mb-2
+            +affiliate_table(demo_affiliate)
+
+        .col-lg-4.col-12
+          .card.mb-2.p-4.p-sm-5
+            .card-head.mb-5
+              .title.title-color.blue Create a link
+            .create-link.card-body.p-0
+              .mb-6
+                .text-semibold-2.text-shades-2.mb-3 Promote any product with a simple link
+                select.select.select-wide.mb-3
+                  option Chose your product
+                  option Chose your product 1
+                  option Chose your product 2
+                input.form-control.mb-3(type="text" placeholder="Or enter a product link")
+                button.btn.btn-small Create
+              .mb-6
+                .caption.mb-4 Use this link to promote.
+                .input-group.mb-5
+                  button.input-group-text.transparent
+                    +i('link')
+                  input.rounded-2.form-control.text-shades-1.pe-8(type="text" placeholder="Enter link promote" value="https://ui8.net/rel=tmtt")
+                  button.input-group-text.transparent
+                    +i('copy')
+              .caption.mb-4 Share to social accounts
+              .d-flex.align-items-center
+                .social-userpic.position-relative.me-5
+                  img.rounded-circle.w-100(src="img/content/user-1.jpg")
+                  .social-link.rounded-circle.d-flex.align-items-center.justify-content-center
+                    +i('min-facebook')
+                .social-userpic.position-relative.me-5
+                  img.rounded-circle.w-100(src="img/content/user-1.jpg")
+                  .social-link.rounded-circle.d-flex.align-items-center.justify-content-center
+                    +i('min-twitter')
+                button.btn.btn-small.ms-auto
+                  | Share
+                  +i('arrow')(class="ms-2")
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.mb-5.mb-sm-6
+              .title.title-color.blue Popular products
+            .popular
+              .border-bottom.d-flex.justify-content-between.pb-4.mb-4
+                .caption Products
+                .caption Earning
+              .popular-list 
+                .popular-item.mb-3.py-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+                  .popular-preview.flex-shrink-0.me-3 
+                    +img('img/content/product-1@2x.jpg', 'img/content/product-1.jpg', 'Crypter - NFT UI kit')
+                  .popular-title.pe-3 Crypter - NFT UI kit
+                  .popular-details.flex-shrink-0.ms-auto.text-end
+                    .popular-price $2,453.80
+                    .badge.min.green-light Active
+
+                .popular-item.mb-3.py-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+                  .popular-preview.flex-shrink-0.me-3 
+                    +img('img/content/product-2@2x.jpg', 'img/content/product-2.jpg', 'Bento Matte 3D illustration 1.0')
+                  .popular-title.pe-3 Bento Matte 3D illustration 1.0
+                  .popular-details.flex-shrink-0.ms-auto.text-end
+                    .popular-price $105.60
+                    .badge.min.red-light Deactive
+                    
+                .popular-item.mb-3.py-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+                  .popular-preview.flex-shrink-0.me-3 
+                    +img('img/content/product-3@2x.jpg', 'img/content/product-3.jpg', 'Excellent material 3D chair')
+                  .popular-title.pe-3 Excellent material 3D chair
+                  .popular-details.flex-shrink-0.ms-auto.text-end
+                    .popular-price $648.60
+                    .badge.min.green-light Active
+                    
+                .popular-item.mb-3.py-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+                  .popular-preview.flex-shrink-0.me-3 
+                    +img('img/content/product-4@2x.jpg', 'img/content/product-4.jpg', 'Fleet - travel shopping kit')
+                  .popular-title.pe-3 Fleet - travel shopping kit
+                  .popular-details.flex-shrink-0.ms-auto.text-end
+                    .popular-price $648.60
+                    .badge.min.green-light Active
+
+                .popular-item.mb-3.py-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+                  .popular-preview.flex-shrink-0.me-3 
+                    +img('img/content/product-1@2x.jpg', 'img/content/product-1.jpg', 'Crypter - NFT UI kit')
+                  .popular-title.pe-3 Crypter - NFT UI kit
+                  .popular-details.flex-shrink-0.ms-auto.text-end
+                    .popular-price $2,453.80
+                    .badge.min.green-light Active
+
+                .popular-item.mb-3.py-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+                  .popular-preview.flex-shrink-0.me-3 
+                    +img('img/content/product-2@2x.jpg', 'img/content/product-2.jpg', 'Bento Matte 3D illustration 1.0')
+                  .popular-title.pe-3 Bento Matte 3D illustration 1.0
+                  .popular-details.flex-shrink-0.ms-auto.text-end
+                    .popular-price $105.60
+                    .badge.min.red-light Deactive
+                    
+                .popular-item.mb-3.py-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+                  .popular-preview.flex-shrink-0.me-3 
+                    +img('img/content/product-3@2x.jpg', 'img/content/product-3.jpg', 'Excellent material 3D chair')
+                  .popular-title.pe-3 Excellent material 3D chair
+                  .popular-details.flex-shrink-0.ms-auto.text-end
+                    .popular-price $648.60
+                    .badge.min.green-light Active
+                    
+                .popular-item.mb-3.py-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+                  .popular-preview.flex-shrink-0.me-3 
+                    +img('img/content/product-4@2x.jpg', 'img/content/product-4.jpg', 'Fleet - travel shopping kit')
+                  .popular-title.pe-3 Fleet - travel shopping kit
+                  .popular-details.flex-shrink-0.ms-auto.text-end
+                    .popular-price $648.60
+                    .badge.min.green-light Active
+
+              a.btn-stroke.w-100(href="products-dashboard.html") All products
+
+
+

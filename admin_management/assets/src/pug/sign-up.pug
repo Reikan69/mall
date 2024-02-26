@@ -1,0 +1,74 @@
+---
+title: Core - Sign up
+currentUrl: sign-up
+simplePage: true
+---
+
+extends layouts/layout
+
+block content
+  .sign-up.d-flex
+    .sign-up-col.sign-up-sidebar.d-none.d-lg-block.min-vh-100.flex-shrink-0
+      .sign-up-details.d-flex.justify-content-center.align-items-center.h-100
+        .d-block
+          .sign-up-preview.mx-auto.mb-7
+            img.w-100(src="img/content/login-pic.png")
+          .h4.mb-8.text-center Plan includes
+          .d-block
+            .d-flex.mb-5
+              +i('check-circled')(class="fill-green me-3")
+              span.text-base-2.text-shades-2 Unlimited product uploads
+            .d-flex.mb-5
+              +i('check-circled')(class="fill-green me-3")
+              span.text-base-2.text-shades-2 Pro tips
+            .d-flex.mb-5
+              +i('check-circled')(class="fill-green me-3")
+              span.text-base-2.text-shades-2 Free forever
+            .d-flex
+              +i('check-circled')(class="fill-green me-3")
+              span.text-base-2.text-shades-2 Full author options
+    .sign-up-col.sign-up-page.min-vh-100.w-100
+      .position-absolute.top-0.start-0.end-0.d-flex.text-align-center.justify-content-between.px-5.pt-5
+        a.logo.d-block.flex-shrink-0(href="index.html")
+          img.logo-dark(src="img/logo-dark.png")
+          img.logo-light(src="img/logo-light.png")
+        .p-4
+          span.caption.text-shades-1.pe-2 Already a member?
+          a.caption.text-reset.fw-bold(href="sign-in.html") Sign in
+      .sign-up-body.d-flex.justify-content-center.align-items-center.h-100.py-8
+        .sign-up-wrapper
+          .h2.mb-6 Sign up
+          .sign-up-entry
+            .text-semibold-2.mb-5 Sign up with Open account
+            .row.gx-2.d-flex.flex-nowrap.mb-6
+              button.btn-stroke.col.mx-1
+                +i('google')(class="me-2")
+                | Google
+              button.btn-stroke.col.mx-1
+                +i('apple')(class="me-2")
+                | Apple ID
+            .border-bottom.border-2.mb-6
+            .text-semibold-2.mb-5 Or continue with email address
+            .input-group.mb-3
+              button.input-group-text.transparent
+                +i('mail')
+              input.form-control.rounded-2(type="text" placeholder="Your mail")
+            button.btn.btn-entry.w-100 Continue
+            .text-semibold-2.text-shades-1.mt-6
+              | This site is protected by reCAPTCHA and the Google Privacy Policy.
+          .sign-up-code
+            .text-semibold-2.mb-5 We just send you a verify code. Check your inbox to get them.
+            .input-code.row.gx-4.d-flex.flex-nowrap.mb-3
+              input.form-control.col.mx-2(type="tel" pattern="[0-9]{1}" maxlength="1")
+              input.form-control.col.mx-2(type="tel" pattern="[0-9]{1}" maxlength="1")
+              input.form-control.col.mx-2(type="tel" pattern="[0-9]{1}" maxlength="1")
+              input.form-control.col.mx-2(type="tel" pattern="[0-9]{1}" maxlength="1")
+            a.btn.w-100(href="index.html") Continue
+            .text-semibold-2.text-shades-1.mt-6
+              | This site is protected by reCAPTCHA and the Google Privacy Policy.
+
+
+
+        
+
+

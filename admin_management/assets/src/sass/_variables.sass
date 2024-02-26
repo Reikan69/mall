@@ -1,0 +1,182 @@
+// *** font ***
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap')
+
+$font-family-base: 'Inter', sans-serif
+$line-height-base: 1.6
+
+$h1-font-size: 64px
+$h2-font-size: 48px
+$h3-font-size: 40px
+$h4-font-size: 32px
+
+$font-sizes: (1: '64px', 2: '48px', 3: '40px', 4: '32px', 5: '20px', 6: '18px', 7: '15px', 8: '14px', 9: '13px', 10: '12px' )
+  
+// *** spacers *** 
+
+$spacer: 1rem
+$spacers: (0: 0, 1: $spacer * .25, 2: $spacer * .5, 3: $spacer * .75, 4: $spacer * 1, 5: $spacer * 1.5, 6: $spacer * 2, 7: $spacer * 2.5, 8: $spacer * 3)
+
+$grid-breakpoints: (xs: 0, sm: 767px, md: 920px, lg: 1080px, xl: 1320px, xxl: 1440px)
+
+$enable-negative-margins: true
+  
+// *** colors *** 
+
+$neutrals0: #FFFFFF 
+$neutrals1: #FCFCFC 
+$neutrals2: #F4F4F4
+$neutrals3: #EFEFEF
+$neutrals4: #6F767E
+$neutrals5: #33383F
+$neutrals6: #272B30
+$neutrals7: #1A1D1F
+$neutrals8: #111315
+$shades1: #9A9FA5
+$shades2: #6F767E
+$shades3: rgba(#6F767E, 0.4)
+$shades4: rgba(#111315, 0.5)
+
+$p_blue: #2A85FF
+$p_green: #83BF6E
+$p_red: #FF6A55
+$p_purple: #8E59FF
+$p_yellow: #FFC554
+
+$s_red: #FFBC99
+$s_purple: #CABDFF
+$s_blue: #B1E5FC
+$s_green: #B5E4CA
+$s_yellow: #FFD88D
+
+$theme-colors: ('blue': $p_blue, 'green': $p_green, 'red': $p_red, 'purple': $p_purple, 'yellow': $p_yellow, 'light-blue': $s_blue, 'light-green': $s_green, 'light-red': $s_red, 'light-purple': $s_purple, 'light-yellow': $s_yellow, 'neutral-4': $neutrals4, 'shades-1': $shades1, 'shades-2': $shades2, 'tint-red': mix($neutrals0, $s_red, 64%), 'dark': $neutrals7, 'white': $neutrals0 )
+$grays: ()
+$colors: ()
+
+$body-color: $neutrals7
+$body-bg: $neutrals2
+$link-color: $p_blue
+$link-hover-color: $p_blue
+
+// *** border radius ***
+
+$border-radius-sm: 8px
+$border-radius: 12px
+$border-radius-lg: 16px
+$border-color: $neutrals3
+
+// *** sidebar ***
+
+$navbar-light-active-color: $neutrals7
+$nav-pills-link-active-color: $neutrals7
+$nav-pills-link-active-bg: $neutrals3
+
+// *** badges ***
+
+$badge-font-size: 15px
+$badge-font-weight: 600
+$badge-color: $neutrals7
+$badge-padding-y: .3em
+$badge-padding-x: .5em
+$badge-border-radius: 6px
+
+// *** input ***
+
+$input-group-addon-bg: $neutrals2
+$input-group-addon-border-color: $neutrals2
+$input-group-addon-padding-y: 0 
+$input-group-addon-padding-x: 12px
+
+$input-focus-bg: $neutrals1
+$input-focus-border-color: none
+$input-focus-color: inherit
+$input-focus-box-shadow: unset
+
+$input-border-width: 0
+$input-padding-y: 12px
+$input-padding-x: 9px
+$input-font-size: 15px
+$input-line-height: (24/15)
+$input-font-weight: 600
+$input-color: inherit
+
+$input-placeholder-color: $shades1
+
+$link-decoration: none
+
+  
+// *** navbar ***
+
+$navbar-padding-y: 0
+$navbar-padding-x: 0
+
+// *** button ***
+
+$btn-focus-box-shadow: unset
+$btn-active-box-shadow: unset
+$btn-disabled-opacity: .5
+$btn-close-padding-x: 0
+$btn-close-padding-y: 0
+$btn-close-focus-shadow: unset
+$btn-close-hover-opacity: 1
+$btn-close-opacity: 1
+$btn-close-color: $shades2
+
+// *** transition-collapse ***
+
+$transition-collapse: all .25s ease !important
+
+// *** card ***
+
+$card-border-radius: 8px
+$card-bg: $neutrals1
+$card-border-width: 0
+
+// *** tooltip ***
+
+$tooltip-font-size: 12px
+$tooltip-color: $neutrals2
+$tooltip-bg: $neutrals6
+$tooltip-border-radius: 4px
+$tooltip-opacity: 1
+$tooltip-padding-y: 2px
+$tooltip-padding-x: 8px
+$tooltip-margin: 8px
+$tooltip-arrow-color: transparent
+
+// *** checkbox ***
+
+$form-check-input-width: 1.6em
+$form-check-min-height: 1.6em
+$form-check-label-cursor: pointer
+$form-check-transition: all .15s ease
+$form-check-input-active-filter: null
+
+$form-check-input-bg: transparent
+$form-check-input-border: 2px solid rgba($neutrals4, .4)
+$form-check-input-border-radius: .375em
+$form-check-input-focus-border: none
+$form-check-input-focus-box-shadow: unset
+
+$form-check-input-checked-color: $neutrals0
+$form-check-input-checked-bg-color: $p_blue
+$form-check-input-checked-bg-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M20.7071 6.29289C21.0976 6.68342 21.0976 7.31658 20.7071 7.70711L12.1213 16.2929C10.9497 17.4645 9.05026 17.4645 7.87868 16.2929L4.29289 12.7071C3.90237 12.3166 3.90237 11.6834 4.29289 11.2929C4.68342 10.9024 5.31658 10.9024 5.70711 11.2929L9.29289 14.8787C9.68342 15.2692 10.3166 15.2692 10.7071 14.8787L19.2929 6.29289C19.6834 5.90237 20.3166 5.90237 20.7071 6.29289Z' fill='#{$form-check-input-checked-color}'/%3E%3C/svg%3E%0A")
+
+$form-check-radio-border-radius: 50%
+
+// *** progress ***
+
+$progress-height: 12px
+$progress-bg: transparent
+$progress-border-radius: unset
+
+// *** spinner ***
+
+$spinner-width: 1.4em
+
+// *** modal ***
+
+$modal-content-border-radius: 8px
+$modal-sm: 340px
+$modal-md: 408px
+$modal-content-bg: transparent

@@ -1,0 +1,73 @@
+aside.help-sidebar.d-flex.flex-column.position-fixed.flex-nowrap.py-5.px-3
+  .border-bottom.help-head.pb-4.mb-6
+    .d-flex.align-items-center.p-3
+      +i('help-fill')(class="me-3")
+      .sidebar-text.me-auto Help & getting started
+      button.js-help-sidebar
+        +i('close')
+  .help-list.mb-auto.pb-3
+    a.item.p-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-video")
+      .thumb.flex-shrink-0
+        +img('img/content/product-1@2x.jpg', 'img/content/product-1.jpg', 'Exclusive downloads')
+      .description
+        .help-title.mb-2 Exclusive downloads
+        .caption-info.d-flex
+          .badge.min.purple.me-1 New
+          .user.d-flex.align-items-center
+            .userpic.me-1
+              img(src="img/content/user-1.jpg", alt="")
+            .time.pe-2 3 mins
+    a.item.p-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-video")
+      .thumb.flex-shrink-0
+        +img('img/content/product-2@2x.jpg', 'img/content/product-2.jpg', 'Behind the scenes')
+      .description
+        .help-title.mb-2 Behind the scenes
+        .caption-info.d-flex
+          .badge.min.purple.me-1 New
+          .user.d-flex.align-items-center
+            .userpic.me-1
+              img(src="img/content/user-2.jpg", alt="")
+            .time.pe-2 3 mins
+    a.item.p-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-video")
+      .thumb.flex-shrink-0
+        +img('img/content/product-3@2x.jpg', 'img/content/product-3.jpg', 'Use guidelines')
+      .description
+        .help-title.mb-2 Use guidelines
+        .caption-info.d-flex
+          .user.d-flex.align-items-center
+            .userpic.me-1
+              img(src="img/content/user-3.jpg", alt="")
+            .time.pe-2 3 mins
+    a.item.p-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-video")
+      .thumb.flex-shrink-0
+        +img('img/content/product-4@2x.jpg', 'img/content/product-4.jpg', 'Life & work update')
+      .description
+        .help-title.mb-2 Life & work update
+        .caption-info.d-flex
+          .user.d-flex.align-items-center
+            .userpic.me-1
+              img(src="img/content/user-4.jpg", alt="")
+            .time.pe-2 3 mins
+    a.item.p-3.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-video")
+      .thumb.flex-shrink-0
+        +img('img/content/product-5@2x.jpg', 'img/content/product-5.jpg', 'Promote your product')
+      .description
+        .help-title.mb-2 Promote your product
+        .caption-info.d-flex
+          .user.d-flex.align-items-center
+            .userpic.me-1
+              img(src="img/content/user-5.jpg", alt="")
+            .time.pe-2 3 mins
+
+  ul.nav.nav-pills.flex-column.mt-3
+    a.nav-link.d-flex.align-items-center.p-3(href="upgrade-to-pro.html")
+      +i('zap')(class="me-3")
+      span.sidebar-text.me-auto Upgrade to Pro
+      +i('cheveron')
+    a.nav-link.d-flex.align-items-center.p-3(href="index.html")
+      +i('download')(class="me-3")
+      span.sidebar-text.me-auto Download desktop app
+    a.nav-link.d-flex.align-items-center.p-3(href="message-center.html")
+      +i('messages-stroke')(class="me-3")
+      span.sidebar-text.me-auto Message center
+      .badge.red 8

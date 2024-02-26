@@ -1,0 +1,162 @@
+---
+title: Core - Products dashboard
+currentUrl: products-dashboard
+category: products
+---
+
+extends layouts/layout
+
+block content
+  .page.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 Products dashboard
+    .page-body
+      .row.g-0
+        .col-12
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.red Overview
+              select.select.select-small
+                option All time
+                option In a year
+                option Per month
+            .card-body.p-0
+              .stock-list.row.gx-4.flex-nowrap
+                .stock-item.stock-green.col.p-6.mx-2.flex-shrink-0.flex-grow-1
+                  .stock-icon.p-3.rounded-circle.d-inline-block.mb-4
+                    +i('activity')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-1
+                        | Earning
+                        +info(class="ps-1")
+                      .counter.h2 128k
+                      +balance('37.8%', 'up')
+                        .caption.ps-1.text-nowrap this week
+                    .stock-chart.ms-auto
+                      #stock-customer
+                    
+                .stock-item.stock-blue.col.p-6.mx-2.flex-shrink-0.flex-grow-1
+                  .stock-icon.p-3.rounded-circle.d-inline-block.mb-4
+                    +i('shopping-bag-stroke')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-1
+                        | Customer
+                        +info(class="ps-1")
+                      .counter.h2 512
+                      +balance('37.8%', 'down')
+                        .caption.ps-1.text-nowrap this week
+                    .stock-chart.ms-auto
+                      #stock-earning
+                    
+                .stock-item.stock-purple.col.p-6.mx-2.flex-shrink-0.flex-grow-1
+                  .stock-icon.p-3.rounded-circle.d-inline-block.mb-4
+                    +i('payment')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-1
+                        | Payouts
+                        +info(class="ps-1")
+                      .counter.h2 64k
+                      +balance('37.8%', 'up')
+                        .caption.ps-1.text-nowrap this week
+                    .stock-chart.ms-auto
+                      #stock-payouts
+      .row.g-0
+        .col-lg-8.col-12.pe-lg-2
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.green Product activity
+              select.select.select-small.d-none.d-sm-inline-flex
+                option Last 7 days
+                option All time
+                option In a year
+                option Per month
+
+            .activity
+              .border-bottom.row.pb-5.g-0.d-none.d-sm-flex
+                .col.caption Week
+                .col.caption Products
+                .col.caption Views
+                .col.caption Likes
+                .col.caption Comments
+              .border-bottom.row.pb-5.pt-0.pt-sm-6.g-0.d-block.d-sm-flex
+                .col.py-2.p-sm-0.fs-8.text-shades-1 
+                  .d-inline-block.d-sm-none.caption.w-25 Week
+                  | 25 Sep - 1 Oct
+                .col.py-2.p-sm-0.d-flex.align-items-center
+                  .d-inline-block.d-sm-none.caption.w-25 Products
+                  .badge.green.me-1 8 
+                  +balance('37.8%', 'up')
+                .col.py-2.p-sm-0.d-flex.align-items-center
+                  .d-inline-block.d-sm-none.caption.w-25 Views
+                  .badge.purple.me-1 24k
+                  +balance('37.8%', 'up')
+                .col.py-2.p-sm-0.d-flex.align-items-center
+                  .d-inline-block.d-sm-none.caption.w-25 Likes
+                  .badge.blue.me-1 48
+                  +balance('37.8%', 'down')
+                .col.py-2.p-sm-0.d-flex.align-items-center
+                  .d-inline-block.d-sm-none.caption.w-25 Comments
+                  .badge.yellow.me-1 16
+                  +balance('36%', 'down')
+              .row.pt-5.g-0.d-block.d-sm-flex
+                .col.py-2.p-sm-0.fs-8.text-shades-1 
+                  .d-inline-block.d-sm-none.caption.w-25 Week
+                  | 25 Sep - 1 Oct
+                .col.py-2.p-sm-0.d-flex.align-items-center
+                  .d-inline-block.d-sm-none.caption.w-25 Products
+                  .badge.green.me-1 8 
+                  +balance('37.8%', 'up')
+                .col.py-2.p-sm-0.d-flex.align-items-center
+                  .d-inline-block.d-sm-none.caption.w-25 Views
+                  .badge.purple.me-1 24k
+                  +balance('37.8%', 'up')
+                .col.py-2.p-sm-0.d-flex.align-items-center
+                  .d-inline-block.d-sm-none.caption.w-25 Likes
+                  .badge.blue.me-1 48
+                  +balance('37.8%', 'down')
+                .col.py-2.p-sm-0.d-flex.align-items-center
+                  .d-inline-block.d-sm-none.caption.w-25 Comments
+                  .badge.yellow.me-1 16
+                  +balance('36%', 'down')
+
+            .nav.row.gx-4.mt-5.d-flex.d-sm-none
+              .btn-tab.btn-small.active.col.mx-2(data-bs-toggle="tab") Last 2 weeks
+              .btn-tab.btn-small.col.mx-2(data-bs-toggle="tab") Last 7 days
+
+
+        .col-lg-4.col-12
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.blue Product views
+            .chart.product-views-small
+              #product-views-small
+
+      .row.g-0
+        .col
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-sm-flex.align-items-center.justify-content-between.mb-4.mb-sm-5
+              .title.title-color.purple.me-5.mb-4.mb-sm-0 Products
+              .search-input.input-group.me-sm-5.mb-3.mb-sm-0
+                button.input-group-text.transparent
+                  +i('search')
+                input.form-control.input-small.input-action.rounded-2(type="text" placeholder="Search product")
+              .nav.row.gx-4.ms-auto.flex-nowrap.d-none.d-md-flex
+                .btn-tab.btn-small.active.col.mx-2(data-bs-target="#tab-products" data-bs-toggle="tab") Market
+                .btn-tab.btn-small.col.mx-2(data-bs-target="#tab-traffic" data-bs-toggle="tab") Traffic sources
+                .btn-tab.btn-small.col.mx-2(data-bs-target="#tab-viewers" data-bs-toggle="tab") Viewers
+              select.select.select-small.tabs.select-wide.select-fill.ms-auto.d-md-none
+                option(value='#tab-products') Market
+                option(value='#tab-traffic') Traffic sources
+                option(value='#tab-viewers') Viewers
+
+            .products.tab-content
+              .tab-pane#tab-products.fade.active.show(role="tabpanel")
+                +market_table(demo_products_1)
+              .tab-pane#tab-traffic.fade(role="tabpanel")
+                +traffic_table(demo_traffic)
+              .tab-pane#tab-viewers.fade(role="tabpanel")
+                +viewers_table(demo_viewers)
+                

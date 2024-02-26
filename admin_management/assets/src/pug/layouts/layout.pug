@@ -1,0 +1,42 @@
+include mixins
+include demo-data
+include mixins-tables
+doctype html
+html(lang="en")
+  head
+    include head
+  body(class=bodyClass)
+    script.
+      if (JSON.parse(localStorage.getItem('darkMode'))) {
+        document.body.classList.add("dark");
+        document.addEventListener("DOMContentLoaded", function() {
+          document.querySelector('#switch-theme-input').checked = true;
+        });
+      }
+    if simplePage
+      div(class=outerClass)
+        block content
+    else 
+      include ../partials/header
+      include ../partials/sidebar
+      include ../partials/help-sidebar
+      main(class=outerClass)
+        block content
+      .overlay
+    include ../partials/modals
+    block scripts
+      script(src="js/lib/jquery.min.js")
+      script(src="js/lib/bootstrap.bundle.min.js")
+      script(src="js/lib/slick.min.js")
+      script(src="js/lib/apexcharts.min.js")
+      script(src="js/lib/jquery.nice-select.min.js")
+      script(src="js/lib/moment.min.js")
+      script(src="js/lib/jquery.daterangepicker.min.js")
+      script(src="js/lib/jquery.richtext.min.js")
+      script(src="js/lib/jquery.tagify.min.js")
+      script(src="js/lib/wNumb.js")
+      script(src="js/lib/nouislider.min.js")
+      script(src="js/lib/quill.core.js")
+      script(src="js/charts.js")
+      script(src="js/app.js")
+    include icons

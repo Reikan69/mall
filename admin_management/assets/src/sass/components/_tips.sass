@@ -1,0 +1,34 @@
+.tips
+  .tips-list
+    margin-bottom: -32px
+    +sm
+      margin-bottom: -24px
+    .tips-item
+      cursor: pointer
+      margin-bottom: 32px
+      +sm
+        margin-bottom: 24px
+
+      &:hover
+        .tips-icon
+          background: $neutrals3
+          +dark
+            background: $neutrals6
+
+      .tips-icon
+        width: 64px
+        height: 64px
+        border-radius: 64px
+        border: 2px solid $neutrals3
+        fill: $neutrals6
+        +trans
+        +dark
+          border-color: $neutrals6
+          fill: $neutrals1
+      .tips-details
+        .tips-title
+          color: $neutrals7
+          +body-semibold-1
+          +trans
+          +dark
+            color: $neutrals1

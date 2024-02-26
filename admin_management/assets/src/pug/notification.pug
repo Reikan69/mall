@@ -1,0 +1,69 @@
+---
+title: Core - Notification
+currentUrl: notification
+---
+
+extends layouts/layout
+
+block content
+  .page.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 Notification
+    .page-body.notification
+      .row.g-0
+        .col-lg-8.col-12.pe-lg-2
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.mb-5.mb-sm-6
+              .title.title-color.red New
+              select.select.select-small.ms-auto
+                option Recent
+                option New 
+                option This yeat
+              .action-item.notification-action.ms-4
+                button.action-head.rounded-circle
+                  +i('more-horizontal')
+                .action-body.p-3
+                  button.action-item
+                    +i('check')
+                    | Mark as read
+                  button.action-item
+                    +i('trash')
+                    | Delete message
+            .card-body.p-0
+              +notification_table(demo_notification)
+
+        .col-lg-4.col-12.d-none.d-lg-block
+          .card.mb-2.p-4.p-sm-5.sticky
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.red Filter
+            .card-body.p-0
+              .mb-6
+                .form-check.mb-4.ps-0
+                  label.form-check-label.w-100.fw-bold Comments
+                    input.form-check-input.float-end(type="checkbox")
+                .form-check.mb-4.ps-0
+                  label.form-check-label.w-100.fw-bold Likes
+                    input.form-check-input.float-end(type="checkbox")
+                .form-check.mb-4.ps-0
+                  label.form-check-label.w-100.fw-bold Review
+                    input.form-check-input.float-end(type="checkbox")
+                .form-check.mb-4.ps-0
+                  label.form-check-label.w-100.fw-bold Mentions
+                    input.form-check-input.float-end(type="checkbox")
+                .form-check.mb-4.ps-0
+                  label.form-check-label.w-100.fw-bold Purchases
+                    input.form-check-input.float-end(type="checkbox")
+                .form-check.mb-4.ps-0
+                  label.form-check-label.w-100.fw-bold Message
+                    input.form-check-input.float-end(type="checkbox")
+              .d-flex.mx-n2.border-bottom.pb-6.mb-6
+                button.btn-stroke.btn-small.mx-2.w-100 Select all
+                button.btn-stroke.btn-small.mx-2.w-100 Unselect all
+              .form-check.mb-4.ps-0
+                label.form-check-label.w-100.fw-bold Everyone
+                  input.form-check-input.float-end(type="radio" name="everyone")
+              .form-checkps-0
+                label.form-check-label.w-100.fw-bold Everyone
+                  input.form-check-input.float-end(type="radio" name="everyone")
+
+

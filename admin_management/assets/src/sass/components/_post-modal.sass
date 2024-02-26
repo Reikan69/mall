@@ -1,0 +1,39 @@
+#modal-post
+  .modal-dialog
+    max-width: 560px
+    .modal-post-textarea
+      width: 100%
+      height: 132px
+      background: none
+      border: none
+      resize: none
+      box-shadow: none
+      +title-semibold-1
+      &::placeholder
+        color: $neutrals4
+    .modal-post-file
+      line-height: 0
+      height: 48px
+      width: 48px
+      +trans
+      input
+        cursor: pointer
+        position: absolute
+        top: 0
+        left: 0
+        opacity: 0
+        height: 48px
+        width: 48px
+      svg.icon
+        width: 20px
+        height: 20px
+        fill: $neutrals4
+      &:hover
+        background: $neutrals3
+        svg.icon
+          fill: $neutrals7
+        +dark
+          background: $neutrals6
+          svg.icon
+            fill: $neutrals0
+

@@ -1,0 +1,129 @@
+.product-modal
+  .modal-dialog
+    max-width: 1020px
+    width: 100%
+    transition: all .45s ease !important
+    &.comments-show
+      +xl-up
+        transform: translateX(-236px)
+        max-width: 720px
+        .card
+          border-radius: 8px 0 0 8px
+          &#modal-tab-comments
+            border-radius: 0 8px 8px 0 
+    .card
+      .card-controls
+        +sm-up
+          height: 48px
+        +sm
+          .btn-tab
+            width: 100%
+      .modal-buttons
+        +sm-up
+          position: absolute
+          right: 24px
+          top: 24px
+      .card-head
+        .product-modal-info
+          +title-1
+          color: $neutrals4
+          +sm
+            +base-2
+        .product-modal-userpic
+          width: 32px
+          height: 32px
+          img
+            object-fit: cover
+            border-radius: 100%
+            width: 100%
+
+      .card-body
+        .product-modal-gallery
+          position: relative
+          img
+            border-radius: 12px
+            width: 100%
+            object-fit: cover
+          button
+            position: absolute
+            bottom: 12px
+            left: 12px
+            +dark
+              background: $neutrals7
+              color: $neutrals1
+              box-shadow: 0 0 0 2px $neutrals6 inset
+        .product-modal-content
+          padding-bottom: 64px
+          margin-bottom: 64px
+          +md
+            padding-bottom: 32px
+            margin-bottom: 32px
+        .product-modal-slider
+          +sm
+            overflow: hidden
+          .slick-list
+            +sm
+              margin: 0 -296px 0 0
+
+    #modal-tab-product
+      +xl-up
+        opacity: 1 !important
+    #modal-tab-comments
+      min-height: 100%
+      +xl-up
+        position: absolute
+        top: 0
+        right: 0
+        transform: translate(100%)
+        width: 472px
+        box-shadow: 1px 0 0 $neutrals2 inset
+        +dark
+          box-shadow: 1px 0 0 $neutrals8 inset
+      .title
+        .modal-close
+          fill: $neutrals7
+          +dark
+            fill: $neutrals1
+
+  .product-modal-panel
+    position: absolute
+    top: 0
+    right: 0
+    transform: translateX(100%)
+    display: flex
+    flex-direction: column
+    height: 100%
+    .panel-item
+      border-radius: 100%
+      height: 64px
+      width: 64px
+      background: $neutrals0
+      +dark
+        background: $neutrals6
+    .panel-userpic
+      img
+        border-radius: 100%
+        object-fit: cover
+        width: 100%
+    .panel-brand
+      .panel-number
+        left: 0
+        top: 0
+        height: 20px
+        width: 20px
+        border-radius: 100%
+        background: $neutrals7
+        color: $neutrals1
+        +body-semibold-2
+        +dark
+          background: $neutrals1
+          color: $neutrals7
+      img
+        height: 32px
+    .panel-button
+      svg.icon
+        +trans
+      &:hover
+        svg.icon
+          fill: $p_blue
+

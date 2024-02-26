@@ -1,0 +1,216 @@
+header
+  background-color: $neutrals1
+  box-shadow: inset 1px 0px 0px $neutrals2, inset 0 -1px 0px $neutrals2
+  position: fixed
+  min-width: 375px
+  top: 0
+  left: 340px
+  right: 0
+  z-index: 1000
+  +trans
+  +xl
+    left: 96px
+  +sm
+    left: 0
+  +dark
+    background-color: $neutrals7
+    box-shadow: inset 1px 0px 0px $neutrals8, inset 0 -1px 0px $neutrals8
+
+  .navbar
+    +sm
+      width: 100%
+    .nav-item
+      +nl
+        margin-right: 24px
+        +sm
+          margin-right: 12px
+    
+    .btn.create
+      +md
+        display: none
+
+    .menu-item
+      display: none
+      +sm
+        display: block
+
+    .search-item
+      display: none
+      +sm
+        display: block
+      &.active
+        svg.icon
+          fill: $neutrals7
+          +dark
+            fill: $neutrals1
+
+    .toggle-item
+      +dual-svg-toggle
+
+    .messages-item .toggle-body
+      &::after
+        right: 24px
+        +sm
+          right: calc(50% - 10px)
+
+    .notification-item .toggle-body
+      &::after
+        right: 24px
+        +sm
+          right: calc(25% - -8px)
+
+    .user-item .toggle-body, 
+      &::after
+        right: 24px
+
+    .nav-item
+      position: relative
+      +sm
+        position: unset
+
+      .nav-link
+        position: relative
+        height: 48px
+        width: 48px
+        padding: 0
+        cursor: pointer
+        svg.icon
+          fill: $neutrals4
+
+      .toggle-head
+        &.active::before
+          +trans
+          content: ''
+          position: absolute
+          top: 10px
+          right: 10px
+          width: 14px
+          height: 14px
+          border-radius: 14px
+          border: 2px solid $neutrals1
+          background: $p_red
+          z-index: 5
+          +dark
+            border: 2px solid $neutrals7
+
+      .toggle-body
+        right: -12px
+        width: 392px
+        position: absolute
+        border-radius: 16px
+        top: calc(100% + 14px)
+        padding: 12px 12px 24px 12px
+        +external-shadow-2
+        +sm
+          width: calc(100vw - 24px)
+          min-width: 351px
+          right: 0
+          left: -12px
+        .top
+          .toggle-title
+            +title-semibold-1
+
+        .list-notifications
+          .item
+            +nl
+              box-shadow: 0 1px 0 0 $neutrals3
+              +dark
+                box-shadow: 0 1px 0 0 $neutrals6
+            &.new
+              &::after
+                background-color: $p_blue
+            &::after
+              content: ''
+              position: absolute
+              right: 12px
+              top: 18px
+              width: 12px
+              height: 12px
+              border-radius: 12px
+              background-color: $shades1
+            .userpic
+              height: 48px
+              width: 48px
+              .notify-icon
+                height: 20px
+                width: 20px
+                border-radius: 24px
+                border: 2px solid $neutrals0
+                +dark
+                  border: 2px solid $neutrals7
+                &.blue
+                  background-color: $p_blue
+                &.green
+                  background-color: $p_green
+                &.purple
+                  background-color: $p_purple
+                &.red
+                  background-color: $p_red
+                svg.icon
+                  overflow: visible
+                  transform: scale(.5)
+                  fill: $neutrals0
+              img
+                border-radius: 48px
+
+            .item-title
+              .name
+                +base-bold-1
+                color: $neutrals7
+                +dark
+                  color: $neutrals1
+              .login
+                color: $shades1
+              .time
+                +caption-1
+                color: $shades1
+            .message
+              max-width: 274px
+              color: $neutrals4
+              b
+                color: $neutrals7
+                +dark
+                  color: $neutrals1
+    .user-item
+      .toggle-head
+        img
+          width: 100%
+          max-width: 48px
+          border-radius: 48px
+      .toggle-body
+        padding: 16px !important
+        max-width: 280px
+        +sm
+          max-width: unset
+        .nav
+          +nl
+            margin-bottom: 12px
+            padding-bottom: 12px
+            border-bottom: 1px solid $neutrals3
+            +dark
+              border-bottom: 1px solid $neutrals6
+          a
+            color: $neutrals4
+            width: 100%
+            display: flex
+            align-items: center
+            height: 48px
+            padding: 0 12px
+            +base-semibold-1
+            &:hover
+              color: $neutrals7
+              svg.icon
+                fill: $neutrals7
+              +dark
+                color: $neutrals1
+                svg.icon
+                  fill: $neutrals1
+            svg.icon
+              margin-right: 12px
+              fill: $neutrals4
+            &.purple
+              color: $p_purple !important
+              svg.icon
+                fill: $p_purple !important
+              &:hover
+                opacity: .9

@@ -1,0 +1,52 @@
+.creators
+  .creators-userpic
+    width: 80px
+    height: 80px
+  .creators-info
+    & > div
+      +nf
+        position: relative
+        &::before
+          position: absolute
+          content: ''
+          background: rgba($shades4, .51)
+          display: block
+          height: 12px
+          width: 2px
+          left: -2px
+          top: 50%
+          transform: translateY(-50%)
+          border-radius: 2px
+          +dark
+            background: $neutrals5
+  .creators-products
+    overflow-x: auto
+    overflow: auto
+    scrollbar-width: none
+    -webkit-overflow-scrolling: touch
+    -ms-overflow-style: none
+    &::after, &::before
+      content: ''
+      display: block
+      flex-shrink: 0
+      width: 24px
+      +sm
+        width: 16px
+    .creators-product
+      width: 212px
+      height: 166px
+      img
+        height: 100%
+        width: 100%
+        object-fit: cover
+      .creators-product-link
+        opacity: 0
+        left: 0
+        top: 0
+        right: 0
+        bottom: 0
+        background: rgba($neutrals8, .8)
+        +trans
+        &:hover
+          opacity: 1
+        

@@ -1,0 +1,39 @@
+.users
+  .users-head
+    .users-info
+      max-width: 240px
+      color: $shades2
+  .users-list
+    .users-item
+      padding: 32px 16px
+      .userpic, .icon-all
+        margin: 0 auto 12px
+        width: 64px
+        height: 64px
+        border-radius: 64px
+        img
+          border-radius: 64px
+          width: 100%
+      .icon-all
+        +trans
+        border: 2px solid $neutrals3
+        fill: $neutrals4
+        background: $neutrals3
+        +dark
+          background: $neutrals6
+          border-color: $neutrals6
+          
+      .name
+        color: $neutrals6
+        +caption-md
+        +trans
+        +dark
+          color: $neutrals3
+
+    
+      &:hover
+        .icon-all
+          fill: $p_blue
+          border-color: $p_blue !important
+        .name
+          color: $p_blue !important

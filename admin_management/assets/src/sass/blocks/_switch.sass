@@ -1,0 +1,88 @@
+label.switch-theme
+  position: relative
+  padding: 4px
+  border-radius: 40px
+  background-color: $neutrals2
+  cursor: pointer
+  overflow: hidden
+  +trans()
+  +xl
+    height: 48px
+  +dark
+    background-color: $neutrals8
+  &::before
+    position: absolute
+    box-sizing: content-box
+    width: calc(50% - 4px)
+    height: 32px
+    border-radius: 32px
+    content: ''
+    transition: transform .30s ease, background-color .15s ease
+    +xl
+      width: calc(100% - 8px)
+      height: 40px
+    +inset-shadow-white
+  .mode-dark, .mode-light
+    z-index: 10
+    padding: 4px
+    width: 100%
+    border-radius: 32px
+    color: $neutrals4
+    +trans
+    .theme-text
+      +body-semibold-1
+      +xl
+        display: none
+    .theme-icon
+      margin: 0 8px 0 -10px
+      line-height: 0
+      +xl
+        margin: 0 0 0 4px
+        width: 24px
+      svg.icon
+        height: 24px
+        width: 24px
+
+input#switch-theme-input
+  position: absolute
+  top: 0
+  left: 0
+  opacity: 0
+  &:checked + label
+    &::before
+      transform: translateX(100%)
+      +xl
+        transform: translateX(0)
+    .mode-dark
+      +xl
+        transform: translateX(-36px)
+      .theme-text
+        color: $neutrals1
+      use.fill
+        fill: $neutrals1
+      use.stroke
+        fill: none
+    .mode-light
+      +xl
+        transform: translateX(-36px)
+        opacity: 0
+      use.fill
+        fill: none
+      use.stroke
+        fill: $neutrals4
+  + label
+    .mode-light
+      .theme-text
+        color: $neutrals7
+
+        +dark
+          color: $neutrals4
+      use.fill
+        fill: $neutrals7
+      use.stroke
+        fill: none
+    .mode-dark
+      use.fill
+        fill: none
+      use.stroke
+        fill: $neutrals4

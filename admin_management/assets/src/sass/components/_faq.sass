@@ -1,0 +1,18 @@
+.faq
+  .faq-nav
+    width: 208px
+  .faq-content
+    .faq-item
+      .faq-item-header
+        &:not(.collapsed), &:hover
+          .icon-add-circled
+            fill: $neutrals7
+            +dark
+              fill: $neutrals1
+        &:not(.collapsed)
+          .icon-add-circled
+            transform: rotate(45deg)
+
+    .icon-add-circled
+      +trans
+      fill: $neutrals4

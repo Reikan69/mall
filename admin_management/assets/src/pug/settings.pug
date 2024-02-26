@@ -1,0 +1,127 @@
+---
+title: Core - Settings
+currentUrl: settings
+---
+
+extends layouts/layout
+
+block content
+  .page.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 Settings
+    .page-body.pb-4.pb-xl-6
+      .settings.card.mb-2.p-4.p-sm-5
+        .d-flex
+          .settings-nav.d-none.d-md-block.flex-shrink-0.me-5.me-md-6
+            .list-group
+              a.btn-tab.btn-small.justify-content-start.active.w-100(href="#settings-basics") Basics
+              a.btn-tab.btn-small.justify-content-start.w-100(href="#settings-account") Account
+              a.btn-tab.btn-small.justify-content-start.w-100(href="#settings-notifications") Notifications
+              a.btn-tab.btn-small.justify-content-start.w-100(href="#settings-payment") Payment
+          .w-100
+            .border-bottom.position-relative.pb-2.mb-5.mb-md-6
+              .settings-anchor#settings-basics
+              .title.title-color.green.mb-5.mb-md-6 Profile information
+              select.select.select-wide.select-anchor.d-flex.d-md-none.mb-5
+                option(value="#settings-basics") Basics
+                option(value="#settings-account") Account
+                option(value="#settings-notifications") Notifications
+                option(value="#settings-payment") Payment
+              .clearfix
+              .d-flex.align-items-center.mb-5.mb-md-6
+                .settings-userpic.me-4.me-md-6
+                  img.rounded-circle.w-100(src="img/content/user-1.jpg")
+                  button.settings-userpic-remove.bg-white.rounded-circle.d-block.d-md-none
+                    +i('close')(class="fill-shades-2 icon-small")
+                button.btn.settings-upload.me-3
+                  input(type="file")
+                  +i('plus')(class="me-2")
+                  | Upload new picture
+                button.btn-stroke.d-none.d-md-block Remove
+
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Display name 
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              input.form-control.mb-5.mb-md-6(type="text")
+
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Email
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              input.form-control.mb-5.mb-md-6(type="text")
+
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Location
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              input.form-control.mb-5.mb-md-6(type="text")
+
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Bio
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              +editor(class="mb-5 mb-md-6")
+
+            .border-bottom.position-relative.pb-2.mb-5.mb-md-6
+              .settings-anchor#settings-account
+              .title.title-color.purple.mb-5.mb-md-6 Login
+
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Old password
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              input.form-control.mb-5.mb-md-6(type="password")
+
+              .row.g-3
+                .col-12.col-sm-6
+                  .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                    | Old password
+                    +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+                  input.form-control.mb-5.mb-md-6(type="password")
+                .col-12.col-sm-6
+                  .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                    | Old password
+                    +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+                  input.form-control.mb-5.mb-md-6(type="password")
+
+              button.btn-stroke.mb-5.mb-md-6 Update password
+
+            .border-bottom.position-relative.pb-2.mb-5.mb-md-6
+              .settings-anchor#settings-notifications
+              .title.title-color.red.mb-5.mb-md-6 Notifications
+
+              .border-bottom.caption.d-flex.align-items-center.mb-5.mb-md-6.pb-4.text-reset.fs-8
+                | Product updates and community announcements
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+                .form-check.form-switch.ms-auto
+                  input.form-check-input(type="checkbox" checked)
+
+              .border-bottom.caption.d-flex.align-items-center.mb-5.mb-md-6.pb-4.text-reset.fs-8
+                | Market newsletter
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+                .form-check.form-switch.ms-auto
+                  input.form-check-input(type="checkbox")
+
+              .border-bottom.caption.d-flex.align-items-center.mb-5.mb-md-6.pb-4.text-reset.fs-8
+                | Comments
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+                .form-check.form-switch.ms-auto
+                  input.form-check-input(type="checkbox" checked)
+
+              .caption.d-flex.align-items-center.mb-5.mb-md-6.pb-4.text-reset.fs-8
+                | Purchases
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+                .form-check.form-switch.ms-auto
+                  input.form-check-input(type="checkbox" checked)
+
+            .position-relative.mb-2
+              .settings-anchor#settings-payment
+              .title.title-color.green.mb-5.mb-md-6 Payment
+
+              .border-bottom.caption.d-flex.align-items-center.mb-5.mb-md-6.pb-4.text-reset.fs-8
+                | Paypal
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+                button.btn-stroke.btn-small.ms-auto Update
+
+              .fw-bold.mb-3 tam@ui8.net
+              .caption-2.mb-8 Payout fee is 1% of the amount transferred, with a minimum of USD $0.25 and a maximum of USD $20
+              button.btn Save
+
+              
+              

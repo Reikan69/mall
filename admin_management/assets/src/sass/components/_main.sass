@@ -1,0 +1,25 @@
+main
+  margin-left: 340px
+  padding-top: 96px
+  +trans
+  +xl
+    margin-left: 96px
+  +sm
+    margin-left: 0
+
+.overlay
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  background-color: rgba($neutrals2, .9)
+  z-index: 1000
+  visibility: hidden
+  opacity: 0
+  +trans
+  +dark
+    background-color: rgba($neutrals6, .9)
+  &.active
+    visibility: visible
+    opacity: 1

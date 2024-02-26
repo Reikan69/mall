@@ -1,0 +1,51 @@
+.stock-list
+  overflow: auto
+  scrollbar-width: none
+  -webkit-overflow-scrolling: touch
+  -ms-overflow-style: none
+  &::-webkit-scrollbar 
+    display: none
+  .stock-item
+    border-radius: 12px
+    +sm
+      min-width: 286px
+    &.stock-green
+      background-color: rgba($p_green, .25)
+      +dark
+        background-color: rgba($s_green, .15)
+        
+    &.stock-blue
+      background-color: rgba($p_blue, .25)
+      +dark
+        background-color: rgba($s_blue, .15)
+      
+    &.stock-purple
+      background-color: rgba($p_purple, .25)
+      +dark
+        background-color: rgba($s_purple, .15)
+    .stock-icon
+      background-color: $neutrals7
+      fill: $neutrals1
+      +dark
+        background-color: $neutrals1
+        fill: $neutrals7
+    .stock-caption
+      color: $neutrals5
+      .info-tooltip
+        svg.icon
+          fill: $neutrals5 !important
+      +dark
+        color: $neutrals1 
+        .info-tooltip
+          svg.icon
+            fill: $neutrals1 !important
+    .balance
+      background-color: $neutrals1
+      +dark
+        background-color: $neutrals7
+    .stock-chart
+      width: 80px
+      height: 80px
+
+
+ 

@@ -1,0 +1,47 @@
+---
+title: Core - Payouts
+currentUrl: income-payouts
+category: income
+---
+
+extends layouts/layout
+
+block content
+  .page.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 Payouts
+    .page-body
+      .row.g-0
+        .col-12
+          .income.card.mb-2.p-4.p-sm-5
+            .card-head.mb-5.mb-sm-6
+              .title.title-color.blue Current balance
+            .card-body.p-0
+              .income-list.row.gx-4.flex-nowrap.flex-column.flex-md-row
+                .income-item.d-flex.align-items-start.col.flex-shrink-0.pb-5.mb-5.pb-md-0.mb-md-0
+                  .bg-light-green.p-3.rounded-circle.d-inline-block.no-lh.mb-4.me-5
+                    +i('activity')(class='fill-neutrals-7')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-1
+                        | Current account balance
+                        +info(class="ps-1")
+                      .counter.h2 $128k
+                .income-item.d-flex.align-items-start.justify-content-md-center.col.flex-shrink-0.pb-5.mb-5.pb-md-0.mb-md-0
+                  .bg-light-purple.p-3.rounded-circle.d-inline-block.no-lh.mb-4.me-5
+                    +i('pie-chart-stroke')(class='fill-neutrals-7')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-1
+                        | Available for withdrawal
+                        +info(class="ps-1")
+                      .counter.h2 $0.00
+                .income-item.d-flex.align-items-center.justify-content-center.col.flex-shrink-0
+                  button.btn(data-bs-toggle="modal" data-bs-target="#modal-withdraw") Withdraw balance
+
+      .card.mb-2
+        .card-head.d-flex.align-items-start.align-items-sm-center.justify-content-between.flex-column.flex-sm-row.p-4.p-sm-5
+          .title.title-color.blue.me-5.mb-4.mb-sm-0 Payout history
+        .card-body.p-0
+          +income_payouts_table(demo_payouts)
+                

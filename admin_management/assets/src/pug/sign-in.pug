@@ -1,0 +1,47 @@
+---
+title: Core - Sign in
+currentUrl: sign-in
+simplePage: true
+---
+
+extends layouts/layout
+
+block content
+  .sign-up.d-flex
+    .sign-up-col.sign-up-page.min-vh-100.w-100
+      .sign-up-body.d-flex.justify-content-center.align-items-center.h-100.py-8
+        .sign-up-wrapper
+          a.logo.d-block.mb-6(href="index.html")
+            img.logo-dark(src="img/logo-dark.png")
+            img.logo-light(src="img/logo-light.png")
+          .h2.mb-6 Sign in
+          .sign-up-entry
+            .text-semibold-2.mb-5 Sign up with Open account
+            .row.gx-2.d-flex.flex-nowrap.mb-6
+              button.btn-stroke.col.mx-1
+                +i('google')(class="me-2")
+                | Google
+              button.btn-stroke.col.mx-1
+                +i('apple')(class="me-2")
+                | Apple ID
+            .border-bottom.border-2.mb-6
+            .text-semibold-2.mb-5 Or continue with email address
+            .input-group.mb-3
+              button.input-group-text.transparent
+                +i('mail')
+              input.form-control.rounded-2(type="text" placeholder="Your mail")
+            .input-group.mb-3
+              button.input-group-text.transparent
+                +i('lock')
+              input.form-control.rounded-2(type="password" placeholder="Password")
+            a.btn.w-100(href="index.html") Sign in
+            .text-semibold-2.text-shades-1.mt-6
+              | This site is protected by reCAPTCHA and the Google Privacy Policy.
+            .mt-6 
+              span.caption.text-shades-1.pe-2 Don’t have an account?
+              a.caption.text-reset.fw-bold(href="sign-up.html") Sign up
+
+
+        
+
+

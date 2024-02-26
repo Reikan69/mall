@@ -1,0 +1,24 @@
+.review-card
+  .review-item
+    .review-userpic
+      width: 48px
+      height: 48px
+      img
+        width: 100%
+        object-fit: cover
+        border-radius: 100%
+    .review-details
+      .review-title
+        .user .name
+          +base-bold-1
+        .time
+          +caption-1
+      .review-control
+        a.review-control-item
+          fill: $shades1
+          &:hover
+            fill: $p_blue
+          &.active
+            fill: $p_blue
+          svg.icon
+            transform: scale(0.834)

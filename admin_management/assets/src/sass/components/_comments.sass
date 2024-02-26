@@ -1,0 +1,45 @@
+.comment-userpic
+  height: 48px
+  width: 48px
+.comment-answer-userpic
+  height: 32px
+  width: 32px
+.comment-reply-userpic
+  height: 40px
+  width: 40px
+.comment-reply
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    top: -22px
+    left: -42px
+    width: 32px
+    height: 44px
+    border-bottom: 2px solid $neutrals3
+    border-left: 2px solid $neutrals3
+    border-radius: 0 0 0 10px
+    +trans
+    +dark
+      border-color: $neutrals5
+  textarea
+    height: 24px
+.comment-controls
+  button
+    +button-2
+    color: $shades1
+    fill: $shades1
+    +trans
+    +dark
+      color: $shades2
+      fill: $shades2
+    &:hover, &.active, &[aria-expanded="true"]
+      color: $neutrals7
+      fill: $neutrals7
+      +dark
+        color: $neutrals2
+        fill: $neutrals2
+.comment-collapse
+  +sm
+    display: block !important
+    height: auto !important

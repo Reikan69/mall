@@ -1,0 +1,99 @@
+.toggle-item
+  .toggle-head
+    cursor: pointer
+  &.active
+    .toggle-body
+      opacity: 1
+      visibility: visible
+      transform: translateY(0)
+      &::after
+        content: ''
+        display: block
+        width: 20px
+        height: 10px
+        position: absolute
+        top: -10px
+        background: url("data:image/svg+xml,%3Csvg width='20' height='10' viewBox='0 0 20 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.92712 1.68746L0 10H20L13.0729 1.68746C11.4737 -0.231555 8.5263 -0.231558 6.92712 1.68746Z' fill='white'/%3E%3C/svg%3E%0A") no-repeat center center
+        +dark
+          background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' fill='none' viewBox='0 0 20 10'%3E%3Cpath d='M6.927 1.687L0 10h20l-6.927-8.313a4 4 0 0 0-6.146 0z' fill='%23111315'/%3E%3C/svg%3E") no-repeat center center
+  .toggle-body
+    opacity: 0
+    visibility: hidden
+    position: absolute
+    transform: translateY(10px)
+    +trans
+
+.action-item
+  position: relative
+  display: inline-block 
+  &.active
+    .action-head
+      svg.icon
+        fill: $p_blue !important
+      &.btn-stroke
+        background: $neutrals3
+        svg.icon
+          fill: $neutrals7 !important
+        +dark
+          background: $neutrals6
+          svg.icon
+            fill: $neutrals1 !important
+        &:hover
+          box-shadow: unset !important
+    .action-body
+      opacity: 1
+      visibility: visible
+  .action-btn
+    height: 32px
+    width: 32px
+    border-radius: 32px
+    background-color: $neutrals3
+    +collapse-fade
+    +trans
+    svg.icon
+      fill: $neutrals7
+    +dark
+      background-color: $neutrals6
+      svg.icon
+        fill: $neutrals1
+    &:hover
+      svg.icon
+        fill: $p_blue !important
+  .action-body
+    opacity: 0
+    visibility: hidden
+    position: absolute
+    transform: translateY(8px)
+    right: 0
+    border-radius: 16px
+    width: 244px
+    z-index: 20
+    +trans
+    +external-shadow-2
+    &.top
+      bottom: 50%
+      transform: translateY(-20%)
+    button.action-item
+      display: block
+      width: 100%
+      text-align: left
+      padding: 12px
+      border-radius: 12px
+      color: $neutrals4
+      display: flex
+      align-items: center
+      +base-semibold-1
+      +trans
+      &:hover
+        color: $neutrals7
+        svg.icon
+          fill: $neutrals7
+        +dark
+          color: $neutrals1
+          svg.icon
+            fill: $neutrals1
+
+      svg.icon
+        margin-right: 12px
+        fill: $neutrals4
+

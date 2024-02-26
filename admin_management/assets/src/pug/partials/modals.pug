@@ -1,0 +1,599 @@
+.modal.modal-media.fade(id="modal-video" tabindex="-1" aria-labelledby="modal-video-label" aria-hidden="true")
+  .fixed-top.mt-7.mx-4.mx-sm-7
+    .d-flex.justify-content-between.align-items-start.align-items-sm-center.w-100.flex-wrap
+      .modal-details.d-flex.order-last.order-lg-first.mt-5.mt-lg-0
+        button.btn-white.btn-small
+          +i('heart-fill')(class="fill-red me-2")
+          span 32
+      .modal-title Use guidelines
+      .modal-controls
+        button.btn-rounded-stroke.btn-small.me-4
+          +i('link')
+        button.btn-rounded(data-bs-dismiss="modal")
+          +i('close')
+  .modal-dialog.modal-dialog-centered.modal-xl
+    .modal-content.ratio.ratio-16x9
+      iframe(src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video" allowfullscreen)
+
+.modal.fade(id="modal-preview" tabindex="-1" aria-labelledby="modal-preview-label" aria-hidden="true")
+  .fixed-top.mt-7.mx-4.mx-sm-7
+    button.btn-rounded.btn-small(data-bs-dismiss="modal")
+      +i('close')
+  .modal-dialog.modal-dialog-centered.modal-sm
+    .modal-content.card.preview.p-4.p-sm-5
+      .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+        .title.title-color.blue Preview
+        +i('expand')
+      .card-body.p-0
+        .preview-photo.mb-4
+          img(src="/img/content/photo-1.jpg", alt="")
+        .preview-title.d-flex.align-items-start.mb-2
+          | Fleet - Travel shopping UI design kit
+          .badge.large.green.ms-3 $98
+        .preview-user.d-flex.align-items-center
+          .preview-userpic.me-2
+            img(src="/img/content/user-1.jpg", alt="Hortense")
+          span.me-1.text-shades-1 by 
+          b Hortense
+
+.modal.fade(id="modal-datepicker" tabindex="-1" aria-labelledby="modal-datepicker-label" aria-hidden="true" aria-modal="true" role="dialog")
+  .modal-dialog.modal-dialog-centered
+    .datepicker.modal-content.card.p-4.p-sm-5
+      .border-bottom.card-head.d-flex.align-items-center.justify-content-between.mb-5.pb-5
+        .title.title-color.red Reschedule product
+        button.btn-rounded(data-bs-dismiss="modal")
+          +i('close')
+      .card-body.p-0
+        .pb-5 Choose a day and time in the future you want your product to be published.
+        .datepicker-list
+          .action-item.mb-2.w-100
+            .action-head.d-flex.p-4
+              +i('calendar')(class="flex-shrink-0 me-3")
+              .d-block
+                .caption Date
+                input.js-date-range.p-0(type="text" data-single-month="true" data-container=".js-date-container")
+            .action-body
+              .js-date-container
+              .border-top.d-flex.justify-content-end.mx-5.py-5
+                .btn-stroke.btn-small.js-date-clear Clear
+                .btn.datepicker-close.btn-small.ms-3 Close
+
+          .action-item.js-datepicker-time.mb-4.mb-sm-5.w-100
+            .action-head.d-flex.p-4
+              +i('clock')(class="flex-shrink-0 me-3")
+              .d-block
+                .caption Time
+                input.datepicker-time.p-0(type="text" value="12:00 AM")
+            .action-body.p-5
+              .border-bottom.card-head.d-flex.align-items-center.justify-content-between.mb-5.pb-5
+                .title.datepicker-title.text-reset 12:00 AM
+                button.datepicker-close.btn-rounded.flex-shrink-0
+                  +i('close')
+              ul.datepicker-time-list
+                li 12:00 AM
+                li 12:30 AM
+                li 1:00 AM
+                li 1:30 AM
+                li 2:00 AM
+                li 2:30 AM
+                li 3:00 AM
+                li 3:30 AM
+                li 4:00 AM
+                li 4:30 AM
+                li 5:00 AM
+                li 5:30 AM
+                li 6:00 AM
+                li 6:30 AM
+                li 7:00 AM
+                li 7:30 AM
+                li 8:00 AM
+                li 8:30 AM
+                li 9:00 AM
+                li 9:30 AM
+                li 10:00 AM
+                li 10:30 AM
+                li 11:00 AM
+                li 11:30 AM
+                li 12:00 PM
+                li 12:30 PM
+                li 1:00 PM
+                li 1:30 PM
+                li 2:00 PM
+                li 2:30 PM
+                li 3:00 PM
+                li 3:30 PM
+                li 4:00 PM
+                li 4:30 PM
+                li 5:00 PM
+                li 5:30 PM
+                li 6:00 PM
+                li 6:30 PM
+                li 7:00 PM
+                li 7:30 PM
+                li 8:00 PM
+                li 8:30 PM
+                li 9:00 PM
+                li 9:30 PM
+                li 10:00 PM
+                li 10:30 PM
+                li 11:00 PM
+                li 11:30 PM
+          .btn.float-end Reschedule
+
+.modal.modal-media.fade(id="modal-slider" tabindex="-1" aria-labelledby="modal-slider-label" aria-hidden="true")
+  .mt-7.mx-4.mx-sm-7
+    .d-flex.justify-content-between.align-items-start.align-items-sm-center.w-100.flex-wrap
+      .modal-details.d-flex.order-last.order-lg-first.mt-5.mt-lg-0
+        button.btn-white.me-3
+          +i('heart-fill')(class="fill-red me-2")
+          span 32
+        button.btn
+          span Download now
+          +i('download')(class="ms-2")
+      .modal-title Fleet - Travel shopping UI design kit
+      .modal-controls
+        button.btn-rounded-stroke.btn-small.me-4
+          +i('link')
+        button.close.btn-rounded(data-bs-dismiss="modal")
+          +i('close')
+  .modal-dialog.modal-xl.mt-8.mx-4.mx-sm-auto
+    .modal-content
+      .carousel.slide#modal-carousel(data-bs-ride="carousel")
+        .carousel-controls
+          .carousel-control-prev(data-bs-target="#modal-carousel" data-bs-slide="prev")
+            +i('arrow-left')
+          .carousel-control-next(data-bs-target="#modal-carousel" data-bs-slide="next")
+            +i('arrow')
+        .carousel-inner
+          .carousel-item.active
+            img.rounded-2.d-block.w-100(src="img/content/photo-1.jpg", alt="Fleet - Travel shopping UI design kit")
+          .carousel-item
+            img.rounded-2.d-block.w-100(src="img/content/photo-2.jpg", alt="Fleet - Travel shopping UI design kit")
+      .carousel-caption.caption Elegant product mockup for your next project
+          
+               
+.modal.fade.product-modal.p-4.m-0(id="modal-product" tabindex="-1" aria-labelledby="modal-product-label" aria-hidden="true" aria-modal="true" role="dialog")
+  .d-flex.justify-content-between.align-items-center.mx-0.mt-0.mx-lg-5.mt-lg-5
+    a.btn-stroke.fill(href="products-add.html") Edit product
+    button.close.btn-rounded.fill-white(data-bs-dismiss="modal")
+      +i('close')
+  .modal-dialog.modal-content.mx-auto
+    .card.tab-pane.d-md-block.p-4.p-sm-5
+      .card-controls.d-block.d-sm-flex.align-items-center.mb-6
+        .tabs.nav.d-flex.flex-nowrap.mb-4.mb-sm-0
+          .btn-tab.btn-small.active.me-2(data-bs-target="#modal-tab-product" data-bs-toggle="tab") Product
+          .btn-tab.btn-small(data-bs-target="#modal-tab-comments" data-bs-toggle="tab") Comments
+
+      .tab-content
+        .tab-pane#modal-tab-product.fade.show.active.d-xl-block
+
+          .modal-buttons.d-flex.ms-auto.flex-nowrap.mt-n6.mt-sm-0.mb-6.mb-sm-0
+            .btn-stroke.me-4
+              +i('heart-fill')(class="me-2 fill-red")
+              | 32
+            .btn.position-relative
+              span.separator.me-5.pe-5.position-relative $89
+              | Download now
+              +i('download')(class="ms-2")
+        
+          .card-head.mb-7
+            .h4 Fleet - Travel shopping UI design kit
+            .product-modal-info.mb-3 Elegant product mockup for your next project
+            .product-modal-user.d-flex.align-items-center
+              .product-modal-userpic.me-3
+                img(src="/img/content/user-1.jpg", alt="Hortense")
+              span.me-1.text-shades-1 by
+              b.me-3 Chelsie Haley
+              +i('star-fill')(class="fill-yellow me-2")
+              b.me-1 4.8
+              span.text-shades-1 (87)
+
+          .card-body.p-0
+            .product-modal-gallery.mb-6.mb-sm-7
+              button.btn-white(data-bs-toggle="modal" data-bs-target="#modal-slider" data-bs-prev-modal="#modal-product") Show all preview
+              img(src="img/content/photo-1.jpg", alt="Fleet - Travel shopping UI design kit")
+            .border-bottom.row.product-modal-content
+              .col-md-8.pe-3.pe-sm-8.pb-6.pb-md-0
+                .title.title-color.red.mb-3.mb-md-6 Overview
+                p Meet Node - a crypto NFT marketplace iOS UI design kit for Figma, Sketch, and Adobe XD. The kit includes 126 stylish mobile screens in light and dark mode, a bunch of crypto 3D illustrations, 1 SaaS landing page with full premade breakpoints, and hundreds of components to help you ship your next crypto, NFT product faster.
+                p Types of screens included: onboarding, connect wallet, home feed, profile, upload, menu, search, product detail, notification...
+                p.mb-0 If you have any questions or requests, please feel free to leave them all in the comments section.
+              .col-md-4
+                .title.title-color.purple.mb-5.mb-md-6 Features
+                .border-bottom.d-flex.align-items-center.pb-4.mb-4
+                  +i('check')(class="fill-green-light me-3")
+                  | 128 prebuilt screens
+                .border-bottom.d-flex.align-items-center.pb-4.mb-4
+                  +i('check')(class="fill-green-light me-3")
+                  | SaaS landing page ready
+                .border-bottom.d-flex.align-items-center.pb-4.mb-4
+                  +i('check')(class="fill-green-light me-3")
+                  | Global styleguide
+                .border-bottom.d-flex.align-items-center.pb-4.mb-4
+                  +i('check')(class="fill-green-light me-3")
+                  | Dark + light more ready
+
+            .d-flex.flex-wrap.align-items-center.justify-content-between.mb-6
+              .title.title-color.red More like this
+              a.btn-stroke.btn-small(href="products-dashboard.html")
+                | View all
+                +i('arrow')(class="ms-2")
+
+            +product_modal_slider(demo_drafts)
+
+            .product-modal-panel.p-5
+              .panel-item.panel-userpic.d-flex.align-items-center.justify-content-center.mb-5
+                img(src="img/content/user-1.jpg", alt="")
+              .panel-item.panel-brand.d-flex.align-items-center.justify-content-center.position-relative.mb-5
+                .panel-number.position-absolute.d-flex.align-items-center.justify-content-center 3
+                img(src="img/content/figma.png", alt="")
+              button.panel-item.panel-button.d-flex.align-items-center.justify-content-center.mb-auto(data-bs-toggle="modal" data-bs-target="#modal-share" data-bs-prev-modal="#modal-product")
+                +i('share')(class="fill-shades-1")
+              button.panel-item.panel-button.d-flex.align-items-center.justify-content-center.position-relative
+                +i('arrow')(class="fill-shades-1")
+
+
+        .card.tab-pane#modal-tab-comments.fade.p-0.p-xl-6
+          .title.d-flex.align-items-center.mb-6
+            .bg-light-purple.rounded-1.px-3.me-3.text-dark 4
+            | Reschedule product
+            button.modal-close.ms-auto
+              +i('close')(class="icon-small")
+
+          .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+            | Review this product?
+            +info('You’re product owner')(class="ms-1")
+          +editor.has-button
+            .btn.btn-small.btn-comment Comment
+
+          .comments-block.mt-3
+            .border-bottom.d-flex.pb-6
+              .comment-userpic.flex-shrink-0
+                img.rounded-circle.w-100(src="img/content/user-2.jpg")
+              .ms-4.w-100
+                .d-flex.align-items-start.pb-3
+                  .me-5
+                    b Stephon Schumm
+                    .caption-md.mt-1 @ivawelch
+                  .d-flex.align-items-center.ms-auto
+                    .caption-2.me-3 2h
+                    b.me-2 5.0
+                    +i('star-fill')(class="fill-yellow")
+                .mb-4
+                  | Purchased the pack and loaded it in Adobe xd (installed fonts as well), some text and titles are off in some screens, is that a compatibility problem with the latest version of xd?
+                .d-flex.comment-controls
+                  button.btn-favorite.d-flex.align-items-center.me-5
+                    +i_d('heart')(class="icon-small me-1")
+                    | Like
+                  button.d-flex.align-items-center(data-bs-toggle="collapse" data-bs-target="#comment-modal-1")
+                    +i('repeat')(class="icon-small me-1")
+                    | Reply
+
+                .comment-reply.collapse#comment-modal-1
+                  .d-flex.mt-5
+                    .comment-reply-userpic.flex-shrink-0
+                      img.rounded-circle.w-100(src="img/content/user-1.jpg")
+                    .ms-4
+                      textarea.textarea-transparent.mb-4(oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Leave something to reply")
+                      button.btn.btn-small.me-2 Reply
+                      button.btn-tab.btn-small(data-bs-toggle="collapse" data-bs-target="#comment-modal-1") Cancel
+
+            .border-bottom.d-flex.pb-6.pt-5.ps-4
+              .comment-answer-userpic.flex-shrink-0.ms-8
+                img.rounded-circle.w-100(src="img/content/user-1.jpg")
+              .ms-4.w-100
+                .d-flex.align-items-start.pb-3
+                  .me-5
+                    b Chelsie Haley
+                  .d-flex.align-items-center.ms-auto
+                    .caption-2.me-3 18h
+                    b.me-2 4.0
+                    +i('star-fill')(class="fill-yellow")
+                .mb-4
+                  | Hi @ivawelch, let me check then tell you soon.
+                .d-flex.comment-controls
+                  button.btn-favorite.d-flex.align-items-center.me-5
+                    +i_d('heart')(class="icon-small me-1")
+                    | Like
+                  button.d-flex.align-items-center(data-bs-toggle="collapse" data-bs-target="#comment-modal-2")
+                    +i('repeat')(class="icon-small me-1")
+                    | Reply
+
+                .comment-reply.collapse#comment-modal-2
+                  .d-flex.mt-5
+                    .comment-reply-userpic.flex-shrink-0
+                      img.rounded-circle.w-100(src="img/content/user-1.jpg")
+                    .ms-4
+                      textarea.textarea-transparent.mb-4(oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Leave something to reply")
+                      button.btn.btn-small.me-2 Reply
+                      button.btn-tab.btn-small(data-bs-toggle="collapse" data-bs-target="#comment-modal-2") Cancel
+
+            .border-bottom.d-flex.pb-6.pt-5
+              .comment-userpic.flex-shrink-0
+                img.rounded-circle.w-100(src="img/content/user-3.jpg")
+              .ms-4.w-100
+                .d-flex.align-items-start.pb-3
+                  .me-5
+                    b Sabryna Mills
+                    .caption-md.mt-1 @ivawelch
+                  .d-flex.align-items-center.ms-auto
+                    .caption-2.me-3 15h
+                    b.me-2 5.0
+                    +i('star-fill')(class="fill-yellow")
+                .mb-4
+                  | Five stars. I love this product!
+                .d-flex.comment-controls
+                  button.btn-favorite.d-flex.align-items-center.me-5
+                    +i_d('heart')(class="icon-small me-1")
+                    | Like
+                  button.d-flex.align-items-center(data-bs-toggle="collapse" data-bs-target="#comment-modal-3")
+                    +i('repeat')(class="icon-small me-1")
+                    | Reply
+
+                .comment-reply.collapse#comment-modal-3
+                  .d-flex.mt-5
+                    .comment-reply-userpic.flex-shrink-0
+                      img.rounded-circle.w-100(src="img/content/user-1.jpg")
+                    .ms-4
+                      textarea.textarea-transparent.mb-4(oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Leave something to reply")
+                      button.btn.btn-small.me-2 Reply
+                      button.btn-tab.btn-small(data-bs-toggle="collapse" data-bs-target="#comment-modal-3") Cancel
+
+            .border-bottom.d-flex.pb-6.pt-5
+              .comment-userpic.flex-shrink-0
+                img.rounded-circle.w-100(src="img/content/user-4.jpg")
+              .ms-4.w-100
+                .d-flex.align-items-start.pb-3
+                  .me-5
+                    b Micaela Mayer
+                    .caption-md.mt-1 @ivawelch
+                  .d-flex.align-items-center.ms-auto
+                    .caption-2.me-3 1 day ago
+                    b.me-2 5.0
+                    +i('star-fill')(class="fill-yellow")
+                .mb-4
+                  | Purchased the pack and loaded it in Adobe xd (installed fonts as well), some text and titles are off in some screens, is that a compatibility problem with the latest version of xd?
+                .d-flex.comment-controls
+                  button.btn-favorite.d-flex.align-items-center.me-5
+                    +i_d('heart')(class="icon-small me-1")
+                    | Like
+                  button.d-flex.align-items-center(data-bs-toggle="collapse" data-bs-target="#comment-modal-4")
+                    +i('repeat')(class="icon-small me-1")
+                    | Reply
+
+                .comment-reply.collapse#comment-modal-4
+                  .d-flex.mt-5
+                    .comment-reply-userpic.flex-shrink-0
+                      img.rounded-circle.w-100(src="img/content/user-1.jpg")
+                    .ms-4
+                      textarea.textarea-transparent.mb-4(oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Leave something to reply")
+                      button.btn.btn-small.me-2 Reply
+                      button.btn-tab.btn-small(data-bs-toggle="collapse" data-bs-target="#comment-modal-4") Cancel
+
+            .d-flex.pb-6.pt-5
+              .comment-userpic.flex-shrink-0
+                img.rounded-circle.w-100(src="img/content/user-5.jpg")
+              .ms-4.w-100
+                .d-flex.align-items-start.pb-3
+                  .me-5
+                    b Daphne Goodwin
+                    .caption-md.mt-1 @ivawelch
+                  .d-flex.align-items-center.ms-auto
+                    .caption-2.me-3 2 day ago
+                    b.me-2 5.0
+                    +i('star-fill')(class="fill-yellow")
+                .mb-4
+                  | Purchased the pack and loaded it in Adobe xd (installed fonts as well), some text and titles are off in some screens, is that a compatibility problem with the latest version of xd?
+                .d-flex.comment-controls
+                  button.btn-favorite.d-flex.align-items-center.me-5
+                    +i_d('heart')(class="icon-small me-1")
+                    | Like
+                  button.d-flex.align-items-center(data-bs-toggle="collapse" data-bs-target="#comment-modal-5")
+                    +i('repeat')(class="icon-small me-1")
+                    | Reply
+
+                .comment-reply.collapse#comment-modal-5
+                  .d-flex.mt-5
+                    .comment-reply-userpic.flex-shrink-0
+                      img.rounded-circle.w-100(src="img/content/user-1.jpg")
+                    .ms-4
+                      textarea.textarea-transparent.mb-4(oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Leave something to reply")
+                      button.btn.btn-small.me-2 Reply
+                      button.btn-tab.btn-small(data-bs-toggle="collapse" data-bs-target="#comment-modal-5") Cancel
+
+.modal.fade(id="modal-share" tabindex="-1" aria-labelledby="modal-share-label" aria-hidden="true")
+  .modal-dialog.modal-dialog-centered.mx-auto(style="max-width: 408px")
+    .modal-content.card.rounded-3.p-4.p-sm-5
+      .border-bottom.card-head.d-flex.align-items-center.justify-content-between.mb-5.pb-5
+        .title.title-color.red Share this product
+        button.btn-rounded.btn-small.close(data-bs-dismiss="modal")
+          +i('close')
+      .card-body.p-0
+        .input-group.mb-5
+          button.input-group-text.transparent
+            +i('link')
+          input.rounded-1.form-control.input-small.input-action.text-shades-1.pe-8(type="text" placeholder="Product Link" value="https://ui8.net/feel-travel")
+          button.input-group-text.transparent.text-blue.me-2 Copy
+        .border-bottom.preview-photo.mb-5.pb-5
+          img.w-100.rounded-2(src="/img/content/photo-1.jpg", alt="")            
+        .mt-4.d-flex.mx-n3
+          a.btn-stroke.hover-fill.w-100.mx-2(href="https://www.facebook.com/ui8.net/")
+            +i('facebook')
+          a.btn-stroke.hover-fill.w-100.mx-2(href="https://twitter.com/ui8")
+            +i('twitter')
+          a.btn-stroke.hover-fill.w-100.mx-2(href="https://www.instagram.com/ui8net/")
+            +i('instagram')
+
+.modal.fade(id="modal-filter" tabindex="-1" aria-labelledby="modal-filter-label" aria-hidden="true")
+  .modal-dialog.modal-dialog-centered.modal-fullscreen-md-down.h-auto
+    .modal-content.card.rounded-3.p-4.p-sm-5
+      .border-bottom.card-head.d-flex.align-items-center.justify-content-between.mb-5.pb-5
+        .title.title-color.red Showing 9 of 32 products
+        button.btn-rounded.btn-small.close(data-bs-dismiss="modal")
+          +i('close')
+      .card-body.p-0
+        .border-bottom.mb-5.pb-5
+          .input-group
+            button.input-group-text.transparent
+              +i('search')
+            input.rounded-1.form-control.input-action.text-shades-1(type="text" placeholder="Search for products")
+        .border-bottom.mb-5.pb-5
+          .caption.mb-3.text-reset.fs-8 Sort by
+          select.select.select-wide
+            option Featured
+            option Last
+            option New
+          .clearfix
+        .border-bottom.mb-5.pb-5
+          .caption.mb-3.fs-8 Showing
+          .form-check.mb-3.ps-0
+            label.form-check-label.w-100 All products
+              input.form-check-input.float-end(type="checkbox")
+          .form-check.mb-3.ps-0
+            label.form-check-label.w-100 UI Kit
+              input.form-check-input.float-end(type="checkbox")
+          .form-check.mb-3.ps-0
+            label.form-check-label.w-100 Illustration
+              input.form-check-input.float-end(type="checkbox")
+          .form-check.mb-3.ps-0
+            label.form-check-label.w-100 Wireframe kit
+              input.form-check-input.float-end(type="checkbox")
+          .form-check.ps-0
+            label.form-check-label.w-100 Icons
+              input.form-check-input.float-end(type="checkbox")
+        .border-bottom.mb-5.pb-5
+          .caption.mb-6.fs-8 Price
+          .js-slider(data-min="0" data-max="100" data-start="20" data-end="50" data-step="1" data-tooltips="true" data-prefix="$")
+        .mb-5
+          .caption.mb-3.fs-8 Rating
+          select.select.select-wide.select-rating
+            .test sdfsdf
+            option Featured
+            option Last
+            option New
+          .clearfix
+        .d-flex.justify-content-end
+          .btn-stroke.me-3 Reset
+          .btn(data-bs-dismiss="modal") Apply
+
+.modal.fade(id="modal-refounds" tabindex="-1" aria-labelledby="modal-refounds-label" aria-hidden="true")
+  .modal-dialog.modal-dialog-centered.modal-fullscreen-lg-down.h-auto.mx-auto
+    .modal-content.card.rounded-3.p-4.p-sm-5
+      .card-head.d-flex.align-items-center.justify-content-between.pb-5
+        .title.title-color.purple Refunds request
+        button.btn-rounded.btn-small.close(data-bs-dismiss="modal")
+          +i('close')
+      .card-body.p-0
+        .refounds-body.d-md-flex
+          .refounds-stats.col-12.col-md-6.rounded-2.p-4.p-sm-5
+            .d-flex.align-items-center.mb-5
+              .refounds-preview.rounded-2.flex-shrink-0
+                img(src="img/content/product-1.jpg", alt="")
+              .ms-5
+                .title.mb-2.d-block Bento Matte 3D Illustration
+                .badge.large.purple In progress
+            .pb-5
+              .border-bottom.refounds-item.text-semibold-1.d-flex.justify-content-between.py-4
+                .text-shades-2 Request send
+                | Aug 20, 2021
+              .border-bottom.refounds-item.text-semibold-1.d-flex.justify-content-between.py-4
+                .text-shades-2 Reason
+                | Download link is broken
+              .border-bottom.refounds-item.text-semibold-1.d-flex.justify-content-between.py-4
+                .text-shades-2 Product downloaded
+                .badge.green Yes
+              .border-bottom.refounds-item.text-semibold-1.d-flex.justify-content-between.py-4
+                .text-shades-2 Purchase date
+                | July 01, 2021
+              .border-bottom.refounds-item.text-semibold-1.d-flex.justify-content-between.py-4
+                .text-shades-2 Purchase code
+                | 6373ads-hd73h-8373DS
+              .border-bottom.refounds-item.text-semibold-1.d-flex.justify-content-between.py-4
+                .text-shades-2 Request ID
+                | 8975ads-hd73h-8974DS
+              .border-bottom.refounds-item.text-semibold-1.d-flex.justify-content-between.py-4
+                .text-shades-2 
+                  | Market fee
+                  .info-tooltip(data-bs-toggle="tooltip" title="Description Market fee")
+                    +i('info-stroke')(class="fill-shades-2 ms-1")
+                | $7.28
+              .border-bottom.refounds-item.text-semibold-1.d-flex.justify-content-between.py-4
+                .text-shades-2 
+                  | Price
+                  .info-tooltip(data-bs-toggle="tooltip" title="Description Price")
+                    +i('info-stroke')(class="fill-shades-2 ms-1")
+                | $72.88
+            .d-flex.mx-n2
+              button.btn-stroke.mx-2.w-100 Decline refound
+              button.btn.mx-2.w-100 Give refund
+
+          .col-12.col-md-6.pt-6.ps-0.pt-md-5.ps-md-5
+            .title.mt-1.mb-3 Suggestions
+            .border-bottom.refounds-stats-item.d-flex.py-3
+              +i('check')(class="fill-green me-3")
+              | Talk to customer to see if you can help.
+            .refounds-stats-item.d-flex.py-3
+              +i('check')(class="fill-green me-3")
+              | If not, approve or decline the request.
+            .title.mt-6.mb-4 Download link is broken
+            .mb-3 “ I can’t download your item at all. Even tried to change the DNS or VNP, it still doesn’t work. 😢 “
+            .d-flex.align-items-center.mb-5
+              .refounds-userpic.me-3
+                img.rounded-circle.w-100(src="img/content/user-1.jpg", alt="Eldred Lockman")
+              | Eldred Lockman
+            .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+              | Send message
+              +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+            +editor.has-button
+              .btn.btn-small.btn-comment Send
+
+.modal.fade(id="modal-withdraw" tabindex="-1" aria-labelledby="modal-withdraw-label" aria-hidden="true")
+  .modal-dialog.modal-dialog-centered.modal-fullscreen-lg-down.h-auto.mx-auto
+    .modal-content.card.rounded-3.p-4.p-sm-5
+      .card-head.d-flex.align-items-center.justify-content-end.pb-5
+        button.btn-rounded.btn-small.close(data-bs-dismiss="modal")
+          +i('close')
+      .card-body.p-0.text-center
+        .withdraw-icon.bg-green.rounded-circle.d-flex.justify-content-center.align-items-center.mx-auto.mb-4 🎉
+        .title.mb-2 Success!
+        .h2.mb-4 $128,000
+        .text-semibold-1.mb-5
+          span.text-shades-2 Has been sent to your
+          |  Paypal: tam@ui8.net
+        button.btn.mb-4(data-bs-dismiss="modal") Done!
+
+.modal.fade(id="modal-post" tabindex="-1" aria-labelledby="modal-post-label" aria-hidden="true")
+  .modal-dialog.modal-dialog-centered.modal-fullscreen-lg-down.h-auto.mx-auto
+    .modal-content.card.rounded-3.p-4.p-sm-5
+      .card-head.d-flex.align-items-center.justify-content-between.pb-5
+        .title.title-color.green New post
+        button.btn-rounded.btn-small.close(data-bs-dismiss="modal")
+          +i('close')
+      .card-body.p-0
+        .d-flex.mb-5
+          .social-userpic.position-relative.me-5
+            img.rounded-circle.w-100(src="img/content/user-1.jpg")
+            .social-link.rounded-circle.d-flex.align-items-center.justify-content-center
+              +i('min-facebook')
+          .social-userpic.position-relative.me-5
+            img.rounded-circle.w-100(src="img/content/user-1.jpg")
+            .social-link.rounded-circle.d-flex.align-items-center.justify-content-center
+              +i('min-twitter')
+        textarea.modal-post-textarea(placeholder="What you would like to share?")
+        .title.mb-3 Fleet coded version has been released 🔥
+        .border-bottom.mb-5.pb-5
+          img.rounded-2.w-100(src="img/content/bg-video.jpg", alt="video")
+        .d-flex.align-items-center
+          .modal-post-file.d-flex.align-items-center.justify-content-center.position-relative.rounded-circle.overflow-hidden.me-4
+            input(type="file")
+            +i('image-stroke')
+          .modal-post-file.d-flex.align-items-center.justify-content-center.position-relative.rounded-circle.overflow-hidden
+            input(type="file")
+            +i('video-stroke')
+          button.btn.ms-auto(data-bs-dismiss="modal")
+            | Post
+            +i('arrow')(class="ms-2")
+
+
+        
+

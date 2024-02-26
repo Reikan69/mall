@@ -1,0 +1,80 @@
+---
+title: Core - Promote
+currentUrl: promote
+---
+
+extends layouts/layout
+
+block content
+  .page.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 Promote
+    .page-body
+      .row.g-0
+        .col-12
+          .income.card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-start.align-items-sm-center.justify-content-between.mb-2.mb-sm-7
+              .title.title-color.red.me-5.mb-4.mb-sm-0 Insights
+              select.select.select-small
+                option All time
+                option In a year
+                option Per month
+            .card-body.p-0
+              .income-list.row.gx-4.flex-nowrap.flex-column.flex-md-row
+                .income-item.d-flex.d-md-block.flex-row-reverse.justify-content-between.align-items-start.col.flex-shrink-0.me-8.pb-5.mb-5.pb-md-0.mb-md-0
+                  .bg-light-green.p-3.rounded-circle.d-inline-block.no-lh.mb-4
+                    +i('profile-circled-stroke')(class='fill-neutrals-7')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-3
+                        | People reached
+                        +info(class="ps-1")
+                      .counter.h2 256k
+                      +balance('7.5%', 'down')(class="fill")
+                        .caption.ps-1.text-nowrap this week
+                .income-item.d-flex.d-md-block.flex-row-reverse.justify-content-between.align-items-start.col.flex-shrink-0.me-8.pb-5.mb-5.pb-md-0.mb-md-0
+                  .bg-light-purple.p-3.rounded-circle.d-inline-block.no-lh.mb-4
+                    +i('arrow-up-down')(class='fill-neutrals-7')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-3
+                        | Engagement
+                        +info(class="ps-1")
+                      .counter.h2 1.2x
+                      +balance('37.8%', 'up')(class="fill")
+                        .caption.ps-1.text-nowrap this week
+                .income-item.d-flex.d-md-block.flex-row-reverse.justify-content-between.align-items-start.col.flex-shrink-0.me-8.pb-5.mb-5.pb-md-0.mb-md-0
+                  .bg-light-red.p-3.rounded-circle.d-inline-block.no-lh.mb-4
+                    +i('messages')(class='fill-neutrals-7')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-3
+                        | Comments
+                        +info(class="ps-1")
+                      .counter.h2 128
+                      +balance('16.2%', 'down')(class="fill")
+                        .caption.ps-1.text-nowrap this week
+                .income-item.d-flex.d-md-block.flex-row-reverse.justify-content-between.align-items-start.col.flex-shrink-0.me-8.pb-5.mb-5.pb-md-0.mb-md-0
+                  .bg-light-blue.p-3.rounded-circle.d-inline-block.no-lh.mb-4
+                    +i('mouse')(class='fill-neutrals-7')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-3
+                        | Link clicks
+                        +info(class="ps-1")
+                      .counter.h2 80
+                      +balance('98.6%', 'up')(class="fill")
+                        .caption.ps-1.text-nowrap this week
+
+      .card.mb-2.p-4.p-sm-5
+        .card-head.d-flex.align-items-start.align-items-sm-center.justify-content-between.mb-4.mb-md-6
+          .title.title-color.blue.me-5 Recent post
+          .ms-sm-auto.d-none.d-sm-flex.align-self-stretch.flex-nowrap
+            select.select.select-small
+              option All time
+              option In a year
+              option Per month
+            button.btn.btn-small.ms-4(data-bs-toggle="modal" data-bs-target="#modal-post") New post
+        .card-body.p-0
+          +promote_table(demo_recent_posts)
+                  

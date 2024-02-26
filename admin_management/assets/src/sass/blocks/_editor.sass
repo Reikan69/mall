@@ -1,0 +1,40 @@
+.editor
+  border-radius: 12px
+  border: 2px solid rgba($shades1, .25)
+  +dark
+    border: 2px solid rgba($shades1, .15)
+  &.has-button
+    .editor-container
+      padding-bottom: 60px
+  .editor-toolbar
+    background: $neutrals1
+    font-size: 0
+    border-radius: 8px 8px 0 0
+    +trans
+    +dark
+      background: $neutrals6
+    button
+      fill: $neutrals5
+      transform: scale(0.834)
+      +dark
+        fill: $neutrals4
+      &.ql-active
+        fill: $p_blue !important
+  .btn-comment
+    position: absolute
+    left: 12px
+    bottom: 12px
+    opacity: .75
+    &:hover
+      opacity: 1
+  .editor-container
+    min-height: 112px
+    background: $neutrals2
+    border-radius: 0 0 8px 8px
+    +trans
+    +dark
+      background: $neutrals8
+    +body-1
+    .ql-editor
+      font-family: 'Inter', Helvetica, Arial, sans-serif
+      padding: 12px

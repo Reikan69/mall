@@ -1,0 +1,240 @@
+=xxl
+  +media-breakpoint-down(xxl)
+    @content
+=xl
+  +media-breakpoint-down(xl)
+    @content
+=lg
+  +media-breakpoint-down(lg)
+    @content
+=md
+  +media-breakpoint-down(md)
+    @content
+=sm
+  +media-breakpoint-down(sm)
+    @content
+=xxl-up
+  +media-breakpoint-up(xxl)
+    @content
+=xl-up
+  +media-breakpoint-up(xl)
+    @content
+=lg-up
+  +media-breakpoint-up(lg)
+    @content
+=md-up
+  +media-breakpoint-up(md)
+    @content
+=sm-up
+  +media-breakpoint-up(sm)
+    @content
+
+=nl
+  &:not(:last-child)
+    @content
+
+=nf
+  &:not(:first-child)
+    @content
+
+=dark
+  body.dark &
+    @content
+
+=trans($what: all, $dur: .15s, $easing: ease)
+  transition: $what $dur $easing
+
+=rotate($var)
+  transform: rotate($var+deg)
+
+=dual-svg
+  use
+    +trans
+  use.fill
+    fill: none
+  use.stroke
+    fill: $neutrals4
+  &.active
+    use.fill
+      fill: $neutrals7
+      +dark
+        fill: $neutrals1
+    use.stroke
+      fill: none 
+  &.active-category
+    +xl
+      use.fill
+        fill: $neutrals7
+        +dark
+          fill: $neutrals1
+      use.stroke
+        fill: none 
+  &:hover:not(.active):not(.active-category)
+    use.stroke
+      fill: $neutrals7
+      +dark
+        fill: $neutrals1
+
+=dual-svg-toggle
+  .toggle-head
+    use
+      +trans
+    use.fill
+      fill: none
+    use.stroke
+      fill: $neutrals4
+  &:not(.active):hover
+    .toggle-head
+      use.stroke
+        fill: $neutrals7
+        +dark
+          fill: $neutrals1
+  &.active
+    .toggle-head
+      use.fill
+        fill: $neutrals7
+        +dark
+          fill: $neutrals1
+      use.stroke
+        fill: none 
+
+=collapse-fade
+  &[aria-expanded="true"]
+    + .show, + .collapsing
+      opacity: 1 
+  &[aria-expanded="false"]
+    + .collapse, + .collapsing
+      opacity: 0
+      display: block
+      visibility: hidden
+
+=inset-shadow-white
+  box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.25), inset 0px -1px 1px rgba(0, 0, 0, 0.04), inset 0px 2px 0px rgba(255, 255, 255, 0.25)
+  background-color: $neutrals1
+  +dark
+    box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.25), inset 0px -1px 1px rgba(0, 0, 0, 0.49), inset 0px 2px 1px rgba(255, 255, 255, 0.06)
+    background-color: $neutrals6
+
+=inset-shadow-white-min
+  box-shadow: inset 0px -1px 2px rgba(0, 0, 0, 0.05), inset 0px -1px 1px rgba(0, 0, 0, 0.04), inset 0px 2px 0px rgba(255, 255, 255, 0.25)
+  background-color: $neutrals1
+  +dark
+    box-shadow: inset 0px -1px 2px rgba(0, 0, 0, 0.05), inset 0px -1px 1px rgba(0, 0, 0, 0.04), inset 0px 1px 0px rgba(255, 255, 255, 0.08)
+    background-color: $neutrals6
+    
+=inset-shadow-grey
+  box-shadow: inset 0px -2px 1px rgba(0, 0, 0, 0.05), inset 0px 1px 1px #FFFFFF
+  background-color: $neutrals3
+  +dark
+    box-shadow: inset 0px -2px 1px rgba(0, 0, 0, 0.4), inset 0px 1px 1px rgba(255, 255, 255, 0.11)
+    background-color: $neutrals6
+
+=external-shadow
+  background-color: $neutrals0
+  border: 1px solid $neutrals1
+  box-shadow: 0px -13px 24px -7px rgba(0, 0, 0, 0.05), 0px 24px 40px -11px rgba(0, 0, 0, 0.1)
+  +dark
+    background: $neutrals7
+    border: 1px solid $neutrals6
+    box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.05), 0px 32px 48px -8px rgba(0, 0, 0, 0.1)
+
+=external-shadow-2
+  border: 1px solid $neutrals0
+  background-color: $neutrals1
+  box-shadow: 0px 40px 64px -12px rgba(0, 0, 0, 0.08), 0px 0px 14px -4px rgba(0, 0, 0, 0.05), 0px 32px 48px -8px rgba(0, 0, 0, 0.1)
+  +dark
+    background-color: $neutrals8
+    border: 1px solid $neutrals6
+
+=inter
+  font-family: 'Inter', sans-serif
+
+=title-1
+  letter-spacing: -.02em
+  font-weight: 500
+  font-size: 20px
+  line-height: (32/20)
+
+=title-semibold-1
+  letter-spacing: -.02em
+  font-weight: 600
+  font-size: 20px
+  line-height: (32/20)
+
+=base-semibold-1
+  letter-spacing: -.01em
+  font-weight: 600
+  font-size: 15px
+  line-height: (24/15)
+
+=base-bold-1
+  letter-spacing: -.01em
+  font-weight: bold
+  font-size: 15px
+  line-height: (24/15)
+
+=base-2
+  letter-spacing: -.01em
+  font-weight: 600
+  font-size: 14px
+  line-height: (24/14)
+
+=body-1
+  letter-spacing: -.015em
+  font-weight: 500
+  font-size: 15px
+  line-height: (24/15)
+
+=body-semibold-1
+  letter-spacing: -.01em
+  font-weight: 600
+  font-size: 15px
+  line-height: (24/15)
+
+=body-semibold-2
+  letter-spacing: -.01em
+  font-weight: 600
+  font-size: 14px
+  line-height: (24/14)
+
+=caption-1
+  letter-spacing: -.01em
+  font-weight: 600
+  font-size: 13px
+  line-height: (16/13)
+
+=caption-2
+  letter-spacing: -.01em
+  font-weight: bold
+  font-size: 12px
+  line-height: (16/12)
+
+=caption-md
+  letter-spacing: -.01em
+  font-weight: 500
+  font-size: 13px
+  line-height: (16/13)
+
+=caption-medium-2
+  letter-spacing: -.01em
+  font-weight: 500
+  font-size: 12px
+  line-height: 1
+
+=button-1
+  letter-spacing: -.01em
+  font-weight: bold
+  font-size: 15px
+  line-height: (24/15)
+
+=button-2
+  letter-spacing: -.01em
+  font-weight: bold
+  font-size: 13px
+  line-height: (24/13)
+
+=title-mobile
+  letter-spacing: -.01em
+  font-weight: 600
+  font-size: 18px
+  line-height: (24/18)

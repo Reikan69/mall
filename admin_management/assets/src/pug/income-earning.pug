@@ -1,0 +1,76 @@
+---
+title: Core - Earning
+currentUrl: income-earning
+category: income
+---
+
+extends layouts/layout
+
+block content
+  .page.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 Earning
+    .page-body
+      .row.g-0
+        .col-12
+          .income.card.mb-2.p-4.p-sm-5
+            .card-body.p-0
+              .income-list.row.gx-4.flex-nowrap.flex-column.flex-md-row
+                .income-item.d-flex.d-md-block.align-items-start.col.flex-shrink-0.me-8.pb-5.mb-5.pb-md-0.mb-md-0
+                  .bg-light-green.p-3.rounded-circle.d-inline-block.no-lh.mb-4.me-5
+                    +i('activity')(class='fill-neutrals-7')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-1
+                        | Earning
+                        +info(class="ps-1")
+                      .counter.h2 $128k
+                      +balance('37.8%', 'up')(class="fill")
+                        .caption.ps-1.text-nowrap this week
+                .income-item.d-flex.d-md-block.align-items-start.col.flex-shrink-0.me-8.pb-5.mb-5.pb-md-0.mb-md-0
+                  .bg-light-purple.p-3.rounded-circle.d-inline-block.no-lh.mb-4.me-5
+                    +i('pie-chart-stroke')(class='fill-neutrals-7')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-1
+                        | Balance
+                        +info(class="ps-1")
+                      .counter.h2 $512.64
+                      +balance('37.8%', 'down')(class="fill")
+                        .caption.ps-1.text-nowrap this week
+                .income-item.d-flex.d-md-block.align-items-start.col.flex-shrink-0
+                  .bg-light-blue.p-3.rounded-circle.d-inline-block.no-lh.mb-4.me-5
+                    +i('shopping-bag-stroke')(class='fill-neutrals-7')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-1
+                        | Total value of sales
+                        +info(class="ps-1")
+                      .counter.h2 $64k
+                      +balance('37.8%', 'up')(class="fill")
+                        .caption.ps-1.text-nowrap this week
+      .row.g-0
+        .col-lg-8.col-12.pe-lg-2
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.purple Product sales
+              select.select.select-small
+                option Last 7 days
+                option All time
+                option In a year
+                option Per month
+                
+            .chart.chart-product-sales
+              #product-sales
+
+        .col-lg-4.col-12
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.blue Top countries
+            +countries_table(demo_countries)
+
+      .row.g-0
+        .col
+          .card.mb-2
+            +income_earning_table(demo_earning)
+                

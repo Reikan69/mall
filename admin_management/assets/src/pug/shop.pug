@@ -1,0 +1,54 @@
+---
+title: Core - Shop
+currentUrl: shop
+---
+
+extends layouts/layout
+
+block content
+  .shop
+    .shop-background
+      img(src="img/content/bg-shop.jpg")
+    .mx-4.mx-md-5.mx-lg-7
+      .card.mb-2.p-4.p-sm-5.mx-auto.mb-6
+        .d-md-flex.align-items-start.border-bottom.pb-6.pb-lg-7.mb-6.mb-lg-7
+          .d-flex.align-items-center.mb-3.mb-md-0
+            .shop-userpic.flex-shrink-0.me-4
+              img.rounded-circle(src="img/content/user-1.jpg")
+              button.shop-userpic-add.d-flex.align-items-center.justify-content-center.bg-blue.rounded-circle
+                +i('plus')(class="fill-white icon-small flex-shrink-0")
+            .shop-details
+              .shop-details-username.h4 Chelsie Haley
+              .title.shop-details-caption.text-shades-2 Dream big. Think different. Do great!
+          .d-flex.align-items-center.ms-auto
+            a.link-hover.me-6(href="https://twitter.com/ui8" target='_blank')
+              +i('twitter')(class="fill-shades-1")
+            a.link-hover.me-6(href="https://www.instagram.com/ui8net/" target='_blank')
+              +i('instagram')(class="fill-shades-1")
+            a.link-hover.me-6(href="https://www.pinterest.com/ui8m/" target='_blank')
+              +i('pinterest')(class="fill-shades-1")
+            button.btn.ms-auto.ms-md-0 Follow
+
+        .d-sm-flex.mb-6
+          .nav.row.gx-4.mb-4.mb-sm-0
+            .btn-tab.btn-small.active.col.mx-2(data-bs-target="#tab-products" data-bs-toggle="tab") Products
+            .btn-tab.btn-small.col.mx-2(data-bs-target="#tab-followers" data-bs-toggle="tab") Followers
+            .btn-tab.btn-small.col.mx-2(data-bs-target="#tab-following" data-bs-toggle="tab") Following
+          .d-flex.ms-auto
+            select.select.select-small.tabs.select-wide
+              option Most recent
+              option Most new
+              option Most popular
+            .btn-stroke.btn-small.hover-fill.ms-4(data-bs-toggle="modal" data-bs-target="#modal-filter")
+              +i('filter')(class="fill-shades-1 mx-n2")
+
+        .products.tab-content
+          .tab-pane#tab-products.fade.active.show(role="tabpanel")
+            +shop_table_grid(demo_drafts)
+          .tab-pane#tab-followers.fade(role="tabpanel")
+            +shop_followers_table(demo_followers)
+          .tab-pane#tab-following.fade(role="tabpanel")
+            +shop_followers_table(demo_following)
+        
+
+          

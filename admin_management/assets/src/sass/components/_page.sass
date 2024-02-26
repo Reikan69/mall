@@ -1,0 +1,14 @@
+.page
+  min-height: calc(100vh - 96px)
+  display: flex
+  flex-direction: column
+  .page-head, .page-body, .page-footer .container
+    max-width: 1200px
+    width: 100%
+    margin: 0 auto
+  .page-footer
+    background-color: $neutrals1
+    box-shadow: inset 1px 0px 0px $neutrals2
+    +dark
+      background-color: $neutrals7
+      box-shadow: inset 1px 0px 0px $neutrals8

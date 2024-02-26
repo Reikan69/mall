@@ -1,0 +1,203 @@
+.btn-plus
+  display: inline-block
+  width: 24px
+  height: 24px
+  border: 2px solid $neutrals3
+  border-radius: 24px
+  display: flex
+  justify-content: center
+  align-items: center
+  svg.icon
+    height: 10px
+    width: 10px
+    stroke: $neutrals4
+  +trans
+  +dark
+    border: 2px solid $neutrals5
+  &:hover
+    +rotate(180)
+
+.btn, .btn-stroke, .btn-white, .btn-tab, .btn-delete
+  padding: 12px 20px
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  border: none
+  border-radius: 12px
+  cursor: pointer
+  white-space: nowrap
+  +button-1
+  +trans
+  &.disable
+    opacity: .5
+  svg.icon
+    fill: $neutrals1
+
+.btn
+  background: $p_blue
+  color: $neutrals1
+  border: none
+  .separator
+    &::after
+      content: ''
+      display: block
+      position: absolute
+      border-left: 1px solid #186FE3
+      border-right: 1px solid #4493FC
+      top: -12px
+      right: 0
+      height: 48px
+  &:hover
+    background: #3F91FF
+    color: $neutrals1
+
+.btn-stroke
+  color: $neutrals7
+  box-shadow: 0 0 0 2px $neutrals3 inset
+  +trans
+  &:hover
+    color: $neutrals7
+    box-shadow: 0 0 0 2px #DBDBDB inset
+  +dark
+    color: $neutrals1
+    box-shadow: 0 0 0 2px $neutrals6 inset
+    &:hover
+      box-shadow: 0 0 0 2px $neutrals4 inset
+  svg.icon
+    fill: $neutrals7
+    +dark
+      fill: $neutrals1
+  &.fill
+    background: $neutrals1
+    +dark
+      background: $neutrals7
+  &.hover-fill
+    &:hover
+      box-shadow: unset !important
+      background: $p_blue
+      color: $neutrals1 !important
+      svg.icon
+        fill: $neutrals1 !important
+
+.btn-white
+  color: $neutrals7
+  box-shadow: 0 0 0 2px $neutrals3 inset
+  background-color: $neutrals1
+  &-favorite
+    fill: $p_red
+
+.btn-small
+  padding: 8px 16px !important
+  border-radius: 8px !important
+  +button-2
+  svg.icon
+    transform: scale(0.834)
+
+.btn-rounded
+  cursor: pointer
+  border-radius: 100% !important
+  padding: 8px
+  line-height: 0
+  background-color: $neutrals2
+  fill: $neutrals5
+  +dark
+    box-shadow: unset
+    background-color: $neutrals6
+    fill: $neutrals3
+  &.btn-small
+    padding: 6px !important
+  svg.icon
+    transform: scale(0.834)
+  &.fill-white
+    background-color: $neutrals0
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06)
+  &.hover-fill
+    &:hover
+      box-shadow: unset !important
+      background: $p_blue
+      color: $neutrals1 !important
+      svg.icon
+        fill: $neutrals1 !important
+
+.btn-rounded-stroke
+  cursor: pointer
+  border-radius: 100% !important
+  padding: 16px
+  box-shadow: 0 0 0 2px $neutrals3 inset
+  fill: $neutrals4
+  line-height: 0
+  +trans
+  +dark
+    box-shadow: 0 0 0 2px $neutrals6 inset
+  &.btn-small
+    padding: 8px !important
+  &.hover-border
+    box-shadow: unset !important
+    &:hover
+      box-shadow: 0 0 0 2px $neutrals3 inset !important
+      +dark
+        box-shadow: 0 0 0 2px $neutrals6 inset !important
+
+.btn-action-small
+  cursor: pointer
+  padding: 6px !important
+  border-radius: 100%
+  fill: $neutrals4
+  line-height: 0
+  background-color: $neutrals1 !important
+  +trans
+  +dark
+    background-color: $neutrals7 !important
+  &.active, &:hover
+    fill: $p_blue
+  svg.icon
+    transform: scale(0.834)
+
+.btn-tab
+  color: $neutrals4
+  border-radius: 8px
+  +body-semibold-1
+  &.active
+    color: $neutrals7
+    background-color: $neutrals3
+    +dark
+      color: $neutrals1
+      background-color: $neutrals6
+
+.btn-sort
+  cursor: pointer
+  border-radius: 8px
+  padding: 8px
+  fill: $shades1
+  +trans
+  &.active
+    fill: $neutrals7
+    background: $neutrals1
+    box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.1), inset 0px -1px 1px rgba(0, 0, 0, 0.04), inset 0px 2px 0px rgba(255, 255, 255, 0.25)
+    +dark
+      fill: $neutrals1
+      background-color: $neutrals8
+      box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.1), inset 0px -1px 1px rgba(0, 0, 0, 0.04), inset 0px 2px 0px rgba(255, 255, 255, 0.05)
+
+.btn-delete
+  box-shadow: 0 0 0 2px $neutrals3 inset
+  color: $p_red
+  svg.icon
+    fill: $p_red
+  +dark
+    box-shadow: 0 0 0 2px $neutrals6 inset
+  &:hover
+    box-shadow: 0 0 0 2px $p_red inset !important
+    color: $neutrals0
+    background: $p_red
+    svg.icon
+      fill: $neutrals0
+
+.btn-favorite
+  .fill
+    display: none
+  &.active
+    .fill
+      display: block
+    .stroke
+      display: none

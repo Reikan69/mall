@@ -1,0 +1,62 @@
+.help-sidebar
+  overflow-x: hidden
+  max-width: 340px
+  max-height: 100vh
+  height: 100%
+  width: 100%
+  background-color: $neutrals2
+  -webkit-overflow-scrolling: touch
+  transform: translateX(-100%)
+  z-index: 1015
+  box-shadow: 4px 0 10px 4px rgba(0, 0, 0, 0.05)
+  +trans
+  &.active
+    transform: translateX(0)
+  +sm
+    max-width: 100%
+  +dark
+    background-color: $neutrals8
+  .sidebar-text
+    white-space: nowrap
+    +body-semibold-1
+
+  .help-head
+    color: $neutrals7
+    fill: $neutrals7
+    +dark
+      color: $neutrals1
+      fill: $neutrals1
+
+  .help-list
+    .item
+      +trans
+      border-radius: 12px
+      &:hover
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1)
+        background-color: $neutrals1
+        +dark
+          box-shadow: unset
+          background-color: $neutrals7
+      .thumb
+        width: 96px
+        height: 72px
+        margin-right: 16px
+        img
+          width: 100%
+          border-radius: 8px
+      .description
+        .help-title
+          +body-semibold-1
+          color: $neutrals7
+          +dark
+            color: $neutrals1
+  .nav
+    .nav-link
+      color: $neutrals4
+      fill: $neutrals4
+      &:hover
+        color: $neutrals7
+        fill: $neutrals7
+        +dark
+          color: $neutrals1
+          fill: $neutrals1

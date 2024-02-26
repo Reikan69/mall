@@ -1,0 +1,239 @@
+---
+title: Core - Products dashboard
+category: products
+---
+
+extends layouts/layout
+
+block content
+  .page.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 New product
+    .page-body.pb-4.pb-xl-6
+      .row.g-0
+        .col-lg-8.col-12.pe-lg-2
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.green Name & description
+              a.btn-stroke.btn-small(href="products-dashboard.html")
+                +i('arrow-left')(class="me-1")
+                span Back
+            .card-body.p-0
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Product title 
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              input.form-control.mb-5.mb-sm-6(type="text")
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Description
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              +editor
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Key features
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              .row.g-3
+                .col-12.col-sm-6
+                  input.form-control(type="text" placeholder="Value")
+                .col-12.col-sm-6
+                  input.form-control(type="text" placeholder="Value")
+                .col-12.col-sm-6
+                  input.form-control(type="text" placeholder="Value")
+                .col-12.col-sm-6
+                  input.form-control(type="text" placeholder="Value")
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.green Images & CTA
+            .card-body.p-0
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Cover images
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              .input-file.mb-5.mb-sm-6
+                button.btn-stroke
+                  +i('upload')(class="me-2")
+                  | Click or drop image
+                input(type="file")
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Category
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              select.select.select-wide
+                option Select category
+                option Сategory 1
+                option Сategory 2
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.blue Price
+            .card-body.p-0
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Amount
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              .input-group.mb-5.mb-sm-6
+                button.input-group-text $
+                input.form-control.rounded-2(type="text")
+
+              .border-bottom.caption.d-flex.align-items-center.mb-4.pb-4.text-reset.fs-8
+                | Allow customers to pay they want
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+                .form-check.form-switch.ms-auto
+                  input.form-check-input(type="checkbox")
+
+              .row.g-3
+                .col-12.col-sm-6
+                  .caption.mb-3 Minimum amount
+                  .input-group
+                    button.input-group-text $
+                    input.form-control.rounded-2(type="text")
+                .col-12.col-sm-6
+                  .caption.mb-3 Suggested amount
+                  .input-group
+                    button.input-group-text $
+                    input.form-control.rounded-2(type="text")
+                    
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.purple Category & attibutes
+            .card-body.p-0
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Category
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              select.select.select-wide.mb-5.mb-sm-6
+                option Select category
+                option Сategory 1
+                option Сategory 2
+
+              .caption.d-inline-flex.align-items-center.mb-3.text-reset.fs-8
+                | Compatibility
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              .row.gx-3.mb-5
+                .col-6.col-md-4
+                  .form-check.mb-4
+                    label.form-check-label Sketch
+                      input.form-check-input.me-3(type="checkbox")
+                  .form-check.mb-4
+                    label.form-check-label Figma
+                      input.form-check-input.me-3(type="checkbox")
+                  .form-check.mb-4
+                    label.form-check-label Adobe XD
+                      input.form-check-input.me-3(type="checkbox")
+                  .form-check.mb-4
+                    label.form-check-label Photoshop
+                      input.form-check-input.me-3(type="checkbox")
+                  .form-check.mb-4
+                    label.form-check-label Cinema 4D
+                      input.form-check-input.me-3(type="checkbox")
+                .col-6.col-md-4
+                  .form-check.mb-4
+                    label.form-check-label WordPress
+                      input.form-check-input.me-3(type="checkbox")
+                  .form-check.mb-4
+                    label.form-check-label HTML
+                      input.form-check-input.me-3(type="checkbox")
+                  .form-check.mb-4
+                    label.form-check-label Keynote
+                      input.form-check-input.me-3(type="checkbox")
+                  .form-check.mb-4
+                    label.form-check-label Maya
+                      input.form-check-input.me-3(type="checkbox")
+                  .form-check.mb-4
+                    label.form-check-label Blender
+                      input.form-check-input.me-3(type="checkbox")
+                .col-6.col-md-4
+                  .form-check.mb-4
+                    label.form-check-label Procreate
+                      input.form-check-input.me-3(type="checkbox")
+                  .form-check.mb-4
+                    label.form-check-label Illustrator
+                      input.form-check-input.me-3(type="checkbox")
+                  .form-check.mb-4
+                    label.form-check-label Framer
+                      input.form-check-input.me-3(type="checkbox")
+                  .form-check.mb-4
+                    label.form-check-label In Design
+                      input.form-check-input.me-3(type="checkbox")
+                  .form-check.mb-4
+                    label.form-check-label After Effect
+                      input.form-check-input.me-3(type="checkbox")
+
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Tags
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+                .caption.ms-auto
+                  span.text-reset 1
+                  | /12 tags
+              .tags(name="tags" placeholder="Enter tags to describe your item" value='tag1, tag2 autofocus')
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.blue Product files
+            .card-body.p-0
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Content
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              .input-file.mb-5.mb-sm-6
+                button.btn-stroke
+                  +i('upload')(class="me-2")
+                  | Click or drop image
+                input(type="file")
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Fonts
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              .input-file.mb-5.mb-sm-6
+                button.btn-stroke
+                  +i('upload')(class="me-2")
+                  | Click or drop image
+                input(type="file")
+
+          .card.mb-2.p-4.p-sm-5
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.red Discussion
+            .card-body.p-0
+              .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+                | Message to reviewer
+                +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+              +editor
+
+        .col-lg-4.col-12
+          .card.preview.d-none.d-lg-block.mb-2.p-4.p-sm-5.sticky
+            .card-head.d-flex.align-items-center.justify-content-between.mb-5.mb-sm-6
+              .title.title-color.blue Preview
+              +i('expand')
+            .card-body.p-0
+              .preview-photo.mb-4
+                img(src="/img/content/photo-1.jpg", alt="")
+              .preview-title.d-flex.align-items-start.mb-2
+                | Fleet - Travel shopping UI design kit
+                .badge.large.green.ms-3 $98
+              .preview-user.d-flex.align-items-center
+                .preview-userpic.me-2
+                  img(src="/img/content/user-1.jpg", alt="Hortense")
+                span.me-1.text-shades-1 by 
+                b Hortense
+
+
+    .page-footer.p-4.p-sm-5.px-xl-7.mx-n4.mx-sm-n5.mx-xl-n7.mt-auto
+     .container.p-0.d-block.d-sm-flex
+      .d-flex.align-items-center.mb-4.mb-sm-0
+        +i('check-all')(class="fill-shades-2 me-3")
+        span.caption.pe-1 Last saved
+        span.caption.text-reset Oct 4, 2021 - 23:32
+
+      .d-flex.ms-auto
+        button.btn-stroke.flex-grow-1 Save Draft
+        button.btn.ms-2.flex-grow-1 Publish now
+        .action-item.ms-2
+          button.action-head.btn-stroke.p-3
+            +i('more-vertical')
+          .action-body.top.p-3
+            button.action-item.d-block.d-lg-none(data-bs-toggle="modal" data-bs-target="#modal-preview")
+              +i('expand')
+              | Preview
+            button.action-item(data-bs-toggle="modal" data-bs-target="#modal-datepicker")
+              +i('calendar')
+              | Schedule product
+            button.action-item
+              +i('link')
+              | Get shareable link
+            button.action-item
+              +i('close')
+              | Clear data
+          

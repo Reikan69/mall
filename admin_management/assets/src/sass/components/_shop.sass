@@ -1,0 +1,74 @@
+.shop
+  .shop-background
+    img
+      object-fit: cover
+      width: 100%
+      height: 400px
+      +sm
+        height: 252px
+  .shop-userpic
+    position: relative
+    width: 80px
+    height: 80px
+    img
+      width: 100%
+    button.shop-userpic-add
+      position: absolute
+      line-height: 0
+      height: 24px
+      width: 24px
+      right: 0
+      bottom: 0
+      +trans
+      border: 2px solid $neutrals0
+      +dark
+        border-color: $neutrals7
+  .shop-details
+    .shop-details-username
+      +sm
+        font-size: 20px
+    .shop-details-caption
+      +sm
+        font-size: 15px
+
+  .card
+    max-width: 1020px
+    margin-top: -64px
+    +sm
+      margin-top: -188px
+
+  .followers
+    .followers-userpic
+      width: 80px
+      height: 80px
+      img
+        width: 100%
+
+    .followers-details
+      .followers-name
+        +title-semibold-1
+      .followers-info
+        & > div
+          +nf
+            position: relative
+            &::before
+              position: absolute
+              content: ''
+              background: $neutrals3
+              display: block
+              height: 8px
+              width: 2px
+              left: -2px
+              top: 60%
+              transform: translateY(-50%)
+              +trans
+              +dark
+                background: $neutrals6
+    .followers-preview
+      width: 148px
+      height: 116px
+      img
+        object-fit: cover
+        width: 100%
+        height: 100%
+

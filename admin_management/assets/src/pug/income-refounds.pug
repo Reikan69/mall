@@ -1,0 +1,21 @@
+---
+title: Core - Refunds
+currentUrl: income-refounds
+category: income
+---
+
+extends layouts/layout
+
+block content
+  .page.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 Refunds
+    .page-body.pb-4.pb-xl-6
+      .card.mb-2.p-4.p-sm-5
+        .card-head.d-flex.align-items-start.align-items-sm-center.justify-content-between.flex-column.flex-sm-row.mb-2.mb-sm-7
+          .title.title-color.purple.me-5.mb-4.mb-sm-0 Refund requests
+          .nav.row.gx-4.ms-sm-auto.flex-nowrap.d-flex.mb-4.mb-sm-0.align-self-stretch
+            .btn-tab.btn-small.active.col.mx-2(data-bs-toggle="tab") Open requests
+            .btn-tab.btn-small.col.mx-2(data-bs-toggle="tab") Closed requests
+        .card-body.p-0
+          +refounds_table(demo_refounds)

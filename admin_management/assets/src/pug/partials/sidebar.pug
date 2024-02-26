@@ -1,0 +1,113 @@
+aside.sidebar.d-flex.flex-column.position-fixed.flex-nowrap.p-5
+
+  button.close-sidebar.js-close-sidebar.position-absolute
+    +i('close')
+
+  a.logo.flex-shrink-0(href="index.html")
+    img.logo-dark(src="img/logo-dark.png")
+    img.logo-light(src="img/logo-light.png")
+
+  .nav.nav-pills.flex-column.mb-auto.mt-8.menu
+    .nav-item.mb-2
+      a.nav-link.d-flex.align-items-center.p-3(href="index.html" class={active: currentUrl === 'index' })
+        +i_d('home')(class="icon-item")
+        | Home
+    .nav-item.mb-2
+      .nav-link.d-flex.align-items-center.p-3(data-bs-target="#sidebar-products-collapse" data-bs-toggle="collapse" class={'active-category': category === 'products', 'collapsed': category !== 'products' })
+        +i_d('diamond')(class="icon-item")
+        | Products
+        +i('cheveron')(class="ms-auto arrow")
+      #sidebar-products-collapse.collapse.submenu(data-bs-parent=".sidebar" class={'show': category === 'products'})
+        .wrapper
+          a.nav-link.d-flex.align-items-center.p-3(href="products-dashboard.html" class={active: currentUrl === 'products-dashboard' })
+            | Dashboard
+            if currentUrl === 'products-dashboard'
+              +i('cheveron')(class="ms-auto")
+          a.nav-link.d-flex.align-items-center.p-3(href="products-drafts.html" class={active: currentUrl === 'products-drafts' })
+            | Drafts
+            .badge.red.ms-auto 2
+          a.nav-link.d-flex.align-items-center.p-3(href="products-released.html" class={active: currentUrl === 'products-released' })
+            | Released
+            if currentUrl === 'products-released'
+              +i('cheveron')(class="ms-auto")
+          a.nav-link.d-flex.align-items-center.p-3(href="products-comments.html" class={active: currentUrl === 'products-comments' })
+            | Comments
+            if currentUrl === 'products-comments'
+              +i('cheveron')(class="ms-auto")
+          a.nav-link.d-flex.align-items-center.p-3(href="products-scheduled.html" class={active: currentUrl === 'products-scheduled' })
+            | Scheduled
+            .badge.green.ms-auto 8
+      a.btn-plus(href="products-add.html")
+        +i('min-plus')
+
+    .nav-item.mb-2
+      .nav-link.d-flex.align-items-center.p-3.collapsed(data-bs-target="#sidebar-customers-collapse" data-bs-toggle="collapse" class={'active-category': category === 'customers', 'collapsed': category !== 'customers' })
+        +i_d('profile-circled')(class="icon-item")
+        | Customers
+        +i('cheveron')(class="ms-auto arrow")
+      #sidebar-customers-collapse.collapse.submenu(data-bs-parent=".sidebar" class={'show': category === 'customers'})
+        .wrapper
+          a.nav-link.d-flex.align-items-center.p-3(href="customers-overview.html" class={active: currentUrl === 'customers-overview' })
+            | Overview
+            if currentUrl === 'customers-overview'
+              +i('cheveron')(class="ms-auto")
+          a.nav-link.d-flex.align-items-center.p-3(href="customer-list.html" class={active: currentUrl === 'customer-list' })
+            | Customer list
+            if currentUrl === 'customer-list'
+              +i('cheveron')(class="ms-auto")
+
+    .nav-item.mb-2
+      a.nav-link.d-flex.align-items-center.p-3(href="shop.html" class={active: currentUrl === 'shop' })
+        +i_d('store')(class="icon-item")
+        | Shop
+
+    .nav-item.mb-2
+      .nav-link.d-flex.align-items-center.p-3.collapsed(data-bs-target="#sidebar-income-collapse" data-bs-toggle="collapse" class={'active-category': category === 'income', 'collapsed': category !== 'income' })
+        +i_d('pie-chart')(class="icon-item")
+        | Income
+        +i('cheveron')(class="ms-auto arrow")
+      #sidebar-income-collapse.collapse.submenu(data-bs-parent=".sidebar" class={'show': category === 'income'})
+        .wrapper
+          a.nav-link.d-flex.align-items-center.p-3(href="income-earning.html" class={active: currentUrl === 'income-earning' })
+            | Earning
+            if currentUrl === 'income-earning'
+              +i('cheveron')(class="ms-auto")
+          a.nav-link.d-flex.align-items-center.p-3(href="income-refounds.html" class={active: currentUrl === 'income-refounds' })
+            | Refunds
+            if currentUrl === 'income-refounds'
+              +i('cheveron')(class="ms-auto")
+          a.nav-link.d-flex.align-items-center.p-3(href="income-payouts.html" class={active: currentUrl === 'income-payouts' })
+            | Payouts
+            if currentUrl === 'income-payouts'
+              +i('cheveron')(class="ms-auto")
+          a.nav-link.d-flex.align-items-center.p-3(href="income-statements.html" class={active: currentUrl === 'income-statements' })
+            | Statements
+            if currentUrl === 'income-statements'
+              +i('cheveron')(class="ms-auto")
+
+    .nav-item.mb-2
+      a.nav-link.d-flex.align-items-center.p-3(href="promote.html" class={active: currentUrl === 'promote' })
+        +i_d('promote')(class="icon-item")
+        | Promote
+
+  button.arrow-show.js-show-sidebar.p-3.mb-3.d-block.d-xl-none
+    +i('arrow')
+
+  .border-top.bottom.pt-4
+    .help-block.js-help-sidebar.d-flex.align-items-center.p-3.nav-link
+      +i('help')(class="icon-item")
+      | Help & getting started
+      .badge.purple.ms-auto.d-none.d-xl-block 8
+
+    input#switch-theme-input(type="checkbox")
+    label.switch-theme.js-theme-switch.d-flex(for="switch-theme-input")
+      .mode-light.d-flex.flex-fill.align-items-center.justify-content-center
+        .theme-icon
+          +i_d('sun')
+        .theme-text Light
+      .mode-dark.d-flex.flex-fill.align-items-center.justify-content-center
+        .theme-icon
+          +i_d('moon')
+        .theme-text Dark
+
+    

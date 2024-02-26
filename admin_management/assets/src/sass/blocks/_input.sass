@@ -1,0 +1,189 @@
+input.form-control
+  +trans
+  +body-semibold-1
+  padding: 12px
+  outline: none
+  color: $neutrals7
+  background-color: $neutrals2
+  +dark
+    background-color: $neutrals6
+    color: $neutrals1
+    &::placeholder
+      color: $shades3
+
+  &:focus
+    box-shadow: 0 0 0 2px $p_blue inset !important
+    +dark
+      background-color: $neutrals8
+
+  &.input-small
+    padding: 8px 16px
+
+  &.input-action
+    caret-color: #2A85FF
+    padding: 8px 16px
+    &:focus
+      box-shadow: 0 0 0 2px $shades1 inset !important
+      +dark
+        box-shadow: 0 0 0 2px $neutrals4 inset !important
+
+.input-group
+  position: relative
+  .input-group-text
+    position: absolute
+    z-index: 10
+    padding: 0 8px
+    top: 2px
+    bottom: 2px
+    fill: $neutrals4
+    width: 40px
+    display: flex
+    align-items: center
+    justify-content: center
+    background: $neutrals2
+    +trans
+    +dark
+      background: $neutrals7
+    +nl
+      left: 2px
+    +nf
+      right: 2px
+    &.transparent
+      background-color: transparent !important
+  &.error, &.success
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      width: 48px
+      z-index: 10
+  &.error
+    input
+      background: rgba($s_red, .1) !important
+      color: $p_red !important
+      +dark
+        box-shadow: 0 0 0 2px $p_red inset !important
+    &::after
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3E%3Cpath d='M12 15a1 1 0 0 0 1-1V9a1 1 0 1 0-2 0v5a1 1 0 0 0 1 1zm7.675 2.504L12.87 5.563a1 1 0 0 0-1.738 0L4.327 17.504A1 1 0 0 0 5.196 19h13.61a1 1 0 0 0 .869-1.495zM14.607 4.573c-1.151-2.019-4.062-2.019-5.213 0L2.589 16.514C1.45 18.514 2.894 21 5.196 21h13.61c2.302 0 3.746-2.486 2.606-4.485L14.607 4.573z' fill-rule='evenodd' fill='%23ff6a55'/%3E%3Cpath d='M13 17a1 1 0 1 1-2 0 1 1 0 1 1 2 0z' fill='%23ff6a55'/%3E%3C/svg%3E") no-repeat 50% 50% / 24px auto
+  &.success
+    &::after
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M20.707 6.293a1 1 0 0 1 0 1.414l-8.586 8.586a3 3 0 0 1-4.243 0l-3.586-3.586a1 1 0 0 1 1.414-1.414l3.586 3.586a1 1 0 0 0 1.414 0l8.586-8.586a1 1 0 0 1 1.414 0z' fill='%2383bf6e'/%3E%3C/svg%3E") no-repeat 50% 50% / 24px auto
+
+  button.input-group-text:hover
+    fill: $p_blue
+
+  input.form-control
+    padding-left: 48px
+    &.input-small
+      padding: 8px 16px 8px 40px
+
+.input-file
+  height: 200px
+  width: 100%
+  border-radius: 12px
+  display: flex
+  align-items: center
+  justify-content: center
+  position: relative
+  overflow: hidden
+  background: $neutrals2
+  +trans
+  +dark
+    background: $neutrals6
+  input
+    cursor: pointer
+    opacity: 0
+    position: absolute
+    left: 0
+    bottom: 0
+    top: 0
+    right: 0
+    width: 100%  
+  button
+    background: $neutrals1
+    border: 2px solid $neutrals3
+    box-shadow: 0px 12px 13px -6px rgba(0, 0, 0, 0.04)
+    +trans
+    +dark
+      background: $neutrals7
+      border: 2px solid $neutrals6
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 12px 13px -6px rgba(0, 0, 0, 0.04), inset 0px 2px 4px #31353B
+
+.form-switch
+  padding-bottom: 0
+  .form-check-input
+    width: 48px
+    height: 24px
+    visibility: hidden
+    position: relative
+    padding: 0 !important
+    &:checked
+      &::after
+        transform: translateX(calc(100% + 6px))
+        background: $neutrals2 !important
+      &::before
+        background: $p_blue !important
+    &::before, &::after
+      +trans
+      content: ''
+      display: block
+      visibility: visible
+      position: absolute
+      border-radius: 32px
+    &::before
+      width: 48px
+      height: 24px
+      background: $neutrals2
+      +dark
+        background: $neutrals8
+    &::after
+      width: 20px
+      height: 20px
+      top: 2px
+      transform: translateX(2px)
+      background: $neutrals1
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2), inset 0px 2px 2px #FFFFFF, inset 0px -1px 1px rgba(0, 0, 0, 0.1)
+      +dark
+        background: $neutrals6
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2), inset 0px 1px 2px rgba(255, 255, 255, 0.1), inset 0px -1px 1px rgba(0, 0, 0, 0.1)
+
+textarea
+  overflow: hidden
+  width: 100%
+  min-height: 20px
+  padding: 0
+  resize: none
+  background: none
+  border: none
+  outline: none
+  +body-semibold-1
+  color: $neutrals5 !important
+  +dark
+    color: $neutrals3 !important
+  &.textarea-transparent
+    &::placeholder
+      color: $shades4
+      +dark
+        color: $shades2
+
+.input-code
+  input
+    width: 100%
+    height: 72px
+    padding: 0 6px
+    border-radius: 12px
+    text-align: center
+    font-weight: 600
+    font-size: 48px
+    line-height: 1
+    letter-spacing: -.03em
+    &:focus
+      box-shadow: 0 0 0 2px $shades1 inset !important
+      +dark
+        box-shadow: 0 0 0 2px $shades2 inset !important
+
+
+
+

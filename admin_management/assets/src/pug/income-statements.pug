@@ -1,0 +1,58 @@
+---
+title: Core - Statements
+currentUrl: income-statements
+category: income
+---
+
+extends layouts/layout
+
+block content
+  .page.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 Statements
+    .page-body
+      .row.g-0
+        .col-12
+          .income.card.mb-2.p-4.p-sm-5
+            .card-body.p-0
+              .income-list.row.gx-4.flex-nowrap.flex-column.flex-md-row
+                .income-item.d-flex.d-md-block.align-items-start.col.flex-shrink-0.me-8.pb-5.mb-5.pb-md-0.mb-md-0
+                  .bg-light-green.p-3.rounded-circle.d-inline-block.no-lh.mb-4.me-5
+                    +i('activity')(class='fill-neutrals-7')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-3
+                        | Funds
+                        +info(class="ps-1")
+                      .counter.h2 $128,789
+                .income-item.d-flex.d-md-block.align-items-start.col.flex-shrink-0.me-8.pb-5.mb-5.pb-md-0.mb-md-0
+                  .bg-light-purple.p-3.rounded-circle.d-inline-block.no-lh.mb-4.me-5
+                    +i('pie-chart-stroke')(class='fill-neutrals-7')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-3
+                        | Earning
+                        +info(class="ps-1")
+                      .counter.h2 $128,789
+                .income-item.d-flex.d-md-block.align-items-start.col.flex-shrink-0
+                  .bg-light-blue.p-3.rounded-circle.d-inline-block.no-lh.mb-4.me-5
+                    +i('donut-chart')(class='fill-neutrals-7')
+                  .d-flex
+                    .stock-details
+                      .stock-caption.caption.d-flex.align-items-center.mb-3
+                        | Fees
+                        +info(class="ps-1")
+                      .counter.h2 $338.98
+
+      .card.mb-2
+        .card-head.d-flex.align-items-start.align-items-sm-center.justify-content-between.flex-column.flex-sm-row.p-4.p-sm-5
+          .title.title-color.blue.me-5.mb-4.mb-sm-0 Transactions
+          .ms-sm-auto.flex-nowrap.d-flex.align-self-stretch
+            select.select.select-small.select-sm-wide
+              option All time
+              option In a year
+              option Per month
+            button.btn.btn-small.ms-4 Download SCV
+        .card-body.p-0
+          +income_transactions_table(demo_transactions)
+                

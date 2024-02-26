@@ -1,0 +1,170 @@
+.datepicker
+  border-radius: 16px
+  +external-shadow
+  margin: 0 auto
+  max-width: 408px
+  +sm
+    max-width: 396px
+  .card-head
+    button
+      background: $neutrals3 
+      svg.icon
+        fill: $neutrals5 
+      +dark
+        background: $neutrals6 
+        svg.icon
+          fill: $neutrals3 
+  .card-body
+    color: $neutrals4
+
+  .action-item
+    border-radius: 12px
+    border: 2px solid $neutrals3
+    position: unset
+    +trans
+    +dark
+      border: 2px solid $neutrals6
+    &:hover
+      border: 2px solid $p_blue !important
+    &.active
+      border: 2px solid $p_blue !important
+      .action-head
+        svg.icon
+          fill: $neutrals7 !important
+          +dark
+            fill: $neutrals1 !important
+    input[type="text"]
+      +body-semibold-1
+      +dark
+        color: $neutrals1
+    .action-head
+      cursor: pointer
+      svg.icon
+        +trans
+        fill: $neutrals4
+      input[type="text"]
+        pointer-events: none
+        border: none !important
+        background-color: transparent !important
+        &:focus
+          box-shadow: unset !important
+
+    .action-body
+      +external-shadow
+      border-radius: 16px
+      width: 370px !important
+      left: calc(100% + 8px)
+      top: -10px
+      +xl
+        left: 50%
+        transform: translate(-50%, 10px)
+        top: unset
+      +sm
+        top: 0
+
+      .card-head
+        color: $neutrals7
+        +dark
+          color: $neutrals1
+        button
+          width: auto
+          svg.icon
+            margin: 0
+
+      .datepicker-time-list
+        max-height: 290px
+        overflow-x: hidden
+        padding-left: 0
+        li
+          +base-semibold-1
+          padding: 0 12px
+          list-style-type: none
+          cursor: pointer
+          line-height: 40px
+          border-radius: 4px
+          +trans
+          &:hover, &.selected
+            background: $neutrals3
+            color: $neutrals7
+            box-shadow: none
+            +dark
+              background: $neutrals6
+              color: $neutrals1
+
+      .date-picker-wrapper
+        padding: 0
+        z-index: 20
+        background: none
+        border: none
+        width: 100%
+        +inter
+        .month-wrapper
+          border: none
+          background: none
+          padding: 24px 24px 0 24px
+          thead
+            .caption
+              +title-semibold-1
+              color: $neutrals7
+              padding-bottom: 24px
+              margin-bottom: 12px
+              border-bottom: 1px solid $neutrals3
+              +dark
+                color: $neutrals1
+                border-bottom: 1px solid $neutrals6
+              .month-name
+                text-transform: capitalize !important
+                width: 100%
+              .prev, .next
+                padding: 0
+                &:hover
+                  background: none
+                  svg 
+                    path
+                      fill: $p_blue !important
+              .prev
+                margin-right: -12px
+              .next
+                margin-left: -12px
+          .week-name
+            th
+              +caption-2
+          table
+            width: 100%
+            thead, tbody
+              width: 100%
+            tr
+              height: 46px
+              display: flex
+              align-items: center
+              justify-content: space-around
+            td
+              height: 100%
+              display: flex
+              align-items: center
+              justify-content: center
+              flex: 1
+            .day.valid.toMonth
+              border-radius: 100%
+              color: $neutrals7
+              height: 90%
+              width: 90%
+              padding: 0
+              margin: 0
+              display: flex
+              align-items: center
+              justify-content: center
+              +base-semibold-1
+              +trans
+              +dark
+                color: $neutrals1
+              &:hover:not(.checked)
+                background: $neutrals3
+                color: $neutrals5 !important
+                +dark
+                  background: $neutrals6
+                  color: $neutrals3 !important
+            .real-today
+              background: $neutrals2
+              color: $neutrals7 !important
+          

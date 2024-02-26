@@ -1,0 +1,192 @@
+.message-block, .message-card
+  &.active
+    .message-chat
+      visibility: visible
+      opacity: 1
+      .message-chat-header
+        +md
+          border-bottom: 1px solid $neutrals3
+          +dark
+            border-color: $neutrals6
+  .message-userpic
+    width: 56px
+    height: 56px
+    &.small-userpic
+      width: 48px
+      height: 48px
+
+  .message-users
+    max-width: 340px
+    +trans
+    +lg
+      width: 100%
+      max-width: 100%
+    .message-tabs
+      background: $neutrals2
+      +dark
+        background: $neutrals8
+      +trans
+      .tabs
+        .tab
+          z-index: 10
+          +trans
+          color: $neutrals4
+          fill: $neutrals4
+          &.active
+            color: $neutrals7
+            fill: $neutrals7
+            +dark
+              color: $neutrals1
+              fill: $neutrals1
+    .message-list
+      overflow: auto
+      .userpic.online::after
+        border-color: $neutrals0
+        +dark
+          border-color: $neutrals7
+  .message-chat
+    +lg
+      visibility: hidden
+      opacity: 0
+      position: absolute
+      border: none !important
+      left: 0
+      top: 0
+      z-index: 20
+      height: 100%
+      background: $neutrals0
+      +dark
+        background: $neutrals7
+    .message-chat-header
+      +trans
+      background: $neutrals2
+      +lg
+        background: $neutrals0
+      +dark
+        background: $neutrals6
+        +lg
+          background: $neutrals7
+      .message-chat-info
+        & > div
+          +nf
+            position: relative
+            &::before
+              position: absolute
+              content: ''
+              background: rgba($shades4, .51)
+              display: block
+              height: 12px
+              width: 2px
+              left: -2px
+              top: 50%
+              transform: translateY(-50%)
+              border-radius: 2px
+              +dark
+                background: $neutrals5
+      .action-btn, .message-close
+        height: 40px
+        width: 40px
+        background: $neutrals0
+        +trans
+        +dark
+          background: rgba($neutrals8, .5)
+          svg.icon
+            fill: $neutrals4
+          +lg
+            background: $neutrals6
+  .message-wrapper
+    height: calc(100% - 72px)
+    padding-bottom: 96px
+    +lg
+      padding-bottom: 58px
+    .message-chat-body
+      overflow: auto
+      +lg
+      .message-userpic
+        width: 40px
+        height: 40px
+    .message-chat-send
+      input.form-control
+        padding: 12px !important
+      .input-group-text
+        background: transparent !important
+        button.btn
+          padding: 8px 14px !important
+          margin-right: 24px
+      input[type="file"]
+        cursor: pointer
+        position: absolute
+        top: 0
+        left: 0
+        opacity: 0
+        height: 24px
+        width: 24px
+      svg.icon
+        fill: $shades2
+      .smileys-actions
+        .smileys-body
+          transform: translateX(-50%)
+          left: 50%
+          top: auto !important
+          bottom: calc(100% + 10px)
+          flex-wrap: wrap
+          width: 136px
+
+.message-block
+  height: 700px
+  +lg
+    height: calc(100vh - 196px)
+
+.message-list
+  .item
+    border-radius: 12px
+    +trans
+    +nl
+      margin-bottom: 8px
+    &.active, &:hover
+      background-color: $neutrals3
+      .userpic.online::after
+        border-color: $neutrals3
+      +dark
+        background-color: $neutrals6
+        .userpic.online::after
+          border-color: $neutrals6
+    &.new
+      &::after
+        background-color: $p_blue
+    &::after
+      content: ''
+      position: absolute
+      right: 12px
+      top: 20px
+      width: 12px
+      height: 12px
+      border-radius: 12px
+      background-color: $shades1
+    .content
+      max-width: calc(100% - 64px)
+    .userpic
+      height: 56px
+      width: 56px
+      img
+        border-radius: 56px
+      &.online
+        &::after
+          content: ''
+          position: absolute
+          height: 20px
+          width: 20px
+          left: -2px
+          top: -2px
+          border-radius: 16px
+          border: 4px solid $neutrals0
+          background-color: $p_green
+          +trans
+          +dark
+            border: 4px solid $neutrals8
+    .item-title
+      .name
+        +base-bold-1
+        color: $neutrals7
+        +dark
+          color: $neutrals1

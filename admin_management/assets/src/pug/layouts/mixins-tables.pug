@@ -1,0 +1,880 @@
+mixin market_table(products)
+  .row.g-0
+    .sheet-table.d-block.d-md-table
+      .border-bottom.d-none.d-md-table-row
+        .checkbox-cell.d-table-cell.py-4.px-3
+          input(class="form-check-input" data-group-checkbox="product" type="checkbox")
+        .d-table-cell.pb-4.px-3.caption Product
+        .d-table-cell.pb-4.px-3.caption Status
+        .d-table-cell.pb-4.px-3.caption Price
+        .d-table-cell.pb-4.px-3.caption Sales
+        .d-table-cell.pb-4.px-3.caption Views
+        .d-none.d-lg-table-cell.pb-4.px-3.caption Likes
+      each product in products
+        .border-bottom.sheet-row.position-relative.d-block.d-md-table-row.pb-4.mb-4
+          .checkbox-cell.sheet-cell.d-none.d-md-table-cell.py-2.py-md-4.px-3
+            input(class="form-check-input" data-item-checkbox="product" type="checkbox")
+          .sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            a.sheet-table-item.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+              .sheet-table-preview.md-horizontal-image.flex-shrink-0
+                img(src=product.img, alt=product.title)
+              .sheet-table-details
+                .sheet-table-title.mb-2.mb-md-1.me-8.me-md-0 #{product.title}
+                .d-flex.align-items-center
+                  .badge.common.me-3.d-block.d-md-none #{product.price}
+                  .caption #{product.caption}
+          .sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            .d-inline-block.d-md-none.caption Status
+            .badge.min(class=product.status ? 'green-light' : 'red-light') #{product.status ? 'Active' : 'Deactive'}
+            .table-btn-actions.position-absolute.d-flex.mt-4.opacity-0
+              .btn-action-small.d-none.d-md-block.me-5
+                +i('edit')
+              .btn-action-small.d-none.d-md-block.me-5
+                +i('messages-stroke')
+              +action_item(true)
+                button.action-item.d-block.d-md-none
+                  +i('edit')
+                  | Edit product
+                button.action-item.d-block.d-md-none
+                  +i('messages-stroke')
+                  | View comment
+                button.action-item
+                  +i('edit')
+                  | Edit title & description
+                button.action-item
+                  +i('link')
+                  | Get shareable link
+                button.action-item
+                  +i('trash')
+                  | Delete forever
+          .sheet-cell.d-none.d-md-table-cell.py-2.py-md-4.px-0.px-md-3 #{product.price}
+          .sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            .d-inline-block.d-md-none.caption Sales
+            .d-inline-flex
+              .badge.common.me-1 #{product.sales.value}
+              +balance(product.sales.percent, product.sales.direction)
+          .sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            .d-inline-block.d-md-none.caption Views
+            .d-inline-flex.align-items-center
+              .badge.common.me-2 #{product.views.value}
+              +progress(product.views.progress)  
+          .sheet-cell.d-block.d-md-none.d-lg-table-cell.py-2.py-md-4.px-0.px-md-3
+            .d-inline-block.d-md-none.caption Likes
+            .d-inline-flex.align-items-center
+              .badge.common.me-2 #{product.likes.value}
+              +progress(product.likes.progress)  
+  .d-flex.justify-content-center.mt-5
+    .btn-rounded-stroke.hover-border.btn-small.me-4
+      +i('arrow-left')
+    .btn-rounded-stroke.hover-border.btn-small.me-4
+      +i('arrow')
+
+
+mixin traffic_table(products)
+  .row.g-0
+    .sheet-table.d-block.d-md-table
+      .border-bottom.border-md-none.d-table-row
+        .checkbox-cell.d-none.d-md-table-cell.py-4.px-3
+          input(class="form-check-input" data-group-checkbox="traffic" type="checkbox")
+        .d-none.d-md-table-cell.pb-4.px-3.caption Product
+        .d-table-cell.pb-2.pb-md-4.px-0.px-md-3.caption
+          .d-flex
+            .me-auto.d-none.d-lg-block Traffic source
+            .d-flex.flex-shrink-1.flex-md-shrink-0.flex-wrap
+              .d-flex.align-items-center.pe-4.pe-md-0.py-2.py-md-0
+                .indicator.bg-light-red.me-3
+                | Market
+              .d-flex.align-items-center.ps-0.ps-md-4.pe-4.pe-md-0.py-2.py-md-0
+                .indicator.bg-light-purple.me-3
+                | Social media
+              .d-flex.align-items-center.ps-0.ps-md-4.pe-4.pe-md-0.py-2.py-md-0
+                .indicator.bg-light-green.me-3
+                | Direct
+              .d-flex.align-items-center.ps-0.ps-md-4.pe-4.pe-md-0.py-2.py-md-0
+                .indicator.bg-light-blue.me-3
+                | UI8
+              .d-flex.align-items-center.ps-0.ps-md-4.pe-4.pe-md-0.py-2.py-md-0
+                .indicator.bg-light-yellow.me-3
+                | Others
+      each product in products
+        .border-bottom.sheet-row.position-relative.d-block.d-md-table-row.pb-4.mb-4
+          .checkbox-cell.col.sheet-cell.d-none.d-md-table-cell.py-2.py-md-4.px-3
+            input(class="form-check-input" data-item-checkbox="traffic" type="checkbox")
+          .col.col-md-4.sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            a.sheet-table-item.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+              .sheet-table-preview.md-horizontal-image.flex-shrink-0
+                img(src=product.img, alt=product.title)
+              .sheet-table-details
+                .sheet-table-title.mb-2.mb-md-1.me-8.me-md-0 #{product.title}
+                .caption #{product.caption}
+          .col.col-md-8.sheet-statistic-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            +progress(product.progress)
+            .table-btn-actions.position-absolute.d-flex.mt-4.mt-md-5.opacity-0
+              .btn-action-small.d-none.d-md-block.me-5
+                +i('edit')
+              .btn-action-small.d-none.d-md-block.me-5
+                +i('messages-stroke')
+              +action_item(true)
+                button.action-item.d-block.d-md-none
+                  +i('edit')
+                  | Edit product
+                button.action-item.d-block.d-md-none
+                  +i('messages-stroke')
+                  | View comment
+                button.action-item
+                  +i('edit')
+                  | Edit title & description
+                button.action-item
+                  +i('link')
+                  | Get shareable link
+                button.action-item
+                  +i('trash')
+                  | Delete forever
+  .mt-5.text-center
+    .btn-stroke
+      .spinner-border.me-2(role="status")
+      | Loading
+
+mixin viewers_table(products)
+  .row.g-0
+    .sheet-table.d-block.d-md-table
+      .border-bottom.border-md-none.d-table-row
+        .checkbox-cell.d-none.d-md-table-cell.py-4.px-3
+          input(class="form-check-input" data-group-checkbox="viewers" type="checkbox")
+        .d-none.d-md-table-cell.pb-4.px-3.caption Product
+        .d-table-cell.pb-2.pb-md-4.px-0.px-md-3.caption
+          .d-flex
+            .me-auto.d-none.d-lg-block Viewer
+            .d-flex.flex-shrink-1.flex-md-shrink-0.flex-wrap
+              .d-flex.align-items-center.pe-4.pe-md-0.py-2.py-md-0
+                .indicator.bg-light-green.me-3
+                | Followers
+              .d-flex.align-items-center.ps-0.ps-md-4.pe-4.pe-md-0.py-2.py-md-0
+                .indicator.bg-light-purple.me-3
+                | Others
+      each product in products
+        .border-bottom.sheet-row.position-relative.d-block.d-md-table-row.pb-4.mb-4
+          .col.checkbox-cell.sheet-cell.d-none.d-md-table-cell.py-2.py-md-4.px-3
+            input(class="form-check-input" data-item-checkbox="viewers" type="checkbox")
+          .col.col-md-4.sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            a.sheet-table-item.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+              .sheet-table-preview.md-horizontal-image.flex-shrink-0
+                img(src=product.img, alt=product.title)
+              .sheet-table-details
+                .sheet-table-title.mb-2.mb-md-1.me-8.me-md-0 #{product.title}
+                .caption #{product.caption}
+          .col.col-md-8.sheet-statistic-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            +progress(product.progress)
+            .table-btn-actions.position-absolute.d-flex.mt-4.mt-md-5.opacity-0
+              .btn-action-small.d-none.d-md-block.me-5
+                +i('edit')
+              .btn-action-small.d-none.d-md-block.me-5
+                +i('messages-stroke')
+              +action_item(true)
+                button.action-item.d-block.d-md-none
+                  +i('edit')
+                  | Edit product
+                button.action-item.d-block.d-md-none
+                  +i('messages-stroke')
+                  | View comment
+                button.action-item
+                  +i('edit')
+                  | Edit title & description
+                button.action-item
+                  +i('link')
+                  | Get shareable link
+                button.action-item
+                  +i('trash')
+                  | Delete forever
+  .mt-5.text-center
+    .btn-stroke
+      .spinner-border.me-2(role="status")
+      | Loading
+
+
+mixin draft_table_list(products)
+  .row.g-0
+    .sheet-table.d-block.d-md-table
+      .border-bottom.border-md-none.d-table-row
+        .checkbox-cell.d-none.d-md-table-cell.py-4.px-3
+          input(class="form-check-input" data-group-checkbox="draft" type="checkbox")
+        .d-none.d-md-table-cell.pb-4.px-3.caption Product
+        .d-none.d-md-table-cell.pb-4.px-3.caption Price
+        .d-none.d-md-table-cell.pb-4.px-3.caption Last edited
+      each product in products
+        .border-bottom.sheet-row.position-relative.d-block.d-md-table-row.pb-4.mb-4
+          .col.checkbox-cell.sheet-cell.d-none.d-md-table-cell.py-2.py-md-4.px-3
+            input(class="form-check-input" data-item-checkbox="draft" type="checkbox")
+          .col.col-md-5.sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            a.sheet-table-item.d-flex.align-items-sm-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+              .sheet-table-preview.md-horizontal-image.vertical-image.flex-shrink-0
+                img(src=product.img, alt=product.title)
+              .sheet-table-details
+                .sheet-table-title.mb-2.mb-md-1.me-8.me-md-0 #{product.title}
+                .caption.d-none.d-md-block #{product.caption}
+                .caption.d-flex.align-items-center.d-md-none.w-100.mb-3
+                  +i('clock')(class="me-1 fill-shades-2")
+                  | #{product.date}
+                .badge.large.d-inline-block.d-md-none(class= product.price === '0' ? 'common' : 'green') $#{product.price}
+
+            .table-btn-actions.position-absolute.d-block.d-md-none.mt-2.mt-md-3
+              +action_item(true)
+                button.action-item(data-bs-toggle="modal" data-bs-target="#modal-datepicker")
+                  +i('calendar')
+                  | Schedule product
+                button.action-item
+                  +i('edit')
+                  | Edit title & description
+                button.action-item
+                  +i('trash')
+                  | Delete forever
+          .col.col-md-1.d-none.d-md-table-cell.align-middle.py-2.py-md-4.px-0.px-md-3
+            .badge.large(class= product.price === '0' ? 'common' : 'green') $#{product.price}
+          .col.col-md-6.d-none.d-md-table-cell.align-middle.py-2.py-md-4.px-0.px-md-3
+            .d-flex.align-items-center.justify-content-between
+              .text-neutral-4 #{product.date}
+              .table-btn-actions.d-flex.opacity-0
+                .btn-action-small.d-none.d-md-block.me-5(data-bs-toggle="modal" data-bs-target="#modal-datepicker")
+                  +i('calendar')
+                .btn-action-small.d-none.d-md-block.me-5
+                  +i('edit')
+                .btn-action-small.d-none.d-md-block.me-5
+                  +i('trash')
+  .mt-5.text-center
+    .btn-stroke
+      .spinner-border.me-2(role="status")
+      | Loading
+
+mixin draft_table_grid(products)
+  .row.gy-6.gx-5
+    each product in products
+      .grid-preview.col-12.col-sm-6.col-md-4
+        .grid-preview-thumbnail.mb-4
+          input.checkbox(class="form-check-input" type="checkbox")
+          img(src=product.img, alt=product.title)
+          .grid-preview-control.d-flex.align-items-center.justify-content-center
+            button.btn-rounded.mx-2
+              +i('edit')
+            button.btn-rounded.mx-2
+              +i('trash')
+            button.btn-rounded.mx-2(data-bs-toggle="modal" data-bs-target="#modal-product")
+              +i('arrow')
+        .grid-preview-details.mb-2
+          .d-flex.align-items-start.justify-content-between 
+            | #{product.title}
+            .badge.large.ms-5(class= product.price === '0' ? 'common' : 'green') $#{product.price}
+        .d-flex.align-items-center.text-shades-2.fs-8
+          +i('clock')(class="me-2 fill-shades-2")
+          | #{product.date}
+
+mixin product_modal_slider(products)
+  .product-modal-slider.ms-n3.me-n4.mx-sm-n3
+    each product in products
+      .grid-preview.mx-3
+        .grid-preview-thumbnail.mb-4
+          img(src=product.img, alt=product.title)
+          .grid-preview-control.d-flex.align-items-center.justify-content-center
+            button.btn-rounded.mx-2
+              +i('edit')
+            button.btn-rounded.mx-2
+              +i('trash')
+            button.btn-rounded.mx-2(data-bs-toggle="modal" data-bs-target="#modal-product")
+              +i('arrow')
+        .grid-preview-details.mb-2
+          .d-flex.align-items-start.justify-content-between 
+           | #{product.title}
+           .badge.large.ms-5(class= product.price === '0' ? 'common' : 'green') $#{product.price}
+        .d-flex.align-items-center
+          if product.rating
+            +i('star-fill')(class="me-1 fill-yellow")
+            | #{product.rating}
+            .caption.ps-1 (87)
+          else
+            +i('star-stroke')(class="me-1 fill-shades-2")
+            .caption No ratings
+
+  .slider-controls.d-flex.align-items-center.justify-content-center.mt-4
+    .slider-prev.btn-rounded-stroke.btn-small.hover-border.mx-2
+      +i('arrow-left')
+    .slider-next.btn-rounded-stroke.btn-small.hover-border.mx-2
+      +i('arrow')
+
+
+mixin product_comments(comments)
+  .row.g-0
+    .sheet-table.d-block.d-md-table
+      .border-bottom.border-md-none.d-table-row
+        .checkbox-cell.d-none.d-md-table-cell.py-4.px-3
+          input(class="form-check-input" data-group-checkbox="comment" type="checkbox")
+        .d-none.d-md-table-cell.pb-4.px-3.caption Comments
+        .d-none.d-md-table-cell.pb-4.px-3.caption Product
+      each comment, index in comments
+        .border-bottom.sheet-row.comments-block.smileys-wrapper.position-relative.d-block.d-md-table-row.pb-4.mb-4
+          .col.checkbox-cell.sheet-cell.d-none.d-md-table-cell.py-2.py-md-4.px-3
+            input(class="form-check-input" data-item-checkbox="comment" type="checkbox")
+          .col.col-md-8.sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            .d-flex
+              .userpic.flex-shrink-0.me-5
+                img.rounded-circle.w-100(src=comment.userpic, alt="")
+              .ms-n1.w-100
+                .d-flex.align-items-center.mb-1
+                  .me-auto
+                    b #{comment.author}
+                  .caption.ms-2.text-shades-1.w-auto #{comment.time}
+                .mb-4 #{comment.comment}
+                .comment-collapse.collapse.show(id="comment-actions-" + index)
+                  .table-comment-actions.d-flex
+                    button.table-comment-reply.me-6(data-bs-toggle="collapse" data-bs-target="#comment-actions-"+ index +", #comment-reply-" + index)
+                      +i('repeat')
+                    button.btn-favorite.me-6
+                      +i_d('heart')
+                    button.me-6
+                      +i('trash')
+                    +smileys()
+
+                .collapse(id="comment-reply-" + index)
+                  .pt-4
+                    .comment-reply.d-flex
+                      .comment-reply-userpic.flex-shrink-0
+                        img.rounded-circle.w-100(src="img/content/user-1.jpg")
+                      .ms-4
+                        textarea.textarea-transparent.mb-4(oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Leave something to reply")
+                        button.btn.btn-small.me-2 Reply
+                        button.btn-tab.btn-small(data-bs-toggle="collapse" data-bs-target="#comment-actions-"+ index +", #comment-reply-" + index) Cancel
+
+          .col.col-md-4.d-none.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            a.sheet-table-item.d-flex.align-items-sm-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+              .sheet-table-preview.vertical-image.flex-shrink-0
+                img(src=comment.product.img, alt=comment.product.title)
+              .sheet-table-details
+                .sheet-table-title.mb-2.mb-md-1.me-8.me-md-0 #{comment.product.title}
+                .caption.d-none.d-md-block #{comment.product.category}
+  .mt-5.text-center
+    .btn-stroke
+      .spinner-border.me-2(role="status")
+      | Loading
+
+
+mixin released_table(products)
+  .row.g-0
+    .sheet-table.d-block.d-md-table
+      .border-bottom.d-none.d-md-table-row
+        .checkbox-cell.d-table-cell.py-4.px-3
+          input(class="form-check-input" data-group-checkbox="product" type="checkbox")
+        .d-table-cell.pb-4.px-3.caption Product
+        .d-table-cell.pb-4.px-3.caption Price
+        .d-table-cell.pb-4.px-3.caption Status
+        .d-table-cell.pb-4.px-3.caption Rating
+        .d-table-cell.pb-4.px-3.caption Sales
+        .d-table-cell.pb-4.px-3.caption Views
+      each product in products
+        .border-bottom.sheet-row.position-relative.d-block.d-md-table-row.pb-4.mb-4
+          .checkbox-cell.sheet-cell.d-none.d-md-table-cell.py-2.py-md-4.px-3
+            input(class="form-check-input" data-item-checkbox="product" type="checkbox")
+          .sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            a.sheet-table-item.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+              .sheet-table-preview.md-horizontal-image.flex-shrink-0
+                img(src=product.img, alt=product.title)
+              .sheet-table-details
+                .sheet-table-title.mb-2.mb-md-1.me-8.me-md-0 #{product.title}
+                .d-flex.align-items-center
+                  .badge.common.me-3.d-block.d-md-none #{product.price}
+                  .caption #{product.caption}
+          .sheet-cell.d-none.d-md-table-cell.py-2.py-md-4.px-0.px-md-3 #{product.price}
+          .sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            .d-inline-block.d-md-none.caption Status
+            .badge.min(class=product.status ? 'green-light' : 'red-light') #{product.status ? 'Active' : 'Deactive'}
+          .sheet-cell.d-flex.align-items-center.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            .d-inline-block.d-md-none.caption Rating
+            .d-inline-flex.align-items-center
+              if product.rating
+                +i('star-fill')(class="me-1 fill-yellow")
+                | #{product.rating.value}
+                .caption.fs-8.ps-1 (#{product.rating.count}) 
+              else
+                +i('star-stroke')(class="me-1 fill-shades-2")
+                .caption.fs-8 No ratings
+          .sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            .d-inline-block.d-md-none.caption Sales
+            .d-inline-flex
+              .badge.common.me-1 #{product.sales.value}
+              +balance(product.sales.percent, product.sales.direction)
+          .sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            .d-inline-block.d-md-none.caption Views
+            .d-inline-flex.align-items-center
+              .badge.common.me-2 #{product.views.value}
+              +progress(product.views.progress)  
+
+
+mixin scheduled_table_list(products)
+  .row.g-0
+    .sheet-table.d-block.d-md-table
+      .border-bottom.border-md-none.d-table-row
+        .checkbox-cell.d-none.d-md-table-cell.py-4.px-3
+          input(class="form-check-input" data-group-checkbox="draft" type="checkbox")
+        .d-none.d-md-table-cell.pb-4.px-3.caption Product
+        .d-none.d-md-table-cell.pb-4.px-3.caption Price
+        .d-none.d-md-table-cell.pb-4.px-3.caption Scheduled for
+      each product in products
+        .border-bottom.sheet-row.position-relative.d-block.d-md-table-row.pb-4.mb-4
+          .col.checkbox-cell.sheet-cell.d-none.d-md-table-cell.py-2.py-md-4.px-3
+            input(class="form-check-input" data-item-checkbox="draft" type="checkbox")
+          .col.col-md-5.sheet-cell.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            a.sheet-table-item.d-flex.align-items-sm-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+              .sheet-table-preview.md-horizontal-image.vertical-image.flex-shrink-0
+                img(src=product.img, alt=product.title)
+              .sheet-table-details
+                .sheet-table-title.mb-2.mb-md-1.me-8.me-md-0 #{product.title}
+                .caption.w-100 #{product.caption}
+
+            .table-btn-actions.position-absolute.d-block.d-md-none.mt-2.mt-md-3
+              +action_item(true)
+                button.action-item(data-bs-toggle="modal" data-bs-target="#modal-datepicker")
+                  +i('calendar')
+                  | Schedule product
+                button.action-item
+                  +i('edit')
+                  | Edit title & description
+                button.action-item
+                  +i('trash')
+                  | Delete forever
+          .sheet-cell.d-block.d-md-table-cell.align-middle.py-2.py-md-4.px-0.px-md-3
+            .d-inline-block.d-md-none.caption Price
+            .badge.large(class= product.price === '0' ? 'common' : 'green') $#{product.price}
+          .sheet-cell.col.col-md-6.d-block.d-md-table-cell.align-middle.py-2.py-md-4.px-0.px-md-3
+            .d-flex.align-items-center.justify-content-md-between
+              .text-neutral-4.d-none.d-md-block #{product.date}
+              .caption.d-inline-block.d-md-none Scheduled for
+              .caption.d-block.d-md-none.w-50  #{product.date}
+              .table-btn-actions.opacity-0.d-none.d-md-flex
+                .btn-action-small.d-none.d-md-block.me-5(data-bs-toggle="modal" data-bs-target="#modal-datepicker")
+                  +i('calendar')
+                .btn-action-small.d-none.d-md-block.me-5
+                  +i('edit')
+                .btn-action-small.d-none.d-md-block.me-5
+                  +i('trash')
+  .mt-5.text-center
+    .btn-stroke
+      .spinner-border.me-2(role="status")
+      | Loading
+
+mixin customer_table(customers)
+  .row.g-0(class=attributes.class id=attributes.id)
+    .sheet-table.d-block.d-md-table
+      .border-bottom.d-none.d-md-table-row
+        .checkbox-cell.d-table-cell.py-4.px-3
+          input(class="form-check-input" data-group-checkbox="product" type="checkbox")
+        .d-table-cell.pb-4.px-3.caption Name
+        .d-table-cell.pb-4.px-3.caption.hidden-col Email
+        .d-table-cell.pb-4.px-3.caption.hidden-col Purchase
+        .d-table-cell.pb-4.px-3.caption.hidden-col Lifetime
+        .d-lg-table-cell.d-none.pb-4.px-3.caption.hidden-col Comments
+        .d-lg-table-cell.d-none.pb-4.px-3.caption.hidden-col Likes
+      each customer in customers
+        .border-bottom.sheet-row.position-relative.d-block.d-md-table-row.pb-4.mb-4
+          .checkbox-cell.sheet-cell.d-none.d-md-table-cell.py-2.py-md-4.px-3
+            input(class="form-check-input" data-item-checkbox="product" type="checkbox")
+          .sheet-cell.nav.d-block.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            a.js-customer-show.sheet-table-item.d-flex.align-items-center
+              .userpic.me-3.flex-shrink-0
+                img.rounded-circle.w-100(src=customer.userpic, alt=customer.name)
+              .sheet-table-details
+                .fw-bold.mb-1 #{customer.name}
+                .caption.text-shades-1 #{customer.login}
+              .d-inline-flex.d-md-none.ms-auto
+                .badge.common.me-1 #{customer.lifetime.value}
+                +balance(customer.lifetime.percent, customer.lifetime.direction)
+          .sheet-cell.hidden-col.d-none.d-md-table-cell.py-2.py-md-4.px-0.px-md-3.hidden-col
+            b.text-shades-1.fs-8 #{customer.email}
+          .sheet-cell.hidden-col.d-none.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            .badge.green #{customer.purchase}
+          .sheet-cell.hidden-col.d-none.d-md-table-cell.py-2.py-md-4.px-0.px-md-3
+            .d-inline-flex
+              .badge.common.me-1 #{customer.lifetime.value}
+              +balance(customer.lifetime.percent, customer.lifetime.direction)
+          .sheet-cell.hidden-col.d-none.d-lg-table-cell.py-2.py-md-4.px-0.px-md-3 #{customer.comments}
+          .sheet-cell.hidden-col.d-none.d-lg-table-cell.py-2.py-md-4.px-0.px-md-3 #{customer.likes}
+    .loading-area.mt-5.text-center
+      .btn-stroke
+        .spinner-border.me-2(role="status")
+        | Load more
+
+mixin purchase_table(products)
+  .row.g-0(class=attributes.class id=attributes.id)
+    .sheet-table.d-block.d-md-table
+      .border-bottom.d-none.d-md-table-row
+        .d-table-cell.pb-4.px-3.caption Name
+        .d-table-cell.pb-4.px-3.caption Price
+        .d-table-cell.pb-4.px-3.caption Date
+      each product in products
+        .d-block.d-md-table-row.sheet-row.pb-0.mb-5.pb-md-4.mb-md-4
+          .sheet-cell.d-block.d-md-table-cell.py-0.py-md-4.px-0.px-md-3
+            a.sheet-table-item.d-flex.align-items-center(data-bs-toggle="modal" data-bs-target="#modal-product")
+              .sheet-table-preview.vertical-image.small-preview.flex-shrink-0
+                img(src=product.img, alt=product.title)
+              .sheet-table-details
+                .fw-bold.mb-1 #{product.title}
+                .caption.w-100 #{product.caption}
+                .badge.large.green.d-inline-block.d-md-none.mt-2 #{product.price}
+          .sheet-cell.d-none.d-md-table-cell.align-middle.py-2.py-md-4.px-0.px-md-3
+            .badge.large.green #{product.price}
+          .sheet-cell.d-none.d-md-table-cell.align-middle.py-2.py-md-4.px-0.px-md-3.caption.fs-8 #{product.date}
+    .mt-5.text-center
+      .btn-stroke
+        .spinner-border.me-2(role="status")
+        | Load more
+
+mixin shop_table_grid(products)
+  .row.gy-6.gx-5
+    each product in products
+      .grid-preview.col-12.col-sm-6.col-md-4
+        .grid-preview-thumbnail.mb-4
+          input.checkbox(class="form-check-input" type="checkbox")
+          img(src=product.img, alt=product.title)
+          .grid-preview-control.d-flex.align-items-center.justify-content-center
+            button.btn-rounded.mx-2
+              +i('edit')
+            button.btn-rounded.mx-2
+              +i('trash')
+            button.btn-rounded.mx-2(data-bs-toggle="modal" data-bs-target="#modal-product")
+              +i('arrow')
+        .grid-preview-details.mb-2
+          .d-flex.align-items-start.justify-content-between 
+           | #{product.title}
+           .badge.large.ms-5(class= product.price === '0' ? 'common' : 'green') $#{product.price}
+        .d-flex.align-items-center
+          if product.rating
+            +i('star-fill')(class="me-1 fill-yellow")
+            | #{product.rating}
+            .caption.ps-1 (87)
+          else
+            +i('star-stroke')(class="me-1 fill-shades-2")
+            .caption No ratings
+
+mixin shop_followers_table(followers)
+  .followers
+    each follower in followers
+      .d-flex.align-items-start.justify-content-between.border-bottom.pb-5.mb-5
+        .d-flex
+          .followers-userpic.flex-shrink-0.me-4
+            img.rounded-circle(src=follower.userpic, alt=follower.name)
+          .followers-details 
+            .followers-name.mb-1 #{follower.name}
+            .followers-info.mb-4
+              .caption.d-inline-block.pe-3
+                | #{follower.products}
+                span.text-shades-1.ps-1 products
+              .caption.d-inline-block.ps-3
+                | #{follower.followers}
+                span.text-shades-1.ps-1 followers
+            .d-flex
+              if follower.following
+                button.btn-stroke Follow
+              else
+                button.btn-stroke Following
+              if follower.message
+                button.btn.ms-2 Message
+        .d-none.d-lg-flex
+          each preview in follower.gallery
+            .followers-preview.ms-3
+              img.rounded-1(src=preview)
+  .mt-5.text-center
+    .btn-stroke.btn-small Load more
+
+
+mixin countries_table(countries)
+  each country in countries
+    .countries.d-flex.align-items-center.py-3.border-bottom
+      .countries-flag.d-flex.align-items-center.justify-content-center.rounded-circle.text-nowrap.me-3.p-2 #{country.flag}
+      | #{country.name}
+      .ms-auto #{country.price}
+                
+
+mixin income_earning_table(earnings)
+  .row.g-0.pb-5(class=attributes.class id=attributes.id)
+    .sheet-table.d-table
+      .d-table-row
+        .d-table-cell.py-4.px-5.caption Date
+        .d-none.d-md-table-cell.py-4.px-5.caption Status
+        .d-table-cell.py-4.caption Product sales count
+        .d-table-cell.py-4.px-5.caption Earnings
+      each earning in earnings
+        .d-table-row.grid-markup
+          .sheet-cell.d-table-cell.py-3.px-5.text-shades-2.text-base-2.text-nowrap #{earning.date}
+          .sheet-cell.d-none.d-md-table-cell.py-3.px-5
+            .badge.large(class=earning.status === 'Paid' ? 'green' : 'yellow' ) #{earning.status}
+          .sheet-cell.d-table-cell.py-3 #{earning.count}
+          .sheet-cell.d-table-cell.py-3.px-5 #{earning.earnings}
+
+
+mixin refounds_table(products)
+  .row.g-0
+    .sheet-table.d-block.d-md-table
+      .border-bottom.border-md-none.d-table-row
+        .d-table-cell.pb-3.pb-md-4.px-0.px-md-3.caption Product
+        .d-none.d-md-table-cell.pb-4.px-3.caption Status
+        .d-none.d-md-table-cell.pb-4.px-3.caption Date
+        .d-table-cell.pb-3.pb-md-4.px-0.px-md-3.caption Customer
+      each product in products
+        a.border-bottom.sheet-row.d-table-row.pb-4.mb-4.text-reset(data-bs-toggle="modal" data-bs-target="#modal-refounds")
+          .col-12.col-md-5.sheet-cell.d-table-cell.py-4.px-0.px-md-3
+            .sheet-table-item.d-flex.align-items-sm-center
+              .sheet-table-preview.flex-shrink-0
+                img(src=product.img, alt=product.title)
+              .sheet-table-details
+                .mb-1.me-8.me-md-0 #{product.title}
+                .caption.d-none.d-md-block #{product.caption}
+                .badge.large.d-inline-block.d-md-none(class= product.status === 'In progress' ? 'purple' : 'green') #{product.status}
+          .col-2.d-none.d-md-table-cell.py-4.px-0.px-md-3
+            .badge.large(class= product.status === 'In progress' ? 'purple' : 'green') #{product.status}
+          .col-2.d-none.d-md-table-cell.py-4.px-0.px-md-3 #{product.date}
+          .col-3.d-table-cell.sheet-cell.py-4.px-0.px-md-3
+            .d-flex.justify-content-end.justify-content-md-start.align-items-center
+              img.userpic-tiny.rounded-circle.me-md-3.flex-shrink-0(src=product.userpic, alt=product.customer)
+              .d-none.d-md-block #{product.customer}
+  .mt-5.text-center
+    .btn-stroke
+      .spinner-border.me-2(role="status")
+      | Loading
+
+
+mixin income_payouts_table(payouts)
+  .row.g-0.pb-5(class=attributes.class id=attributes.id)
+    .sheet-table.d-table
+      .d-table-row
+        .d-table-cell.py-4.px-5.caption Date
+        .d-none.d-md-table-cell.py-4.px-5.caption Status
+        .d-none.d-md-table-cell.py-4.px-5.caption Method
+        .d-table-cell.py-4.caption Earnings
+        .d-table-cell.py-4.px-5.caption Amount withdrawn
+      each payout in payouts
+        .d-table-row.grid-markup
+          .sheet-cell.d-table-cell.py-3.px-5.text-shades-2.text-base-2.text-nowrap #{payout.date}
+          .sheet-cell.d-none.d-md-table-cell.py-3.px-5
+            .badge.large.green #{payout.status}
+          .sheet-cell.d-none.d-md-table-cell.py-3.px-5
+            .badge.large(class=payout.method === 'Paypal' ? 'blue' : 'purple' ) #{payout.method}
+          .sheet-cell.d-table-cell.py-3 #{payout.earnings}
+          .sheet-cell.d-table-cell.py-3.px-5 #{payout.amount}
+
+mixin income_transactions_table(transactions)
+  .row.g-0.pb-5(class=attributes.class id=attributes.id)
+    .sheet-table.d-table
+      .d-none.d-md-table-row
+        .d-table-cell.py-4.px-5.caption Date
+        .d-none.d-md-table-cell.py-4.px-5.caption Type
+        .d-none.d-md-table-cell.py-4.px-5.caption Detail
+        .d-table-cell.py-4.caption Price
+        .d-table-cell.py-4.px-5.caption Amount
+      each transaction in transactions
+        .d-table-row.grid-markup
+          .sheet-cell.d-none.d-md-table-cell.py-3.px-5.text-base-2.text-nowrap #{transaction.date}
+          .sheet-cell.d-none.d-md-table-cell.py-3.px-5
+            .badge.large(class=transaction.type === 'Sale' ? 'green' : 'red' ) #{transaction.type}
+          .sheet-cell.d-table-cell.py-4.py-sm-3.px-4.px-sm-5
+            .d-flex.justify-content-between
+              .d-block
+                | #{transaction.detail.name}
+                .text-shades-2.fs-10 Invoice: #{transaction.detail.invoice}
+              .d-block.d-md-none
+                .badge.large.ms-3(class=transaction.type === 'Sale' ? 'green' : 'red' ) #{transaction.type}
+            .border-top.d-block.d-md-none.mt-2.pt-2
+              .d-flex.justify-content-between.pb-2
+                .text-semibold-2.text-shades-2 Date
+                | #{transaction.date}
+              .d-flex.justify-content-between.pb-2
+                .text-semibold-2.text-shades-2 Price
+                | #{transaction.price}
+              .d-flex.justify-content-between
+                .text-semibold-2.text-shades-2 Amount
+                .d-block(class=transaction.amount.direction === 'down' ? 'text-red' : '') #{transaction.amount.value}
+          .sheet-cell.d-none.d-md-table-cell.py-3 #{transaction.price}
+          .sheet-cell.d-none.d-md-table-cell.py-3.px-5(class=transaction.amount.direction === 'down' ? 'text-red' : '') #{transaction.amount.value}
+
+
+mixin promote_table(posts)
+  .promote.row.g-0
+    .sheet-table.d-block.d-md-table
+      .border-bottom.d-none.d-md-table-row
+        .d-table-cell.pb-4.caption Post
+        .d-table-cell.pb-4.caption Distribution
+        .d-table-cell.pb-4.caption Link clicks
+        .d-table-cell.pb-4.caption Views
+        .d-table-cell.pb-4.caption Engagement
+      each post in posts
+        .border-bottom.d-block.d-md-table-row.pb-4.mb-4
+          .sheet-cell.col.col-md-5.d-block.d-md-table-cell.py-2.py-md-4
+            .sheet-table-item.d-flex.align-items-center
+              .sheet-table-preview.post-type.flex-shrink-0
+                img(src=post.post.img, alt=post.post.title)
+                .post-file.p-1
+                  if post.post.type === 'image'
+                    +i('file-image')(class="fill-shades-2")
+                  else
+                    +i('file-video')(class="fill-shades-2")
+              .sheet-table-details
+                .mb-3.me-5 #{post.post.title}
+                .d-flex.align-items-center
+                  if post.facebook
+                    a.btn-rounded.btn-small.hover-fill.me-3(href=post.facebook target='_blank')
+                      +i('facebook')
+                  if post.twitter
+                    a.btn-rounded.btn-small.hover-fill.me-3(href=post.twitter target='_blank')
+                      +i('twitter')
+          .sheet-cell.d-block.d-md-table-cell.py-2.py-md-6.align-top
+            .d-inline-block.d-md-none.caption Distribution
+            .badge.min(class=post.distribution.direction === 'up' ? 'green' : 'red') #{post.distribution.value}
+          .sheet-cell.d-flex.align-items-center.d-md-table-cell.py-2.py-md-6.align-top
+            .d-inline-block.d-md-none.caption Link clicks
+            .d-inline-flex.align-items-center.mb-0.mb-md-2
+              .badge.common.me-2 #{post.clicks.value}
+              +progress(post.clicks.progress)
+            .d-inline-block.d-md-block.mt-1.ms-2.ms-md-0
+              +balance(post.clicks.percent.value, post.clicks.percent.direction, true)
+          .sheet-cell.d-flex.align-items-center.d-md-table-cell.py-2.py-md-6.align-top
+            .d-inline-block.d-md-none.caption Views
+            .d-inline-flex.align-items-center.mb-0.mb-md-2
+              .badge.common.me-2 #{post.views.value}
+              +progress(post.views.progress)
+            .d-inline-block.d-md-block.mt-1.ms-2.ms-md-0
+              +balance(post.views.percent.value, post.views.percent.direction, true)
+          .sheet-cell.d-flex.align-items-center.d-md-table-cell.py-2.py-md-6.align-top
+            .d-inline-block.d-md-none.caption Engagement
+            .d-inline-flex.align-items-center.mb-0.mb-md-2
+              .badge.common.me-2 #{post.engagement.value}
+              +progress(post.engagement.progress)
+            .d-inline-block.d-md-block.mt-1.ms-2.ms-md-0
+              +balance(post.engagement.percent.value, post.engagement.percent.direction, true)
+  .mt-5.text-center
+    .btn-stroke
+      .spinner-border.me-2(role="status")
+      | Loading
+
+mixin notification_table(notifications)
+  .notification-list
+    each notification, index in notifications
+      .border-bottom.mb-4.pb-4
+        .notification-item.d-flex.rounded-2.p-3
+          .notification-userpic.position-relative.flex-shrink-0.me-3
+            img.rounded-circle.w-100(src=notification.userpic)
+            case notification.category
+              when 'comment'
+                .notification-userpic-icon.rounded-circle.position-absolute.bg-blue
+                  +i('messages-fill')
+              when 'star'
+                .notification-userpic-icon.rounded-circle.position-absolute.bg-purple
+                  +i('star-fill')
+              when 'favorite'
+                .notification-userpic-icon.rounded-circle.position-absolute.bg-red
+                  +i('heart-fill')
+              when 'purchase'
+                .notification-userpic-icon.rounded-circle.position-absolute.bg-green
+                  +i('shopping-bag-fill')
+          .notification-details.w-100(class=notification.new ? 'new' : '')
+            .d-flex.align-items-center
+              .fw-bold.me-2 #{notification.name}
+              .text-shades-2.me-2 #{notification.login}
+              .caption.text-shades-2.ms-auto.me-5 #{notification.time}
+            .mb-2
+              span.text-shades-2.me-2 Comment on
+              span.fw-bold Smiles – 3D icons
+            .mb-2 #{notification.message}
+            .d-flex
+              .c-pointer.fw-bold.me-5 Like
+              .c-pointer.fw-bold(data-bs-toggle="collapse" data-bs-target="#comment-actions-"+ index +", #comment-reply-" + index) Reply
+            .collapse(id="comment-reply-" + index)
+              .pt-4
+                .comment-reply.d-flex
+                  .comment-reply-userpic.flex-shrink-0
+                    img.rounded-circle.w-100(src="img/content/user-1.jpg")
+                  .ms-4
+                    textarea.textarea-transparent.mb-4(oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Leave something to reply")
+                    button.btn.btn-small.me-2 Reply
+                    button.btn-tab.btn-small(data-bs-toggle="collapse" data-bs-target="#comment-actions-"+ index +", #comment-reply-" + index) Cancel
+    .mt-5.text-center
+      .btn-stroke
+        .spinner-border.me-2(role="status")
+        | Loading
+
+mixin messages_list(messages, link = true)
+  .message-list.mb-4
+    each message in messages
+      a.item.d-flex.align-items-center.justify-content-start.p-3.position-relative(class=message.new ? 'new' : '' href= link ? "message-center.html" : '#')
+        .userpic.flex-shrink-0.me-3.position-relative(class=message.online ? 'online' : '')
+          img.w-100(src=message.userpic)
+        .content.w-100
+          .item-title.mb-1.d-flex.align-items-center.justify-content-between
+            .name #{message.name}
+            .caption.me-6 #{message.time}
+          .text-shades-2.text-truncate #{message.message}
+
+mixin creators_list(creators)
+  .creators
+    each creator, index in creators
+      .border-bottom.mb-5.pb-5
+        .d-flex.align-items-center.mb-5
+          .creators-userpic.me-4
+            img.rounded-circle.w-100(src=creator.userpic, alt=creator.name)
+          .me-auto
+            .title.mb-1
+              .d-inline-block.pe-2 #{creator.name}
+              case index + 1
+                when 1
+                  .badge.large.text-base-bold-1.green.py-1 #1
+                when 2
+                  .badge.large.text-base-bold-1.yellow.py-1 #2
+                when 3
+                  .badge.large.text-base-bold-1.purple.py-1 #3
+            .creators-info
+              .d-inline-block.caption.pe-3
+                span.pe-1 #{creator.products}
+                span.text-shades-1 products
+              .d-inline-block.caption.ps-3
+                span.pe-1 #{creator.followers}
+                span.text-shades-1 followers
+          button.btn-stroke.d-none.d-sm-block Follow
+          button.btn.ms-2.d-none.d-sm-block Shop now
+        .creators-products.d-flex.mx-n4.mx-sm-n5
+          each product in creator.products_list
+            a.creators-product.flex-shrink-0.position-relative.overflow-hidden.rounded-2.me-3(data-bs-toggle="modal" data-bs-target="#modal-product")
+              .creators-product-link.position-absolute.d-flex.align-items-center.justify-content-center
+                .bg-white.p-2.rounded-circle.no-lh
+                  +i('arrow')(class='fill-shades-1')
+              img(src=product)
+  .mt-5.text-center
+    .btn-stroke
+      .spinner-border.me-2(role="status")
+      | Loading
+
+mixin affiliate_table(indicators)
+  .row.g-0(class=attributes.class id=attributes.id)
+    .sheet-table.d-table
+      .d-table-row
+        .d-none.d-md-table-cell.py-4.px-5.caption Date
+        .d-table-cell.py-4.px-5.caption 
+          | Impressions
+          +info
+        .d-table-cell.py-4.px-5.caption 
+          | Clicks
+          +info
+        .d-none.d-md-table-cell.py-4.px-5.caption Total earnings
+        .d-table-cell.py-4.px-5.caption
+          | EPC
+          +info
+      each indicator in indicators
+        .d-table-row.grid-markup-dark
+          .sheet-cell.d-none.d-md-table-cell.py-3.px-5.text-shades-2.text-base-2.text-nowrap #{indicator.date}
+          .sheet-cell.d-table-cell.py-3.px-5
+            .d-inline-flex.align-items-center.mb-0.mb-md-2
+              .badge.common.me-2 #{indicator.impressions.value}
+              +progress(indicator.impressions.progress)
+            .d-inline-block.d-md-block.mt-1.ms-2.ms-md-0
+              +balance(indicator.impressions.percent.value, indicator.impressions.percent.direction, false)
+          .sheet-cell.d-table-cell.py-3.px-5
+            .d-inline-flex.align-items-center.mb-0.mb-md-2
+              .badge.common.me-2 #{indicator.clicks.value}
+              +progress(indicator.clicks.progress)
+            .d-inline-block.d-md-block.mt-1.ms-2.ms-md-0
+              +balance(indicator.clicks.percent.value, indicator.clicks.percent.direction, false)
+          .sheet-cell.d-none.d-md-table-cell.py-3.px-5 #{indicator.earnings}
+          .sheet-cell.d-table-cell.py-3.px-5 #{indicator.epc}

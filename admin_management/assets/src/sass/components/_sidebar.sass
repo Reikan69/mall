@@ -1,0 +1,174 @@
+.sidebar
+  overflow-x: hidden
+  max-width: 340px
+  max-height: 100vh
+  height: 100%
+  width: 100%
+  background-color: $neutrals1
+  -webkit-overflow-scrolling: touch
+  z-index: 1010
+  +trans
+  +xl
+    max-width: 96px
+  +sm
+    position: absolute
+    transform: translateX(-100%)
+    transition: background-color .15s ease, max-width .35s ease, transform .35s ease
+  +dark
+    background-color: $neutrals7
+    
+  .close-sidebar
+    display: none
+    width: 48px
+    height: 48px
+    left: 24px
+    top: 24px
+    svg.icon
+      fill: $neutrals7
+      +dark
+        fill: $neutrals0
+
+  .btn-plus
+    position: absolute
+    right: 48px
+    top: 12px
+    +xl
+      display: none
+
+  .nav-item
+    position: relative
+
+  .nav-link
+    cursor: pointer
+    position: relative
+    color: $neutrals4
+    fill: $neutrals4
+    white-space: nowrap
+    transition: background-color .15s ease, box-shadow .15s ease
+    +body-semibold-1
+    +dual-svg
+    +xl
+      font-size: 0
+    &:hover
+      color: $neutrals7
+      fill: $neutrals7
+      +dark
+        color: $neutrals1
+        fill: $neutrals1
+    &.active
+      +inset-shadow-grey
+      color: $neutrals7
+      fill: $neutrals7
+      +dark
+        color: $neutrals1
+        fill: $neutrals1
+    &.active-category
+      +xl
+        +inset-shadow-grey
+    &:not(.collapsed)
+      .arrow
+        transform: rotate(90deg)
+    .arrow
+      transform: rotate(-90deg)
+      +xl
+        display: none
+    svg.icon-item
+      margin-right: 12px
+      +xl
+        margin-right: 0
+  .submenu
+    &.show
+      +xl
+        display: none
+    +sm
+      visibility: hidden
+    .wrapper
+      padding-left: 32px
+    .nav-link
+      &::before, &::after
+        position: absolute
+        top: 0px
+        left: -13px
+        width: 14px
+        content: ''
+        +trans
+        +dark
+          border-color: $neutrals6
+      &::before
+        height: 26px
+        border-bottom: 2px solid $neutrals3
+        border-left: 2px solid $neutrals3
+        border-radius: 0 0 0 10px
+      &::after
+        height: 60px
+        border-left: 2px solid $neutrals3
+      &:last-child
+        &::after
+          display: none
+
+  &.active
+    max-width: 340px
+    box-shadow: 4px 0 32px rgba(17, 19, 21, 0.05)
+    +sm
+      max-width: 100%
+      min-width: 375px
+      transform: translateX(0)
+      .close-sidebar
+        display: block
+      .logo
+        margin-left: auto
+    .nav-link
+      font-size: 15px !important
+      .icon-item
+        margin-right: 12px !important
+      .arrow, .badge
+        display: block !important
+      &.active-category
+        box-shadow: none !important
+        background: transparent !important
+        use.fill
+          fill: none !important
+        use.stroke
+          fill: $neutrals4 !important
+              
+    .btn-plus
+      display: flex
+    .submenu
+      +xl
+        &.show
+          display: block !important
+      +sm
+        visibility: visible
+    .arrow-show
+      display: none !important
+    .bottom
+      label.switch-theme
+        max-width: inherit
+        height: inherit
+        margin: 16px 0 0 0
+        &::before
+          width: calc(50% - 4px)
+          height: 32px
+        .mode-dark, .mode-light
+          display: flex !important
+          justify-content: center !important
+          .theme-text
+            display: block
+          .theme-icon
+            margin: 0 8px 0 -10px
+            width: 24px
+      input#switch-theme-input
+        &:checked + label
+          &::before
+            transform: translateX(100%)
+          .mode-dark, .mode-light
+            transform: translateX(0)
+            opacity: 1
+
+  .arrow-show
+    fill: $neutrals4
+
+  .bottom
+    label.switch-theme
+      margin-top: 16px
+

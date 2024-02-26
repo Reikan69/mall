@@ -1,0 +1,83 @@
+---
+title: Core - Customer list
+currentUrl: customer-list
+category: customers
+---
+
+extends layouts/layout
+
+block content
+  .page.overflow-hidden.pt-5.px-4.pt-sm-6.px-sm-5.pt-xl-7.px-xl-7
+    .page-head
+      .h3.mb-4.mb-xl-5 Customer list
+    .page-body.pb-4.pb-xl-6
+      .card.mb-2.p-4.p-sm-5
+        .card-head.d-flex.align-items-start.align-items-sm-center.justify-content-between.flex-column.flex-sm-row.mb-2.mb-sm-7
+          .title.title-color.purple.me-5.mb-4.mb-sm-0 Products
+          .search-input.input-group.mb-4.mb-sm-0
+            button.input-group-text.transparent
+              +i('search')
+            input.form-control.input-small.input-action.rounded-2(type="text" placeholder="Search by name or email")
+          .nav.row.gx-4.ms-sm-auto.flex-nowrap.d-flex.mb-4.mb-sm-0.align-self-stretch
+            .btn-tab.btn-small.active.col.mx-2(data-bs-toggle="tab") Active
+            .btn-tab.btn-small.col.mx-2(data-bs-toggle="tab") New
+          .btn-stroke.btn-small.hover-fill.d-none.d-md-block.ms-4(data-bs-toggle="modal" data-bs-target="#modal-filter")
+            +i('filter')(class="fill-shades-1 mx-n2")
+
+        .card-body.customers-tabs.p-0.d-flex.align-items-start
+          +customer_table(demo_customers)(class="customers-list")
+          .customer-details.rounded-1.px-0.py-4.py-sm-5.p-md-5
+            button.btn-rounded.btn-small.close
+              +i('close')
+            .d-block.d-sm-flex.align-items-center.justify-content-between.mb-6.mb-sm-8.mt-0.mt-md-8
+              .d-flex.align-items-center.mb-5.mb-sm-0
+                .custome-userpic.me-4.me-lg-5.flex-shrink-0
+                  img.rounded-circle.w-100(src='img/content/user-6.jpg', alt='Chelsie Haley')
+                .me-4
+                  .customer-name.pb-1 Chelsie Haley
+                  .caption @username
+              .d-flex
+                .btn-stroke.me-2
+                  span.me-4.d-inline-block.d-sm-none.d-lg-inline-block Follow
+                  +i('plus')(class="mx-n2")
+                a.btn(href="message-center.html")
+                  span.me-2 Message
+                  +i('messages-fill')
+
+            .caption.d-flex.align-items-center.mb-3.text-reset.fs-8
+              | Private note
+              +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+            +editor(class="mb-6 mb-md-7")
+
+            a.link-hover.border-bottom.d-flex.align-items-center.pb-4.pb-md-5.mb-4.mb-md-5
+              +i('mail')(class="fill-shades-1 me-3")
+              b.text-reset fahey.designer@robot.co
+            .border-bottom.d-flex.align-items-center.pb-4.pb-md-5.mb-4.mb-md-5
+              a.link-hover.me-6(href="https://twitter.com/ui8" target='_blank')
+                +i('twitter')(class="fill-shades-1")
+              a.link-hover.me-6(href="https://www.instagram.com/ui8net/" target='_blank')
+                +i('instagram')(class="fill-shades-1")
+              a.link-hover.me-6(href="https://www.pinterest.com/ui8m/" target='_blank')
+                +i('pinterest')(class="fill-shades-1")
+              a.link-hover.me-6(href="https://www.facebook.com/ui8.net/" target='_blank')
+                +i('facebook')(class="fill-shades-1")
+            a.link-hover.d-flex.align-items-center.pb-4.pb-md-5.mb-6.mb-md-7(href="https://ui8.net/" target="_blank")
+              +i('mail')(class="fill-shades-1 me-3")
+              b.text-reset robot.co
+
+            .caption.d-flex.align-items-center.mb-5.mb-md-3.text-reset.fs-8
+              | Purchase history
+              +info('Maximum 100 characters. No HTML or emoji allowed')(class="ms-1")
+            +purchase_table(demo_purchase)
+
+    .page-footer.d-none.d-md-block.p-4.p-sm-5.px-xl-7.mx-n4.mx-sm-n5.mx-xl-n7.mt-auto
+     .container.p-0.d-block.d-sm-flex
+      .d-flex.align-items-center.mb-4.mb-sm-0
+        +i('check-all')(class="fill-shades-2 me-3")
+        span.caption 2 products selected
+      .d-flex.ms-auto
+        button.btn-delete.flex-grow-1
+          | Delete
+          +i('trash')(class="ms-1")
+        button.btn.ms-2.flex-grow-1 Publish
+          

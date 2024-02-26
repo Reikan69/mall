@@ -1,0 +1,46 @@
+.overview
+  background: $neutrals2
+  border-radius: 20px
+  margin-bottom: 32px
+  +trans
+  +dark
+    background: $shades4
+  .tabs
+    display: flex
+    position: relative
+    .tab
+      display: block
+      padding: 20px 16px
+      width: 100%
+      z-index: 10
+      position: relative
+      cursor: pointer
+      +trans
+      &:active
+        transform: scale(.97)
+      .overview-icon
+        width: 40px
+        height: 40px
+        border-radius: 40px
+        fill: $neutrals7
+        margin-right: 16px
+        +sm
+          display: none !important
+      .overview-details
+        .counter
+          +xl
+            font-size: 40px
+            letter-spacing: -.02em
+      .balance
+        position: absolute
+        right: 8px
+        top: 8px
+        +sm
+          right: auto
+          top: auto
+          position: relative
+          margin-top: 12px
+
+.overview-container
+  .chart
+    height: 230px
