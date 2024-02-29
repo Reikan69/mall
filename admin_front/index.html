@@ -111,7 +111,7 @@
               </a>
             </li>
             <li id="login_btn">
-              <a onclick="signIn()" class="panel-close">
+              <a class="panel-close">
                 <i class="icon f7-icons">arrow_right_square</i>
                 Sign in
               </a>
@@ -1622,6 +1622,9 @@
       // Append a timestamp as a query parameter to force a fresh reload after a short delay
       setTimeout(function() {
           // Remove the loading animation
+          $("#login").css("display", "none");
+          $("#profile_btn").css("display", "none");
+          $("#login_btn").css("display", "block");
           $('#loading').remove();
 
           // Reload the page after the timeout
