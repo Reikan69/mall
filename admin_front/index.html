@@ -29,7 +29,7 @@
         width: 10%;
     }
   
-    #app{
+    #login{
       display: none;/*this should none*/
     }
     .album-grid img {
@@ -104,10 +104,16 @@
         </div>
         <div class="list links-list panel-links">
           <ul>
-            <li>
+            <li id="profile_btn">
               <a href="/profile/" class="panel-close">
                 <i class="icon f7-icons">person_crop_circle_fill</i>
                 My Profile
+              </a>
+            </li>
+            <li id="login_btn">
+              <a onclick="signIn()" class="panel-close">
+                <i class="icon f7-icons">arrow_right_square</i>
+                Sign in
               </a>
             </li>
             <li>
@@ -1503,7 +1509,12 @@
     $(document).ready(function() {
         // Check session on page load
         checkSession();
-      
+        $("#login_btn").on("click", function() {
+          
+          $("#login").css("display", "block");
+          $("#app").css("display", "none");
+        
+        });
         $("#signInButton").on("click", function() {
             var email = $("#email").val();
             var password = $("#password").val();
@@ -1522,19 +1533,22 @@
       var userData = localStorage.getItem('user');
       if (userData) {
           // User is logged in, hide login and show app
-          $("#login").css("display", "none");
-          $("#app").css("display", "block");
+          $("#profile_btn").css("display", "block");
+          $("#login_btn").css("display", "none");
 
+          $("#app").css("display", "block");
           // Display user information
           var data = JSON.parse(userData);
           $(".profile-name").text(data.user);
           $(".profile-subtitle").text(data.mail);
       } else {
           // User is not logged in, show login
-          $("#login").css("display", "block");
-          $("#app").css("display", "none");
+          $("#login").css("display", "none");
+          $("#profile_btn").css("display", "none");
+          $("#login_btn").css("display", "block");
       }
   }
+
 
   // Function to handle login
   function login(email, password) {
@@ -1562,7 +1576,7 @@
                       $('#loading').remove();
                       $("#login").css("display", "none");
                       $("#app").css("display", "block");
-
+                      window.location.reload(); // Refresh the page after the timeout
                   }, 5000);
                   
                   // Display success message
