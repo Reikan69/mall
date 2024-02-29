@@ -778,9 +778,10 @@ function handlePopstate() {
 $(document).ready(function() {
     var loadMall = localStorage.getItem('selectedMall');
     var data = JSON.parse(loadMall);
-    var mall = data.uid;
-    if (!mall) {
-        mall = 'all'; // Set mall to 'all' if it's empty or not provided
+    var mall = 'all'; // Default value for mall
+    if (loadMall) {
+        var data = JSON.parse(loadMall);
+        mall = data.uid || 'all'; // If data.uid is undefined or empty, set mall to 'all'
     }
     loadShops(mall);
     loadEventData(mall);
