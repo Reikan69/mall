@@ -44,7 +44,7 @@
         <div class="navbar-bg"></div>
         <div class="navbar-inner">
           <div class="left">
-            <a href="#" class="link back">
+            <a href="#" class="link back" id="home_btn">
               <i class="icon f7-icons arrow-back">arrow_left</i>
             </a>
           </div>
@@ -56,10 +56,10 @@
         </div>
         <div class="centered-text">
           <h1>Sign In</h1>
-          <a href="#" class="button button-fill color-light-gray button-icon-left">
+         <!--  <a href="#" class="button button-fill color-light-gray button-icon-left">
             <i class="icon f7-icons">logo_apple</i>
             Sign In with Apple
-          </a>
+          </a> -->
           <a href="#" class="button button-fill color-light-gray google-button">
             <img src="img/icons/google.svg" alt="">
             Sign In with Google
@@ -1344,17 +1344,18 @@
               <i class="icon f7-icons">sparkles</i>
               <span class="tabbar-label">Mall</span>
             </a>
-            <a href="#tab-2" class="tab-link">
-              <i class="icon f7-icons">rocket</i>
-              <span class="tabbar-label">News</span>
+            <a href="#tab-4" class="tab-link">
+              <i class="icon f7-icons">rectangle_grid_2x2_fill</i>
+              <span class="tabbar-label">Categories</span>
             </a>
+           
             <a href="#tab-3" class="tab-link">
               <i class="icon f7-icons">doc_richtext</i>
               <span class="tabbar-label">Promotions</span>
             </a>
-            <a href="#tab-4" class="tab-link">
-              <i class="icon f7-icons">rectangle_grid_2x2_fill</i>
-              <span class="tabbar-label">Categories</span>
+             <a href="#tab-2" class="tab-link">
+              <i class="icon f7-icons">rocket</i>
+              <span class="tabbar-label">News</span>
             </a>
             <a href="#tab-5" class="tab-link">
               <i class="icon f7-icons">layers_alt</i>
@@ -1521,9 +1522,11 @@
           $("#app").css("display", "none");
         
         });
-        $("#register_btn").on("click", function() {
+        $("#home_btn").on("click", function() {
           
-        //no function
+          $("#app").css("display", "block");
+          $("#login").css("display", "none");
+          window.location.reload();
         
         });
         
