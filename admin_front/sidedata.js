@@ -1,4 +1,4 @@
- var baseurl = "http://localhost/admin_management/";
+var baseurl = "http://localhost/admin_management/";
 //var baseurl = "https://1mall.info/admin/";
 
 // Function to extract YouTube video ID from a given URL
@@ -764,8 +764,11 @@ function handlePopstate() {
     var loadMall = localStorage.getItem('selectedMall');
     var data = JSON.parse(loadMall);
     var mall = data.uid;
+    // if (!mall) {
+    //     mall = 'all'; // Set mall to 'all' if it's empty or not provided
+    // }
     if (!mall) {
-        mall = 'all'; // Set mall to 'all' if it's empty or not provided
+        mall = '2'; // Set mall to '2' ( Queensbay mall ) if it's empty or not provided
     }
     loadShops(mall);
     loadEventData(mall);
@@ -778,10 +781,12 @@ function handlePopstate() {
 $(document).ready(function() {
     var loadMall = localStorage.getItem('selectedMall');
     var data = JSON.parse(loadMall);
-    var mall = 'all'; // Default value for mall
+    // var mall = 'all'; // Default value for mall
+    mall = '2'; // Default value for ( Queensbay mall ) 
     if (loadMall) {
         var data = JSON.parse(loadMall);
-        mall = data.uid || 'all'; // If data.uid is undefined or empty, set mall to 'all'
+        // mall = data.uid || 'all'; // If data.uid is undefined or empty, set mall to 'all'
+        mall = data.uid || '2'; // If data.uid is undefined or empty, set mall to ( Queensbay mall ) 
     }
     loadShops(mall);
     loadEventData(mall);
