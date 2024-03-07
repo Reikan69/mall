@@ -65,8 +65,13 @@ function moredetail() {
             var mallData = localStorage.getItem('selectedMall');
             // Parse the JSON string to get the mall data object
             var data = JSON.parse(mallData);
-            // Retrieve the UID from the mall data object
-            var mall = data.uid;
+              
+                if (mallData) {
+                  // Retrieve the UID from the mall data object
+                  var  mall = data.uid;
+                }else{
+                  var  mall = '2';
+                }
             var url = baseurl+'Api/getShopFilter/' + mall;
             if (floor === 'all') {
                 url += '/all';
@@ -155,7 +160,13 @@ function moredetail() {
             // Parse the JSON string to get the mall data object
             var data = JSON.parse(mallData);
             // Retrieve the UID from the mall data object
-            var mall = data.uid;
+            
+                if (mallData) {
+                  // Retrieve the UID from the mall data object
+                  var  mall = data.uid;
+                }else{
+                  var  mall = '2';
+                }
             if (floor) {
                 console.log('Clicked on floor tab: ' + floor);
 
@@ -182,7 +193,13 @@ function moredetail() {
             // Parse the JSON string to get the mall data object
             var data = JSON.parse(mallData);
             // Retrieve the UID from the mall data object
-            var mall = data.uid;
+            
+                if (mallData) {
+                  // Retrieve the UID from the mall data object
+                  var  mall = data.uid;
+                }else{
+                  var  mall = '2';
+                }
             if (category) {
                 console.log('Clicked on category: ' + category);
 
@@ -215,7 +232,13 @@ function moredetail() {
             // Parse the JSON string to get the mall data object
             var data = JSON.parse(mallData);
             // Retrieve the UID from the mall data object
-            var mall = data.uid;
+              
+                if (mallData) {
+                  // Retrieve the UID from the mall data object
+                  var  mall = data.uid;
+                }else{
+                  var  mall = '2';
+                }
             event.preventDefault();
             console.log("Show all link clicked");
             var category = $('#category-filter').find('.tab-link-active').data('category');
@@ -234,7 +257,14 @@ function moredetail() {
         // Parse the JSON string to get the mall data object
         var data = JSON.parse(mallData);
         // Retrieve the UID from the mall data object
-        var mall = data.uid;
+       
+                if (mallData) {
+                  // Retrieve the UID from the mall data object
+                  var  mall = data.uid;
+                }else{
+                  var  mall = '2';
+                }
+        
         console.log(mall);
         var body = $('.menu-list');
         $.ajax({
@@ -275,7 +305,12 @@ function moredetail() {
         // Parse the JSON string to get the mall data object
         var data = JSON.parse(mallData);
         // Retrieve the UID from the mall data object
-        var mall = data.uid;
+                if (mallData) {
+                  // Retrieve the UID from the mall data object
+                  var  mall = data.uid;
+                }else{
+                  var  mall = '2';
+                }
         console.log(mall);
         var body = $('.event-all');
         $.ajax({
@@ -763,13 +798,12 @@ function loadBannerPromotions() {
 function handlePopstate() {
     var loadMall = localStorage.getItem('selectedMall');
     var data = JSON.parse(loadMall);
-    var mall = data.uid;
-    // if (!mall) {
-    //     mall = 'all'; // Set mall to 'all' if it's empty or not provided
-    // }
-    if (!mall) {
-        mall = '2'; // Set mall to '2' ( Queensbay mall ) if it's empty or not provided
-    }
+                if (loadMall) {
+                  // Retrieve the UID from the mall data object
+                  var  mall = data.uid;
+                }else{
+                  var  mall = '2';
+                }
     loadShops(mall);
     loadEventData(mall);
     loadCuisineMenu(mall);

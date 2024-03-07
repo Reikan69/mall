@@ -1392,40 +1392,52 @@
         }
     });
 
-      $('.navbar-title').contents().filter(function() {
-        return this.nodeType === 3; // Filter out text nodes
-      }).first().replaceWith('Mall'); // Replace the first text node with 'Mall'
-        $.ajax({
-          url: 'http://localhost/admin_management/Api/getMall',
-          type: 'GET',
-          success: function(response) {
-              // Clear existing list items
-              var body = $('.navbar-list');
-              body.empty();
-               // Add the static, disabled list item
-              var staticListItem = $('<li>');
-              var staticAnchor = $('<a>').addClass('list-button item-link').text('Mall').attr('data-mall-id', 'all');
-              staticListItem.append(staticAnchor);
-              body.append(staticListItem);
-              // Iterate over the response array
-              response.forEach(function(mall) {
-                  // Create list item and anchor elements
-                  var listItem = $('<li>');
-                  var anchor = $('<a>').addClass('list-button item-link').attr('data-mall-id', mall.uid);
+   
 
-                  // Set text content and data-mall-id attribute
-                  anchor.text(mall.name);
+$.ajax({
+    url: 'http://localhost/admin_management/Api/getMall',
+    type: 'GET',
+    success: function(response) {
+        // Clear existing list items
+        var body = $('.navbar-list');
+        body.empty();
 
-                  // Append anchor to list item and list item to list
-                  listItem.append(anchor);
-                  body.append(listItem);
-              });
-          },
-          error: function(xhr, status, error) {
-              // Handle error if needed
-              console.error(error);
-          }
-      });
+        // Add the static, disabled list item
+        var staticListItem = $('<li>');
+        var staticAnchor = $('<a>').addClass('list-button item-link').text('Mall').attr('data-mall-id', 'all');
+        staticListItem.append(staticAnchor);
+        body.append(staticListItem);
+
+        // Find the mall with UID 2 and add it first
+        var mallUid2 = response.find(function(mall) {
+            return mall.uid === '2';
+        });
+        if (mallUid2) {
+            var listItemUid2 = $('<li>');
+            var anchorUid2 = $('<a>').addClass('list-button item-link').text(mallUid2.name).attr('data-mall-id', mallUid2.uid);
+            listItemUid2.append(anchorUid2);
+            body.append(listItemUid2);
+             $('.navbar-title').contents().filter(function() {
+                return this.nodeType === 3; // Filter out text nodes
+            }).first().replaceWith(mallUid2.name); // Replace the first text node with 'Mall'
+        }
+
+        // Iterate over the remaining response array and add other malls
+        response.forEach(function(mall) {
+            if (mall.uid !== '2') {
+                var listItem = $('<li>');
+                var anchor = $('<a>').addClass('list-button item-link').text(mall.name).attr('data-mall-id', mall.uid);
+                listItem.append(anchor);
+                body.append(listItem);
+            }
+        });
+    },
+    error: function(xhr, status, error) {
+        // Handle error if needed
+        console.error(error);
+    }
+});
+
       $(document).ready(function() {
           // Check if there's a selected mall stored in local storage
           var selectedMall = localStorage.getItem('selectedMall');
