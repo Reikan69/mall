@@ -1,4 +1,4 @@
-# Mall
+# E-commerce for Malls cross-platform
 
 
 ## Description
